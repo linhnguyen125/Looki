@@ -20,3 +20,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//======================= ADMIN AUTH =============================
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('home', 'AdminController@index');
+    Route::get('login', 'AdminAuth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'AdminAuth\LoginController@login');
+    Route::post('logout','AdminAuth\LoginController@logout')->name('admin.logout');
+    Route::post('password/email','AdminAuth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('password/reset','AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('password/reset','AdminAuth\ResetPasswordController@reset')->name('admin.password.update');
+    Route::get('password/reset/{token}','AdminAuth\ResetPasswordController@showResetForm')->name('admin.password.reset');
+});

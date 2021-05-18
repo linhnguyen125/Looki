@@ -1,13 +1,17 @@
 <?php
 
-namespace Illuminate\Auth\Notifications;
+namespace App\Notifications;
 
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Facades\Lang;
 
-class ResetPassword extends Notification
+class AdminResetPasswordNotification extends Notification
 {
+    use Queueable;
+
     /**
      * The password reset token.
      *
@@ -66,13 +70,14 @@ class ResetPassword extends Notification
         if (static::$createUrlCallback) {
             $url = call_user_func(static::$createUrlCallback, $notifiable, $this->token);
         } else {
-            $url = url(route('password.reset', [
+            $url = url(route('admin.password.reset', [
                 'token' => $this->token,
                 'email' => $notifiable->getEmailForPasswordReset(),
             ], false));
         }
 
         return (new MailMessage)
+            ->from('hethongcntt.unitop@gmail.com', 'Looki - Enchantix')
             ->subject(Lang::get('Thông báo đặt lại mật khẩu'))
             ->line(Lang::get('Bạn nhận được email này vì chúng tôi đã nhận được yêu cầu đặt lại mật khẩu cho tài khoản của bạn.'))
             ->action(Lang::get('Đặt lại mật khẩu'), $url)
