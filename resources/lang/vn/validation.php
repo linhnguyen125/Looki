@@ -160,5 +160,6 @@ return [
         'title'                 => 'tiêu đề',
         'username'              => 'tên đăng nhập',
         'year'                  => 'năm',
+        'date_of_birth'         => 'ngày sinh',
     ],
 ];

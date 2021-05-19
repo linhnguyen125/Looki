@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AdminAuth;
+namespace App\Http\Controllers\AuthAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -47,7 +47,7 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        return view('authAdmin.passwords.reset')->with(
+        return view('auth_admin.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

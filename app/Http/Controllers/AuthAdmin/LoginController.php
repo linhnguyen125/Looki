@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\AdminAuth;
+namespace App\Http\Controllers\AuthAdmin;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
@@ -41,10 +41,8 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('authAdmin.login');
+        return view('auth_admin.login');
     }
-
-
 
     /**
      * Get the guard to be used during authentication.
@@ -55,4 +53,5 @@ class LoginController extends Controller
     {
         return Auth::guard('admin');
     }
+
 }

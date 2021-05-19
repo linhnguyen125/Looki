@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Providers\App\Events\LastLogin;
 use App\Repositories\Admin\AdminRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
-class DashboardController extends Controller
+class UserProfileController extends Controller
 {
     protected $adminRepo;
 
     public function __construct(AdminRepositoryInterface $adminRepo)
     {
-        $this->adminRepo = $adminRepo;
         $this->middleware('auth:admin');
+        $this->adminRepo = $adminRepo;
     }
 
-    public function index()
+    public function info(Request $request, $id)
     {
-        return view('admin.dashboard.index');
+        $admin = $this->adminRepo->find($id);
+        return view('admin.user.user_profile.personal_infomation', compact('admin'));
     }
 }
