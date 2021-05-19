@@ -104,7 +104,7 @@
                                                 <div class="user-avatar bg-primary">
                                                     @if($admin->avatar)
                                                         <img
-                                                            src="{{asset('assets/admin/images/avatar/b-sm.jpg')}}"
+                                                            src="{{asset('upload/images/avatar/' . $admin->avatar)}}"
                                                             alt="">
                                                     @else
                                                         <span>

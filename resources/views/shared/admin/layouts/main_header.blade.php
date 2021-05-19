@@ -258,7 +258,7 @@
                                 <div class="user-avatar sm">
                                     @if(Auth::guard('admin')->user()->avatar)
                                         <img
-                                            src="{{asset('assets/admin/images/avatar/b-sm.jpg')}}"
+                                            src="{{asset('upload/images/avatar/' . Auth::guard('admin')->user()->avatar)}}"
                                             alt="">
                                     @else
                                         <em class="icon ni ni-user-alt"></em>
@@ -276,7 +276,7 @@
                                     <div class="user-avatar">
                                         @if(Auth::guard('admin')->user()->avatar)
                                             <img
-                                                src="{{asset('assets/admin/images/avatar/b-sm.jpg')}}"
+                                                src="{{asset('upload/images/avatar/' . Auth::guard('admin')->user()->avatar)}}"
                                                 alt="">
                                         @else
                                             <span>

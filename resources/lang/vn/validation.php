@@ -161,5 +161,6 @@ return [
         'username'              => 'tên đăng nhập',
         'year'                  => 'năm',
         'date_of_birth'         => 'ngày sinh',
+        'avatar'                => 'ảnh đại diện',
     ],
 ];
