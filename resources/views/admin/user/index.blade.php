@@ -41,9 +41,11 @@
                                                 </div>
                                             </li>
                                             <li class="nk-block-tools-opt">
-                                                <a href="{{route('admin.user.create')}}" class="btn btn-icon btn-primary d-md-none"><em
+                                                <a href="{{route('admin.user.create')}}"
+                                                   class="btn btn-icon btn-primary d-md-none"><em
                                                         class="icon ni ni-plus"></em></a>
-                                                <a href="{{route('admin.user.create')}}" class="btn btn-primary d-none d-md-inline-flex"><em
+                                                <a href="{{route('admin.user.create')}}"
+                                                   class="btn btn-primary d-none d-md-inline-flex"><em
                                                         class="icon ni ni-plus"></em><span>Thêm mới</span></a>
                                             </li>
                                         </ul>
@@ -104,7 +106,7 @@
                                                 <div class="user-avatar bg-primary">
                                                     @if($admin->avatar)
                                                         <img
-                                                            src="{{asset('upload/images/avatar/' . $admin->avatar)}}"
+                                                            src="{{asset($admin->avatar)}}"
                                                             alt="">
                                                     @else
                                                         <span>
@@ -131,7 +133,16 @@
                                         <span>{{$admin->phone}}</span>
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
-                                        <span>{{$admin->address}}</span>
+                                        @if($admin->address)
+                                            <span>
+                                                {{$admin->address['province']}}, {{$admin->address['district']}}, {{$admin->address['ward']}} <br>
+                                                {{$admin->address['more']}}
+                                            </span>
+                                        @else
+                                            <span class="text-soft">
+                                                Chưa cập nhật
+                                            </span>
+                                        @endif
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
                                         <span>{{ \Carbon\Carbon::parse($admin->date_of_birth)->format('d M, Y') }}</span>
@@ -154,12 +165,14 @@
                                             @if(Auth::guard('admin')->user()->id != $admin->id)
                                                 <li class="nk-tb-action-hidden">
                                                     @if($admin->status == '1')
-                                                        <a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip"
+                                                        <a href="#" class="btn btn-trigger btn-icon"
+                                                           data-toggle="tooltip"
                                                            data-placement="top" title="Chặn">
                                                             <em class="icon ni ni-user-cross-fill"></em>
                                                         </a>
                                                     @else
-                                                        <a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip"
+                                                        <a href="#" class="btn btn-trigger btn-icon"
+                                                           data-toggle="tooltip"
                                                            data-placement="top" title="Active">
                                                             <em class="icon ni ni-user-check-fill"></em>
                                                         </a>
@@ -177,17 +190,17 @@
                                                             </li>
                                                             @if(Auth::guard('admin')->user()->id != $admin->id)
                                                                 <li class="nk-tb-action-hidden">
-                                                                    @if($admin->status == '1')
+                                                                @if($admin->status == '1')
                                                                     <li><a href="#">
                                                                             <em class="icon ni ni-na"></em><span>Chặn</span></a>
                                                                     </li>
-                                                                    @else
+                                                                @else
                                                                     <li><a href="#">
                                                                             <em class="icon ni ni-check-circle"></em><span>Active</span></a>
                                                                     </li>
                                                                     @endif
-                                                                </li>
-                                                            @endif
+                                                                    </li>
+                                                                @endif
 
                                                         </ul>
                                                     </div>

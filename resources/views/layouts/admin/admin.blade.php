@@ -46,6 +46,7 @@
 <script src="{{asset('assets/admin/js/bundle.js?ver=2.2.0')}}"></script>
 <script src="{{asset('assets/admin/js/scripts.js?ver=2.2.0')}}"></script>
 <script src="{{asset('assets/admin/js/charts/chart-ecommerce.js?ver=2.2.0')}}"></script>
+@yield('script')
 </body>
 
 </html>

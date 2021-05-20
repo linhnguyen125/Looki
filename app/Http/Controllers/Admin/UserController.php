@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\UserRequest;
+use App\Http\Requests\Admin\User\CreatUserRequest;
 use App\Repositories\Admin\AdminRepositoryInterface;
 use Illuminate\Http\Request;
 
@@ -31,7 +31,7 @@ class UserController extends Controller
         return view('admin.user.create');
     }
 
-    public function store(UserRequest $request){
+    public function store(CreatUserRequest $request){
         $data = $request->all();
         $data['password'] = bcrypt($request->password);
         $admin = $this->adminRepo->create($data);

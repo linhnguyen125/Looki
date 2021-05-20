@@ -108,13 +108,22 @@
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Địa chỉ</span>
-                                                        <span class="profile-ud-value">{{$admin->address}}</span>
+                                                        @if($admin->address)
+                                                            <span class="profile-ud-value">
+                                                            {{$admin->address['province']}}, {{$admin->address['district']}}, {{$admin->address['ward']}} <br>
+                                                            {{$admin->address['more']}}
+                                                        </span>
+                                                        @else
+                                                            <span class="profile-ud-value text-soft">
+                                                            Chưa cập nhật
+                                                        </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
-                                                        <span class="profile-ud-label">Nationality</span>
-                                                        <span class="profile-ud-value">United State</span>
+                                                        <span class="profile-ud-label">Quốc tịch</span>
+                                                        <span class="profile-ud-value">Việt Nam</span>
                                                     </div>
                                                 </div>
                                             </div><!-- .profile-ud-list -->

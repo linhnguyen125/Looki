@@ -162,5 +162,9 @@ return [
         'year'                  => 'năm',
         'date_of_birth'         => 'ngày sinh',
         'avatar'                => 'ảnh đại diện',
+        'province'              => 'tỉnh/thành phố',
+        'district'              => 'quận/huyện',
+        'ward'                  => 'phường/thị xã',
+        'more'                  => 'địa chỉ nhà',
     ],
 ];

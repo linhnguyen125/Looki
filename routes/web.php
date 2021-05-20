@@ -44,9 +44,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('user/store', 'Admin\UserController@store')->name('admin.user.store');
     Route::get('user/thong-tin-ca-nhan_{id}.html', 'Admin\UserProfileController@info')->name('admin.user.info');
     Route::post('user/update-avatar/{id}', 'Admin\UserProfileController@updateAvatar')->name('admin.user.update_avatar');
-
-//    Route::post('user/store', 'Admin\UserController@store')->name('admin.user.store');
-//    Route::post('user/store', 'Admin\UserController@store')->name('admin.user.store');
-//    Route::post('user/store', 'Admin\UserController@store')->name('admin.user.store');
+    Route::post('user/update-profile/{id}', 'Admin\UserProfileController@updateProfile')->name('admin.user.update_profile');
+    Route::get('user/update-district', 'LoadAddressController@updateDistrict')->name('update.district');
+    Route::get('user/update-ward', 'LoadAddressController@updateWard')->name('update.ward');
 
 });
