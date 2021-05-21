@@ -1,6 +1,6 @@
 @extends('layouts.admin.admin')
 
-@section('title', 'Danh sách quản trị viên')
+@section('title', 'Danh mục sản phẩm')
 
 @section('content')
     <div class="nk-content ">
@@ -10,7 +10,7 @@
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="nk-block-between">
                             <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">Quản trị viên</h3>
+                                <h3 class="nk-block-title page-title">Danh mục sản phẩm</h3>
                             </div><!-- .nk-block-head-content -->
                             <div class="nk-block-head-content">
                                 <div class="toggle-wrap nk-block-tools-toggle">
@@ -33,28 +33,12 @@
                                                     </form>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="drodown">
-                                                    <a href="#"
-                                                       class="dropdown-toggle dropdown-indicator btn btn-outline-light btn-white"
-                                                       data-toggle="dropdown">Trạng thái</a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <ul class="link-list-opt no-bdr">
-                                                            <li>
-                                                                <a href="{{request()->fullUrlWithQuery(['status' => 'hoat-dong'])}}"><span>Hoạt động</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="{{request()->fullUrlWithQuery(['status' => 'bi-chan'])}}"><span>Bị chặn</span></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
+
                                             <li class="nk-block-tools-opt">
-                                                <a href="{{route('admin.category.create')}}"
+                                                <a href="#" data-toggle="modal" data-target="#category-create"
                                                    class="btn btn-icon btn-primary d-md-none"><em
                                                         class="icon ni ni-plus"></em></a>
-                                                <a href="{{route('admin.category.create')}}"
+                                                <a href="#" data-toggle="modal" data-target="#category-create"
                                                    class="btn btn-primary d-none d-md-inline-flex"><em
                                                         class="icon ni ni-plus"></em><span>Thêm mới</span></a>
                                             </li>
@@ -65,6 +49,19 @@
                         </div><!-- .nk-block-between -->
                     </div><!-- .nk-block-head -->
                     @include('shared.admin.layouts.alert')
+                    @if($errors->any())
+                        <div class="example-alert mb-1">
+                            <div class="alert alert-pro alert-danger alert-dismissible">
+                                <div class="alert-text">
+                                    <h6>Thất bại</h6>
+                                    @foreach ($errors->all() as $error)
+                                        <p>{{$error}}</p>
+                                    @endforeach
+                                </div>
+                                <button class="close" data-dismiss="alert"></button>
+                            </div>
+                        </div>
+                    @endif
                     <div class="nk-block">
                         <div class="nk-tb-list is-separate mb-3">
                             <div class="nk-tb-item nk-tb-head">
@@ -74,11 +71,9 @@
                                         <label class="custom-control-label" for="uid"></label>
                                     </div>
                                 </div>
-                                <div class="nk-tb-col"><span class="sub-text">Quản trị viên</span></div>
-                                <div class="nk-tb-col tb-col-md"><span class="sub-text">Điện thoại</span></div>
-                                <div class="nk-tb-col tb-col-lg"><span class="sub-text">Địa chỉ</span></div>
-                                <div class="nk-tb-col tb-col-lg"><span class="sub-text">Ngày sinh</span></div>
-                                <div class="nk-tb-col tb-col-md"><span class="sub-text">Trạng thái</span></div>
+                                <div class="nk-tb-col"><span class="sub-text">Tên danh mục</span></div>
+                                <div class="nk-tb-col tb-col-lg"><span class="sub-text">Mô tả</span></div>
+                                <div class="nk-tb-col"><span class="sub-text">Người tạo</span></div>
                                 <div class="nk-tb-col nk-tb-col-tools">
                                     <ul class="nk-tb-actions gx-1 my-n1">
                                         <li>
@@ -87,14 +82,7 @@
                                                    data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                 <div class="dropdown-menu dropdown-menu-right">
                                                     <ul class="link-list-opt no-bdr">
-                                                        <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email to All</span></a>
-                                                        </li>
-                                                        <li><a href="#"><em class="icon ni ni-na"></em><span>Suspend Selected</span></a>
-                                                        </li>
                                                         <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Seleted</span></a>
-                                                        </li>
-                                                        <li><a href="#"><em class="icon ni ni-shield-star"></em><span>Reset Password</span></a>
-                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -114,108 +102,54 @@
                                     <div class="nk-tb-col">
                                         <a href="{{route('admin.category.detail', $category->id)}}">
                                             <div class="user-card">
-                                                <div class="user-avatar bg-primary">
-                                                    @if($category->avatar)
-                                                        <img
-                                                            src="{{asset($category->avatar)}}"
-                                                            alt="">
-                                                    @else
-                                                        <span>
-                                                            @php
-                                                                $str_name = explode(' ', $category->name);
-                                                                if(count($str_name) > 1){
-                                                                    echo strtoupper(reset($str_name)[0]) . strtoupper(end($str_name)[0]);
-                                                                }else{
-                                                                    echo strtoupper(reset($str_name)[0]);
-                                                                }
-                                                            @endphp
-                                                        </span>
-                                                    @endif
-                                                </div>
                                                 <div class="user-info">
-                                                    <span class="tb-lead">{{$category->name}} <span
-                                                            class="dot dot-success d-md-none ml-1"></span></span>
-                                                    <span>{{$category->email}}</span>
+                                                    <span class="tb-lead">{{$category->name}}</span>
+
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="nk-tb-col tb-col-md">
-                                        <span>{{$category->phone}}</span>
-                                    </div>
                                     <div class="nk-tb-col tb-col-lg">
-                                        @if($category->address)
-                                            <span>
-                                                {{$category->address['province']}}, {{$category->address['district']}}, {{$category->address['ward']}} <br>
-                                                {{$category->address['more']}}
-                                            </span>
-                                        @else
-                                            <span class="text-soft">
-                                                Chưa cập nhật
-                                            </span>
-                                        @endif
+                                        <span>{{$category->description}}</span>
                                     </div>
-                                    <div class="nk-tb-col tb-col-lg">
-                                        <span>{{ \Carbon\Carbon::parse($category->date_of_birth)->format('d M, Y') }}</span>
-                                    </div>
-                                    <div class="nk-tb-col tb-col-md">
-                                        @if($category->status == '1')
-                                            <span class="tb-status text-success">Hoạt động</span>
-                                        @else
-                                            <span class="tb-status text-danger">Bị chặn</span>
-                                        @endif
+                                    <div class="nk-tb-col">
+                                        <span class="text-soft">
+                                            {{$category->admin->name}}
+                                        </span>
                                     </div>
                                     <div class="nk-tb-col nk-tb-col-tools">
                                         <ul class="nk-tb-actions gx-1">
                                             <li class="nk-tb-action-hidden">
-                                                <a href="#" class="btn btn-trigger btn-icon" data-toggle="tooltip"
-                                                   data-placement="top" title="Send Email">
-                                                    <em class="icon ni ni-mail-fill"></em>
+                                                <a href="{{route('admin.category.edit', $category->id)}}"
+                                                   class="btn btn-trigger btn-icon" data-toggle="tooltip"
+                                                   data-placement="top" title="Chỉnh sửa">
+                                                    <em class="icon ni ni-edit-fill"></em>
                                                 </a>
                                             </li>
-                                            @if(Auth::guard('admin')->user()->id != $category->id)
-                                                <li class="nk-tb-action-hidden">
-                                                    @if($category->status == '1')
-                                                        <a href="{{route('admin.category.suspend', $category->id)}}"
-                                                           class="btn btn-trigger btn-icon"
-                                                           data-toggle="tooltip"
-                                                           data-placement="top" title="Chặn">
-                                                            <em class="icon ni ni-user-cross-fill"></em>
-                                                        </a>
-                                                    @else
-                                                        <a href="{{route('admin.category.active', $category->id)}}"
-                                                           class="btn btn-trigger btn-icon"
-                                                           data-toggle="tooltip"
-                                                           data-placement="top" title="Active">
-                                                            <em class="icon ni ni-user-check-fill"></em>
-                                                        </a>
-                                                    @endif
-                                                </li>
-                                            @endif
+                                            <li class="nk-tb-action-hidden">
+                                                <a href="{{route('admin.category.delete', $category->id)}}"
+                                                   class="btn btn-trigger btn-icon"
+                                                   data-toggle="tooltip"
+                                                   onclick="return confirm('Bạn có chắc chắn xóa danh mục này khỏi hệ thống? Mọi sản phẩm thuộc danh mục này cũng sẽ bị xóa!!')"
+                                                   data-placement="top" title="Xóa">
+                                                    <em class="icon ni ni-trash"></em></em>
+                                                </a>
+                                            </li>
+
                                             <li>
                                                 <div class="drodown">
                                                     <a href="#" class="dropdown-toggle btn btn-icon btn-trigger"
                                                        data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <ul class="link-list-opt no-bdr">
-                                                            <li><a href="{{route('admin.category.detail', $category->id)}}"><em
-                                                                        class="icon ni ni-eye"></em><span>Xem chi tiết</span></a>
+                                                            <li>
+                                                                <a href="{{route('admin.category.edit', $category->id)}}">
+                                                                    <em class="icon ni ni-edit"></em><span>Chỉnh sửa</span></a>
                                                             </li>
-                                                            @if(Auth::guard('admin')->user()->id != $category->id)
-                                                                <li class="nk-tb-action-hidden">
-                                                                    @if($category->status == '1')
-                                                                    <li>
-                                                                        <a href="{{route('admin.category.suspend', $category->id)}}">
-                                                                            <em class="icon ni ni-na"></em><span>Chặn</span></a>
-                                                                    </li>
-                                                                    @else
-                                                                    <li>
-                                                                        <a href="{{route('admin.category.active', $category->id)}}">
-                                                                            <em class="icon ni ni-check-circle"></em><span>Active</span></a>
-                                                                    </li>
-                                                                    @endif
-                                                                </li>
-                                                            @endif
+                                                            <li>
+                                                                <a href="{{route('admin.category.delete', $category->id)}}">
+                                                                    <em class="icon ni ni-trash"></em><span>Xóa</span></a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -239,4 +173,5 @@
             </div>
         </div>
     </div>
+    @include('shared.admin.layouts.category.form_create')
 @endsection

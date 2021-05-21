@@ -35,10 +35,10 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="{{route('admin.category.index')}}" class="nk-menu-link"><span class="nk-menu-text">Danh sách</span></a>
+                                <a href="{{route('admin.category.index')}}" class="nk-menu-link"><span class="nk-menu-text">Sản phẩm</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="{{route('admin.category.create')}}" class="nk-menu-link"><span class="nk-menu-text">Thêm mới</span></a>
+                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Bài viết</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
@@ -49,10 +49,10 @@
                         </a>
                         <ul class="nk-menu-sub">
                             <li class="nk-menu-item">
-                                <a href="#" class="nk-menu-link"><span class="nk-menu-text">Danh sách</span></a>
+                                <a href="{{route('admin.product.index')}}" class="nk-menu-link"><span class="nk-menu-text">Danh sách</span></a>
                             </li>
                             <li class="nk-menu-item">
-                                <a href="html/project-list.html" class="nk-menu-link"><span class="nk-menu-text">Thêm mới</span></a>
+                                <a href="{{route('admin.product.create')}}" class="nk-menu-link"><span class="nk-menu-text">Thêm mới</span></a>
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->

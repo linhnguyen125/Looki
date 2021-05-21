@@ -215,7 +215,7 @@ pre code { font-size: inherit; color: inherit; word-break: normal; }
 
 @media (min-width: 1540px) { .container, .container-mb, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl { max-width: 1440px; } }
 
-.row { display: flex; flex-wrap: wrap; margin-right: -14px; margin-left: -14px; }
+.row { display: flex; flex-wrap: wrap; margin-right: -14px; }
 
 .no-gutters { margin-right: 0; margin-left: 0; }
 

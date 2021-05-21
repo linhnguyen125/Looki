@@ -1,7 +1,7 @@
 <?php
-namespace App\Repositories\Category;
+namespace App\Repositories\Product;
 
-interface CategoryRepositoryInterface
+interface ProductRepositoryInterface
 {
     public function getAll();
     public function find($id);

@@ -1,6 +1,3 @@
-$(function () {
-
-})
 
 function updateDistrict(object) {
     var url = document.getElementById("updateDistrict").value;
