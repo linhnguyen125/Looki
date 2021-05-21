@@ -14,4 +14,14 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
     public function getAll(){
         return $this->model->paginate(10);
     }
+
+    public function getByKeyWord($keyword){
+        return $this->model->where([
+                ['name', 'like', "%" . $keyword . "%"],
+            ])
+            ->orWhere([
+                ['email', 'like', "%" . $keyword . "%"],
+            ])
+            ->paginate(10);
+    }
 }

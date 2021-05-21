@@ -25,11 +25,14 @@ class UserProfileController extends Controller
     public function info(Request $request, $id)
     {
         $admin = $this->adminRepo->find($id);
+
         $provenceId = Province::where('name', 'like', $admin->address['province'] ?? '1')->first();
         $districtId = District::where('name', 'like', $admin->address['district'] ?? '1')->first();
         $provinces = Province::all();
         $districts = District::where('province_id', $provenceId->id ?? '1')->get();
         $wards = Ward::where('district_id', $districtId->id ?? '1')->get();
+
+        $this->setActive('info');
         return view('admin.user.user_profile.personal_infomation',
             compact('admin', 'provinces', 'districts', 'wards'));
     }
@@ -76,5 +79,24 @@ class UserProfileController extends Controller
         }else{
             return back()->with(['error' => 'Cập nhật thông tin thất bại. Xin vui lòng thử lại sau']);
         }
+    }
+
+    public function notifies(){
+        $this->setActive('notifies');
+        return view('admin.user.user_profile.notification');
+    }
+
+    protected function setActive($model){
+        return session(['model' => $model]);
+    }
+
+    public function accountActivity(){
+        $this->setActive('activity');
+        return view('admin.user.user_profile.account_activity');
+    }
+
+    public function securitySetting(){
+        $this->setActive('security');
+        return view('admin.user.user_profile.security_setting');
     }
 }

@@ -51,10 +51,10 @@
                                                 </div>
                                             </li>
                                             <li class="nk-block-tools-opt">
-                                                <a href="{{route('admin.user.create')}}"
+                                                <a href="{{route('admin.category.create')}}"
                                                    class="btn btn-icon btn-primary d-md-none"><em
                                                         class="icon ni ni-plus"></em></a>
-                                                <a href="{{route('admin.user.create')}}"
+                                                <a href="{{route('admin.category.create')}}"
                                                    class="btn btn-primary d-none d-md-inline-flex"><em
                                                         class="icon ni ni-plus"></em><span>Thêm mới</span></a>
                                             </li>
@@ -102,27 +102,27 @@
                                     </ul>
                                 </div>
                             </div><!-- .nk-tb-item -->
-                            @foreach($admins as $admin)
+                            @foreach($categories as $category)
                                 <div class="nk-tb-item">
                                     <div class="nk-tb-col nk-tb-col-check">
                                         <div class="custom-control custom-control-sm custom-checkbox notext">
                                             <input type="checkbox" value="list_check[]" class="custom-control-input"
-                                                   id="{{$admin->id}}">
-                                            <label class="custom-control-label" for="{{$admin->id}}"></label>
+                                                   id="{{$category->id}}">
+                                            <label class="custom-control-label" for="{{$category->id}}"></label>
                                         </div>
                                     </div>
                                     <div class="nk-tb-col">
-                                        <a href="{{route('admin.user.detail', $admin->id)}}">
+                                        <a href="{{route('admin.category.detail', $category->id)}}">
                                             <div class="user-card">
                                                 <div class="user-avatar bg-primary">
-                                                    @if($admin->avatar)
+                                                    @if($category->avatar)
                                                         <img
-                                                            src="{{asset($admin->avatar)}}"
+                                                            src="{{asset($category->avatar)}}"
                                                             alt="">
                                                     @else
                                                         <span>
                                                             @php
-                                                                $str_name = explode(' ', $admin->name);
+                                                                $str_name = explode(' ', $category->name);
                                                                 if(count($str_name) > 1){
                                                                     echo strtoupper(reset($str_name)[0]) . strtoupper(end($str_name)[0]);
                                                                 }else{
@@ -133,21 +133,21 @@
                                                     @endif
                                                 </div>
                                                 <div class="user-info">
-                                                    <span class="tb-lead">{{$admin->name}} <span
+                                                    <span class="tb-lead">{{$category->name}} <span
                                                             class="dot dot-success d-md-none ml-1"></span></span>
-                                                    <span>{{$admin->email}}</span>
+                                                    <span>{{$category->email}}</span>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="nk-tb-col tb-col-md">
-                                        <span>{{$admin->phone}}</span>
+                                        <span>{{$category->phone}}</span>
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
-                                        @if($admin->address)
+                                        @if($category->address)
                                             <span>
-                                                {{$admin->address['province']}}, {{$admin->address['district']}}, {{$admin->address['ward']}} <br>
-                                                {{$admin->address['more']}}
+                                                {{$category->address['province']}}, {{$category->address['district']}}, {{$category->address['ward']}} <br>
+                                                {{$category->address['more']}}
                                             </span>
                                         @else
                                             <span class="text-soft">
@@ -156,10 +156,10 @@
                                         @endif
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
-                                        <span>{{ \Carbon\Carbon::parse($admin->date_of_birth)->format('d M, Y') }}</span>
+                                        <span>{{ \Carbon\Carbon::parse($category->date_of_birth)->format('d M, Y') }}</span>
                                     </div>
                                     <div class="nk-tb-col tb-col-md">
-                                        @if($admin->status == '1')
+                                        @if($category->status == '1')
                                             <span class="tb-status text-success">Hoạt động</span>
                                         @else
                                             <span class="tb-status text-danger">Bị chặn</span>
@@ -173,17 +173,17 @@
                                                     <em class="icon ni ni-mail-fill"></em>
                                                 </a>
                                             </li>
-                                            @if(Auth::guard('admin')->user()->id != $admin->id)
+                                            @if(Auth::guard('admin')->user()->id != $category->id)
                                                 <li class="nk-tb-action-hidden">
-                                                    @if($admin->status == '1')
-                                                        <a href="{{route('admin.user.suspend', $admin->id)}}"
+                                                    @if($category->status == '1')
+                                                        <a href="{{route('admin.category.suspend', $category->id)}}"
                                                            class="btn btn-trigger btn-icon"
                                                            data-toggle="tooltip"
                                                            data-placement="top" title="Chặn">
                                                             <em class="icon ni ni-user-cross-fill"></em>
                                                         </a>
                                                     @else
-                                                        <a href="{{route('admin.user.active', $admin->id)}}"
+                                                        <a href="{{route('admin.category.active', $category->id)}}"
                                                            class="btn btn-trigger btn-icon"
                                                            data-toggle="tooltip"
                                                            data-placement="top" title="Active">
@@ -198,25 +198,24 @@
                                                        data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <ul class="link-list-opt no-bdr">
-                                                            <li><a href="{{route('admin.user.detail', $admin->id)}}"><em
+                                                            <li><a href="{{route('admin.category.detail', $category->id)}}"><em
                                                                         class="icon ni ni-eye"></em><span>Xem chi tiết</span></a>
                                                             </li>
-                                                            @if(Auth::guard('admin')->user()->id != $admin->id)
+                                                            @if(Auth::guard('admin')->user()->id != $category->id)
                                                                 <li class="nk-tb-action-hidden">
-                                                                @if($admin->status == '1')
+                                                                    @if($category->status == '1')
                                                                     <li>
-                                                                        <a href="{{route('admin.user.suspend', $admin->id)}}">
+                                                                        <a href="{{route('admin.category.suspend', $category->id)}}">
                                                                             <em class="icon ni ni-na"></em><span>Chặn</span></a>
                                                                     </li>
-                                                                @else
+                                                                    @else
                                                                     <li>
-                                                                        <a href="{{route('admin.user.active', $admin->id)}}">
+                                                                        <a href="{{route('admin.category.active', $category->id)}}">
                                                                             <em class="icon ni ni-check-circle"></em><span>Active</span></a>
                                                                     </li>
                                                                     @endif
-                                                                    </li>
-                                                                @endif
-
+                                                                </li>
+                                                            @endif
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -230,7 +229,7 @@
                             <div class="card-inner">
                                 <div class="nk-block-between-md g-3">
                                     <div class="g">
-                                        {!!$admins->onEachSide(1)->withQueryString()->links()!!}
+                                        {!!$categories->onEachSide(1)->withQueryString()->links()!!}
                                     </div>
                                 </div><!-- .nk-block-between -->
                             </div>

@@ -1,6 +1,6 @@
 @extends('layouts.admin.admin')
 
-@section('title', 'Danh sách quản trị viên')
+@section('title', 'Danh sách khách hàng')
 
 @section('content')
     <div class="nk-content ">
@@ -10,7 +10,7 @@
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="nk-block-between">
                             <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">Quản trị viên</h3>
+                                <h3 class="nk-block-title page-title">Khách hàng</h3>
                             </div><!-- .nk-block-head-content -->
                             <div class="nk-block-head-content">
                                 <div class="toggle-wrap nk-block-tools-toggle">
@@ -28,35 +28,11 @@
                                                         </a>
                                                     </div>
                                                     <form id="search-form" action="">
-                                                        <input type="text" class="form-control" name="keywords"
+                                                        <input style="width: 400px" type="text" class="form-control"
+                                                               name="keywords"
                                                                placeholder="Tìm kiến">
                                                     </form>
                                                 </div>
-                                            </li>
-                                            <li>
-                                                <div class="drodown">
-                                                    <a href="#"
-                                                       class="dropdown-toggle dropdown-indicator btn btn-outline-light btn-white"
-                                                       data-toggle="dropdown">Trạng thái</a>
-                                                    <div class="dropdown-menu dropdown-menu-right">
-                                                        <ul class="link-list-opt no-bdr">
-                                                            <li>
-                                                                <a href="{{request()->fullUrlWithQuery(['status' => 'hoat-dong'])}}"><span>Hoạt động</span></a>
-                                                            </li>
-                                                            <li>
-                                                                <a href="{{request()->fullUrlWithQuery(['status' => 'bi-chan'])}}"><span>Bị chặn</span></a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="nk-block-tools-opt">
-                                                <a href="{{route('admin.user.create')}}"
-                                                   class="btn btn-icon btn-primary d-md-none"><em
-                                                        class="icon ni ni-plus"></em></a>
-                                                <a href="{{route('admin.user.create')}}"
-                                                   class="btn btn-primary d-none d-md-inline-flex"><em
-                                                        class="icon ni ni-plus"></em><span>Thêm mới</span></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -74,11 +50,11 @@
                                         <label class="custom-control-label" for="uid"></label>
                                     </div>
                                 </div>
-                                <div class="nk-tb-col"><span class="sub-text">Quản trị viên</span></div>
+                                <div class="nk-tb-col"><span class="sub-text">Khách hàng</span></div>
+                                <div class="nk-tb-col tb-col-md"><span class="sub-text">Hóa đơn</span></div>
                                 <div class="nk-tb-col tb-col-md"><span class="sub-text">Điện thoại</span></div>
                                 <div class="nk-tb-col tb-col-lg"><span class="sub-text">Địa chỉ</span></div>
                                 <div class="nk-tb-col tb-col-lg"><span class="sub-text">Ngày sinh</span></div>
-                                <div class="nk-tb-col tb-col-md"><span class="sub-text">Trạng thái</span></div>
                                 <div class="nk-tb-col nk-tb-col-tools">
                                     <ul class="nk-tb-actions gx-1 my-n1">
                                         <li>
@@ -89,11 +65,7 @@
                                                     <ul class="link-list-opt no-bdr">
                                                         <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email to All</span></a>
                                                         </li>
-                                                        <li><a href="#"><em class="icon ni ni-na"></em><span>Suspend Selected</span></a>
-                                                        </li>
                                                         <li><a href="#"><em class="icon ni ni-trash"></em><span>Remove Seleted</span></a>
-                                                        </li>
-                                                        <li><a href="#"><em class="icon ni ni-shield-star"></em><span>Reset Password</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -102,27 +74,27 @@
                                     </ul>
                                 </div>
                             </div><!-- .nk-tb-item -->
-                            @foreach($admins as $admin)
+                            @foreach($users as $user)
                                 <div class="nk-tb-item">
                                     <div class="nk-tb-col nk-tb-col-check">
                                         <div class="custom-control custom-control-sm custom-checkbox notext">
                                             <input type="checkbox" value="list_check[]" class="custom-control-input"
-                                                   id="{{$admin->id}}">
-                                            <label class="custom-control-label" for="{{$admin->id}}"></label>
+                                                   id="{{$user->id}}">
+                                            <label class="custom-control-label" for="{{$user->id}}"></label>
                                         </div>
                                     </div>
                                     <div class="nk-tb-col">
-                                        <a href="{{route('admin.user.detail', $admin->id)}}">
+                                        <a href="{{route('admin.customer.detail', $user->id)}}">
                                             <div class="user-card">
                                                 <div class="user-avatar bg-primary">
-                                                    @if($admin->avatar)
+                                                    @if($user->avatar)
                                                         <img
-                                                            src="{{asset($admin->avatar)}}"
+                                                            src="{{asset($user->avatar)}}"
                                                             alt="">
                                                     @else
                                                         <span>
                                                             @php
-                                                                $str_name = explode(' ', $admin->name);
+                                                                $str_name = explode(' ', $user->name);
                                                                 if(count($str_name) > 1){
                                                                     echo strtoupper(reset($str_name)[0]) . strtoupper(end($str_name)[0]);
                                                                 }else{
@@ -133,21 +105,24 @@
                                                     @endif
                                                 </div>
                                                 <div class="user-info">
-                                                    <span class="tb-lead">{{$admin->name}} <span
+                                                    <span class="tb-lead">{{$user->name}} <span
                                                             class="dot dot-success d-md-none ml-1"></span></span>
-                                                    <span>{{$admin->email}}</span>
+                                                    <span>{{$user->email}}</span>
                                                 </div>
                                             </div>
                                         </a>
                                     </div>
                                     <div class="nk-tb-col tb-col-md">
-                                        <span>{{$admin->phone}}</span>
+                                        <span>1000.000 USD</span>
+                                    </div>
+                                    <div class="nk-tb-col tb-col-md">
+                                        <span>{{$user->phone}}</span>
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
-                                        @if($admin->address)
+                                        @if($user->address)
                                             <span>
-                                                {{$admin->address['province']}}, {{$admin->address['district']}}, {{$admin->address['ward']}} <br>
-                                                {{$admin->address['more']}}
+                                                {{$user->address['province']}}, {{$user->address['district']}}, {{$user->address['ward']}} <br>
+                                                {{$user->address['more']}}
                                             </span>
                                         @else
                                             <span class="text-soft">
@@ -156,14 +131,7 @@
                                         @endif
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
-                                        <span>{{ \Carbon\Carbon::parse($admin->date_of_birth)->format('d M, Y') }}</span>
-                                    </div>
-                                    <div class="nk-tb-col tb-col-md">
-                                        @if($admin->status == '1')
-                                            <span class="tb-status text-success">Hoạt động</span>
-                                        @else
-                                            <span class="tb-status text-danger">Bị chặn</span>
-                                        @endif
+                                        <span>{{ \Carbon\Carbon::parse($user->date_of_birth)->format('d M, Y') }}</span>
                                     </div>
                                     <div class="nk-tb-col nk-tb-col-tools">
                                         <ul class="nk-tb-actions gx-1">
@@ -173,50 +141,15 @@
                                                     <em class="icon ni ni-mail-fill"></em>
                                                 </a>
                                             </li>
-                                            @if(Auth::guard('admin')->user()->id != $admin->id)
-                                                <li class="nk-tb-action-hidden">
-                                                    @if($admin->status == '1')
-                                                        <a href="{{route('admin.user.suspend', $admin->id)}}"
-                                                           class="btn btn-trigger btn-icon"
-                                                           data-toggle="tooltip"
-                                                           data-placement="top" title="Chặn">
-                                                            <em class="icon ni ni-user-cross-fill"></em>
-                                                        </a>
-                                                    @else
-                                                        <a href="{{route('admin.user.active', $admin->id)}}"
-                                                           class="btn btn-trigger btn-icon"
-                                                           data-toggle="tooltip"
-                                                           data-placement="top" title="Active">
-                                                            <em class="icon ni ni-user-check-fill"></em>
-                                                        </a>
-                                                    @endif
-                                                </li>
-                                            @endif
                                             <li>
                                                 <div class="drodown">
                                                     <a href="#" class="dropdown-toggle btn btn-icon btn-trigger"
                                                        data-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <ul class="link-list-opt no-bdr">
-                                                            <li><a href="{{route('admin.user.detail', $admin->id)}}"><em
+                                                            <li><a href="{{route('admin.customer.detail', $user->id)}}"><em
                                                                         class="icon ni ni-eye"></em><span>Xem chi tiết</span></a>
                                                             </li>
-                                                            @if(Auth::guard('admin')->user()->id != $admin->id)
-                                                                <li class="nk-tb-action-hidden">
-                                                                @if($admin->status == '1')
-                                                                    <li>
-                                                                        <a href="{{route('admin.user.suspend', $admin->id)}}">
-                                                                            <em class="icon ni ni-na"></em><span>Chặn</span></a>
-                                                                    </li>
-                                                                @else
-                                                                    <li>
-                                                                        <a href="{{route('admin.user.active', $admin->id)}}">
-                                                                            <em class="icon ni ni-check-circle"></em><span>Active</span></a>
-                                                                    </li>
-                                                                    @endif
-                                                                    </li>
-                                                                @endif
-
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -230,7 +163,7 @@
                             <div class="card-inner">
                                 <div class="nk-block-between-md g-3">
                                     <div class="g">
-                                        {!!$admins->onEachSide(1)->withQueryString()->links()!!}
+                                        {!!$users->onEachSide(1)->withQueryString()->links()!!}
                                     </div>
                                 </div><!-- .nk-block-between -->
                             </div>

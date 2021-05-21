@@ -48,7 +48,19 @@
                                                 <div class="profile-ud-item">
                                                     <div class="profile-ud wider">
                                                         <span class="profile-ud-label">Giới tính</span>
-                                                        <span class="profile-ud-value">Mr.</span>
+                                                        @if($admin->gender == 'male')
+                                                            <span class="profile-ud-value">
+                                                                Nam
+                                                            </span>
+                                                        @elseif($admin->gender == 'female')
+                                                            <span class="profile-ud-value">
+                                                                Nữ
+                                                            </span>
+                                                        @else
+                                                            <span class="profile-ud-value">
+                                                                Nữ
+                                                            </span>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="profile-ud-item">

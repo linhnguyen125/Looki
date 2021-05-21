@@ -9,4 +9,6 @@ interface AdminRepositoryInterface
     public function create($attributes = []);
     public function update($id, $attributes = []);
     public function lastLogin($id, $date);
+    public function getByStatusAndKeyWord($status, $keyword);
+    public function getByKeyWord($keyword);
 }

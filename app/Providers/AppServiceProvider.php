@@ -20,6 +20,14 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Admin\AdminRepositoryInterface::class,
             \App\Repositories\Admin\AdminRepository::class
         );
+        $this->app->singleton(
+            \App\Repositories\User\UserRepositoryInterface::class,
+            \App\Repositories\User\UserRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Category\CategoryRepositoryInterface::class,
+            \App\Repositories\Category\CategoryRepository::class
+        );
     }
 
     /**
