@@ -12,6 +12,7 @@
     <!-- Page Title  -->
     <title>Admin | @yield('title')</title>
     <!-- StyleSheets  -->
+    @yield('css')
     <link rel="stylesheet" href="{{asset('assets/admin/css/dashlite.css?ver=2.2.0')}}">
     <link id="skin-default" rel="stylesheet" href="{{asset('assets/admin/css/theme.css?ver=2.2.0')}}">
 </head>

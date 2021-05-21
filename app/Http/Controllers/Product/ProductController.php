@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Product\ProductRequest;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Product\ProductRepositoryInterface;
 use Illuminate\Http\Request;
@@ -30,5 +31,10 @@ class ProductController extends Controller
         $categories = $this->catRepo->getAllWithoutPaginate();
         $division_categories = $this->catRepo->data_tree($categories, 0, 0);
         return view('admin.product.create', compact('division_categories'));
+    }
+
+    public function store(Request $request){
+        $data = $request->all();
+        return $data;
     }
 }
