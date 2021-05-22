@@ -29,7 +29,7 @@
                                                     </div>
                                                     <form id="search-form" action="">
                                                         <input style="width: 400px" type="text" class="form-control"
-                                                               name="keywords"
+                                                               name="keywords" value="{{request('keywords')}}"
                                                                placeholder="Tìm kiến">
                                                     </form>
                                                 </div>

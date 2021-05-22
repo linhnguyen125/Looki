@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Category\CategoryRequest;
-use App\Repositories\Category\ProductRepositoryInterface;
+use App\Repositories\Category\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
@@ -13,7 +13,7 @@ class CategoryController extends Controller
 {
     protected $catRepo;
 
-    public function __construct(ProductRepositoryInterface $catRepo)
+    public function __construct(CategoryRepositoryInterface $catRepo)
     {
         $this->middleware('auth:admin');
         $this->catRepo = $catRepo;

@@ -24,13 +24,13 @@
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
                         <a href="html/ecommerce/orders.html" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-layers-fill"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-bag-fill"></em></span>
                             <span class="nk-menu-text">Hóa đơn</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-icon"><em class="icon ni ni-package-fill"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-layers-fill"></em></span>
                             <span class="nk-menu-text">Danh mục</span>
                         </a>
                         <ul class="nk-menu-sub">
@@ -44,7 +44,7 @@
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
-                            <span class="nk-menu-icon"><em class="icon ni ni-bag-fill"></em></span>
+                            <span class="nk-menu-icon"><em class="icon ni ni-package-fill"></em></span>
                             <span class="nk-menu-text">Sản phẩm</span>
                         </a>
                         <ul class="nk-menu-sub">

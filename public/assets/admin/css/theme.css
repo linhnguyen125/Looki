@@ -6,3 +6,12 @@
  * Version	 :	1.0.0
  * Updated	 :	07.23.2020
 **/
+
+@font-face {
+    src: url("../fonts/DMSans-Medium.ttf"),
+    url("../fonts/DMSans-Bold.ttf"),
+    url("../fonts/DMSans-Regular.ttf"),
+    url("../fonts/Nioicon.ttf"),
+    url("../fonts/summernote.ttf"),
+    url("../fonts/tinymce-mobile.woff");
+}

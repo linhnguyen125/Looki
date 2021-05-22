@@ -29,7 +29,7 @@
                                                     </div>
                                                     <form id="search-form" action="">
                                                         <input type="text" class="form-control" name="keywords"
-                                                               placeholder="Tìm kiến">
+                                                               value="{{request('keywords')}}" placeholder="Tìm kiến">
                                                     </form>
                                                 </div>
                                             </li>
@@ -39,7 +39,7 @@
                                                        class="dropdown-toggle dropdown-indicator btn btn-outline-light btn-white"
                                                        data-toggle="dropdown">Trạng thái</a>
                                                     <div class="dropdown-menu dropdown-menu-right">
-                                                        <ul class="link-list-opt no-bdr">
+                                                        <ul class="link-list-opt">
                                                             <li>
                                                                 <a href="{{request()->fullUrlWithQuery(['status' => 'hoat-dong'])}}"><span>Hoạt động</span></a>
                                                             </li>

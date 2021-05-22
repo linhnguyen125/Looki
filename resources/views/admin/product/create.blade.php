@@ -6,87 +6,7 @@
     <script src="{{asset('bootstrap/js/jquery-3.6.0.min.js')}}"></script>
     <script src="https://cdn.tiny.cloud/1/c2smjg6a8qpnm09rt8vnh82ycak6loc0rek9ik9f5s1a3kz5/tinymce/5/tinymce.min.js"
             referrerpolicy="origin"></script>
-    <script type="text/javascript">
-        var editor_config = {
-            path_absolute: "http://localhost/Looki/",
-            selector: "textarea#detail,#description",
-            height: 300,
-            plugins: [
-                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-                'table emoticons template paste help'
-            ],
-            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
-                'bullist numlist outdent indent | link image | print preview media fullpage | ' +
-                'forecolor backcolor emoticons | help',
-            menu: {
-                favs: {
-                    title: 'My Favorites',
-                    items: 'code visualaid | searchreplace | emoticons'
-                },
-                file: {
-                    title: 'File',
-                    items: 'newdocument restoredraft | preview | print '
-                },
-                edit: {
-                    title: 'Edit',
-                    items: 'undo redo | cut copy paste | selectall | searchreplace'
-                },
-                view: {
-                    title: 'View',
-                    items: 'code | visualaid visualchars visualblocks | spellchecker | preview fullscreen'
-                },
-                insert: {
-                    title: 'Insert',
-                    items: 'image link media template codesample inserttable | charmap emoticons hr | pagebreak nonbreaking anchor toc | insertdatetime'
-                },
-                format: {
-                    title: 'Format',
-                    items: 'bold italic underline strikethrough superscript subscript codeformat | formats blockformats fontformats fontsizes align lineheight | forecolor backcolor | removeformat'
-                },
-                tools: {
-                    title: 'Tools',
-                    items: 'spellchecker spellcheckerlanguage | code wordcount'
-                },
-                table: {
-                    title: 'Table',
-                    items: 'inserttable | cell row column | tableprops deletetable'
-                },
-                help: {
-                    title: 'Help',
-                    items: 'help'
-                }
-            },
-            menubar: 'favs file edit view insert format tools table help',
-            relative_urls: false,
-            file_picker_callback: function (callback, value, meta) {
-                var x = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth;
-                var y = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
-
-                var cmsURL = editor_config.path_absolute + 'laravel-filemanager?editor=' + meta.fieldname;
-                if (meta.filetype == 'image') {
-                    cmsURL = cmsURL + "&type=Images";
-                } else {
-                    cmsURL = cmsURL + "&type=Files";
-                }
-
-                tinyMCE.activeEditor.windowManager.openUrl({
-                    url: cmsURL,
-                    title: 'Filemanager',
-                    width: x * 0.8,
-                    height: y * 0.8,
-                    resizable: "yes",
-                    close_previous: "no",
-                    onMessage: (api, message) => {
-                        callback(message.content);
-                    }
-                });
-            }
-        };
-
-        tinymce.init(editor_config);
-
-    </script>
+    <script src="{{asset('assets/admin/js/tinymce.js')}}"></script>
     <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
     <script>
         $('#lfm').filemanager('image');
@@ -120,7 +40,7 @@
                                 <div class="card-content">
                                     <div class="card-inner">
                                         <div class="nk-block">
-                                            <form action="{{route('admin.product.store')}}" method="POST" enctype="multipart/form-data">
+                                            <form action="{{route('admin.product.store')}}" method="POST">
                                                 @csrf
 
                                                 <div class="row gy-4">
@@ -259,7 +179,12 @@
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="meta-keywords">Meta
-                                                                    keywords</label>
+                                                                    keywords</label> <strong
+                                                                    class="text-info border border-info rounded-circle"
+                                                                    data-toggle="tooltip"
+                                                                    data-placement="top"
+                                                                    title="Nhiều từ cách nhau bởi dấu phẩy (,)">
+                                                                    <em class="icon ni ni-info-i"></em></strong>
                                                                 <div class="form-control-wrap">
                                                                     <input type="text"
                                                                            class="form-control @error('meta_keywords') error @enderror"
@@ -302,8 +227,10 @@
                                                         <div class="row col-12 p-1">
                                                             <div class="col-md-6 p-1">
                                                                 <div class="custom-control custom-switch">
-                                                                    <input type="checkbox" name="sale" {{old('sale') ? 'checked' : ''}}
-                                                                           class="custom-control-input" value="1" id="sale">
+                                                                    <input type="checkbox" name="sale"
+                                                                           {{old('sale') ? 'checked' : ''}}
+                                                                           class="custom-control-input" value="1"
+                                                                           id="sale">
                                                                     <label class="custom-control-label" for="sale">Giảm
                                                                         giá</label>
                                                                 </div>
@@ -311,8 +238,10 @@
 
                                                             <div class="col-md-6 p-1">
                                                                 <div class="custom-control custom-switch">
-                                                                    <input type="checkbox" name="status" {{old('status') ? 'checked' : ''}}
-                                                                           class="custom-control-input" value="1" id="status">
+                                                                    <input type="checkbox" name="status"
+                                                                           {{old('status') ? 'checked' : ''}}
+                                                                           class="custom-control-input" value="1"
+                                                                           id="status">
                                                                     <label class="custom-control-label" for="status">Hiển
                                                                         thị</label>
                                                                 </div>
@@ -321,31 +250,43 @@
 
                                                         <div class="col-12">
                                                             <div class="form-group">
+                                                                <label class="form-label d-block" for="thumbnail">Ảnh
+                                                                    sản phẩm</label>
                                                                 <div class="input-group">
-                                                          <span class="input-group-btn">
-                                                            <a id="lfm" data-input="thumbnail" data-preview="holder"
-                                                               class="btn btn-primary text-white">
-                                                                <i class="fa fa-picture-o"></i> Choose
-                                                            </a>
-                                                          </span>
+                                                                        <span class="input-group-btn">
+                                                                            <a id="lfm" data-input="thumbnail"
+                                                                               data-preview="holder"
+                                                                               class="btn btn-success text-white">
+                                                                                Choose
+                                                                            </a>
+                                                                        </span>
                                                                     <input id="thumbnail" class="form-control"
-                                                                           type="text" name="thumbnail">
+                                                                           type="text" name="thumbnail"
+                                                                           value="{{$product->thumbnail ?? old('thumbnail')}}">
                                                                 </div>
-                                                                <div id="holder"
-                                                                     style="margin-top:15px;max-height:100px;"></div>
+                                                            </div>
+                                                            @error('thumbnail')
+                                                            <strong>
+                                                                <small
+                                                                    class="text-danger mt-1">{{ $message }}
+                                                                </small>
+                                                            </strong>
+                                                            @enderror
+                                                            <div id="holder"
+                                                                 style="margin-top:15px;max-height:100px;">
                                                             </div>
                                                         </div>
 
                                                     </div>
 
-                                                        <div class="col-12 ml-2">
-                                                            <div class="form-group">
-                                                                <button type="submit" class="btn btn-lg btn-primary">
-                                                                    Thêm mới
-                                                                </button>
-                                                            </div>
+                                                    <div class="col-12 ml-2">
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-lg btn-primary">
+                                                                Thêm mới
+                                                            </button>
                                                         </div>
                                                     </div>
+                                                </div>
                                             </form>
                                         </div><!-- .nk-block -->
                                     </div><!-- .card-inner -->

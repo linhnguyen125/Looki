@@ -166,5 +166,10 @@ return [
         'district'              => 'quận/huyện',
         'ward'                  => 'phường/thị xã',
         'more'                  => 'địa chỉ nhà',
+        'thumbnail'             => 'ảnh sản phẩm',
+        'stock'                 => 'số lượng',
+        'price'                 => 'giá sản phẩm',
+        'detail'                => 'chi tiết',
+        'path'                  => 'đường dẫn ảnh',
     ],
 ];

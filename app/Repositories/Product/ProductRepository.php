@@ -36,10 +36,26 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
     public function getByKeyWord($keyword){
         return $this->model->where([
                 ['name', 'like', "%" . $keyword . "%"],
-            ])
-            ->orWhere([
-                ['description', 'like', "%" . $keyword . "%"],
-            ])
-            ->paginate(10);
+            ])->paginate(10);
+    }
+
+    public function getByStatus($status, $keyword){
+        return $this->model->where([
+            ['name', 'like', "%" . $keyword . "%"],
+            ['status', $status],
+        ])->paginate(10);
+    }
+
+    public function getByFilter($filter, $keyword){
+        return $this->model->where([
+            ['name', 'like', "%" . $keyword . "%"],
+        ])->orderBy($filter, 'desc')->paginate(10);
+    }
+
+    public function getByStatusAndFilter($status, $filter, $keyword){
+        return $this->model->where([
+            ['name', 'like', "%" . $keyword . "%"],
+            ['status', $status],
+        ])->orderBy($filter, 'desc')->paginate(10);
     }
 }

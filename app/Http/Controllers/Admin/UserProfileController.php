@@ -11,6 +11,7 @@ use App\Models\Ward;
 use App\Repositories\Admin\AdminRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\File;
 
 class UserProfileController extends Controller
 {
@@ -42,6 +43,7 @@ class UserProfileController extends Controller
 
         if ($request->hasFile('avatar')) {
             $file = $request->avatar;
+            $this->clear($id);
             $admin = $this->upload($id, $file);
 
             if ($admin) {
@@ -58,6 +60,15 @@ class UserProfileController extends Controller
         $path = 'upload/images/avatar/' . $fileName;
         $file->move('public/upload/images/avatar', $file->getClientOriginalName());
         return $this->adminRepo->update($id, ['avatar' => $path]);
+    }
+
+    // xóa ảnh cũ
+    protected function clear($id){
+        $admin = $this->adminRepo->find($id);
+        $avatar = 'public/' . $admin->avatar;
+        if(File::exists($avatar)) {
+            File::delete($avatar);
+        }
     }
 
     public function updateProfile(UpdateProfileRequest $request, $id)

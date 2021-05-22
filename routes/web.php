@@ -13,22 +13,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//================================================================
+//========================== CLIENT ==============================
+//================================================================
+
+
+//========================== HOME ==============================
+
+Route::get('/', 'Client\HomeController@index')->name('home');
+
 
 Auth::routes();
 
-Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
 //================================================================
-//======================= ADMIN AUTH =============================
+//========================== ADMIN ===============================
 //================================================================
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:admin']], function () {
     //======================= AUTH ADMIN =============================
     Route::get('login', 'AuthAdmin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login', 'AuthAdmin\LoginController@login');
@@ -75,4 +81,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('san-pham.html',  'Product\ProductController@index')->name('admin.product.index');
     Route::get('san-pham/them-moi.html',  'Product\ProductController@create')->name('admin.product.create');
     Route::post('product/store',  'Product\ProductController@store')->name('admin.product.store');
+    Route::get('san-pham/cap-nhat-san-pham/{id}.html','Product\ProductController@edit')->name('admin.product.edit');
+    Route::post('product/update/{id}',  'Product\ProductController@update')->name('admin.product.update');
+    Route::get('san-pham/xoa/{id}',  'Product\ProductController@delete')->name('admin.product.delete');
+    Route::post('product/update-stock/{id}',  'Product\ProductController@updateStock')->name('admin.product.update_stock');
+    Route::post('product/update-price/{id}',  'Product\ProductController@updatePrice')->name('admin.product.update_price');
+
+    //===================== PRODUCT IMAGE ===========================
+    Route::get('san-pham/them-anh-san-pham/{id}.html','ProductImage\ProductImageController@create')->name('admin.product_image.create');
+    Route::post('product-image/store/{id}',  'ProductImage\ProductImageController@store')->name('admin.product_image.store');
+    Route::get('san-pham/xoa-anh-san-pham/{id}','ProductImage\ProductImageController@delete')->name('admin.product_image.delete');
+
 });
