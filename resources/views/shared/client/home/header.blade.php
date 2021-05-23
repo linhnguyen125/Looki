@@ -123,218 +123,132 @@
         </div>
     </div>
     <!-- header top end -->
+
     <!-- header-middle satrt -->
     <div id="sticky" class="header-middle theme1 py-15 py-lg-0">
         <div class="container position-relative">
             <div class="row align-items-center">
                 <div class="col-6 col-lg-3">
                     <div class="logo">
-                        <a href="index.html"
-                        ><img src="{{asset('assets/client/img/logo/logo.png')}}" alt="logo"
-                            /></a>
+                        <a href="index.html"><img src="{{asset('assets/client/img/logo/logo.png')}}" alt="logo"/></a>
                     </div>
                 </div>
                 <div class="col-lg-6 d-none d-lg-block">
                     <ul class="main-menu d-flex justify-content-center">
+                        <!-- Home -->
                         <li class="active ml-0">
-                            <a href="index.html" class="pl-0"
-                            >Home <i class="ion-ios-arrow-down"></i
-                                ></a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home 1</a></li>
-                                <li><a href="index-2.html">Home 2</a></li>
-                            </ul>
+                            <a href="index.html" class="pl-0">Trang chủ</a>
                         </li>
+
+                        <!-- Sản phẩm -->
                         <li class="position-static">
-                            <a href="shop-grid-3-column.html"
-                            >Shop <i class="ion-ios-arrow-down"></i
-                                ></a>
+                            <a href="shop-grid-3-column.html">Sản phẩm <i class="ion-ios-arrow-down"></i></a>
                             <ul class="mega-menu row">
-                                <li class="col-3">
-                                    <ul>
-                                        <li class="mega-menu-title"><a href="#">Shop Grid</a></li>
-                                        <li>
-                                            <a href="shop-grid-3-column.html">Shop Grid 3 Column</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-4-column.html">Shop Grid 4 Column</a>
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-left-sidebar.html"
-                                            >Shop Grid Left Sidebar</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-right-sidebar.html"
-                                            >Shop Grid Right Sidebar</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="col-3">
-                                    <ul>
-                                        <li class="mega-menu-title"><a href="#">Shop List</a></li>
-                                        <li><a href="shop-grid-list.html">Shop List</a></li>
-                                        <li>
-                                            <a href="shop-grid-list-left-sidebar.html"
-                                            >Shop List Left Sidebar</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="shop-grid-list-right-sidebar.html"
-                                            >Shop List Right Sidebar</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="col-3">
-                                    <ul>
-                                        <li class="mega-menu-title"><a href="#">Shop Single</a></li>
-                                        <li><a href="single-product.html">Shop Single</a></li>
-                                        <li>
-                                            <a href="single-product-configurable.html"
-                                            >Shop Variable</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="single-product-affiliate.html">Shop Affiliate</a>
-                                        </li>
-                                        <li><a href="single-product-group.html">Shop Group</a></li>
-                                    </ul>
-                                </li>
-                                <li class="col-3">
-                                    <ul>
-                                        <li class="mega-menu-title"><a href="#">other pages</a></li>
-                                        <li><a href="about-us.html">About Page</a></li>
-                                        <li><a href="cart.html">Cart Page</a></li>
-                                        <li><a href="checkout.html">Checkout Page</a></li>
-                                        <li><a href="compare.html">Compare Page</a></li>
-                                    </ul>
-                                </li>
+                                <!-- col fashion -->
+                                @foreach($fashions as $name => $fashion)
+                                    <li class="col-2">
+                                        <ul>
+                                            @foreach($fashion as $slugParent => $itemParents)
+                                                <li class="mega-menu-title"><a href="{{$slugParent}}">{{$name}}</a></li>
+                                                @foreach($itemParents as $itemParent)
+                                                    <li>
+                                                        <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                                    </li>
+                                                @endforeach
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+
+                            <!-- col cosmetics -->
+                                @foreach($cosmetics as $name => $cosmetic)
+                                    <li class="col-2">
+                                        <ul>
+                                            @foreach($cosmetic as $slugParent => $itemParents)
+                                                <li class="mega-menu-title"><a href="{{$slugParent}}">{{$name}}</a></li>
+                                                @foreach($itemParents as $itemParent)
+                                                    <li>
+                                                        <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                                    </li>
+                                                @endforeach
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endforeach
+
+
+                                <!-- img -->
                                 <li class="col-6 mt-4">
-                                    <a href="single-product.html" class="zoom-in overflow-hidden"
-                                    ><img src="{{asset('assets/client/')}}img/mega-menu/1.jpg" alt="img"
-                                        /></a>
+                                    <a href="single-product.html" class="zoom-in overflow-hidden">
+                                        <img src="{{asset('assets/client/img/mega-menu/1.jpg')}}" alt="img"/></a>
                                 </li>
+
+                                <!-- img -->
                                 <li class="col-6 mt-4">
-                                    <a href="single-product.html" class="zoom-in overflow-hidden"
-                                    ><img src="{{asset('assets/client/img/mega-menu/2.jpg')}}" alt="img"
-                                        /></a>
+                                    <a href="single-product.html" class="zoom-in overflow-hidden">
+                                        <img src="{{asset('assets/client/img/mega-menu/2.jpg')}}" alt="img"/></a>
                                 </li>
                             </ul>
                         </li>
+
+                        <!-- Blog -->
                         <li>
-                            <a href="#">Pages <i class="ion-ios-arrow-down"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="about-us.html">About Page</a></li>
-                                <li><a href="cart.html">Cart Page</a></li>
-                                <li><a href="checkout.html">Checkout Page</a></li>
-                                <li><a href="compare.html">Compare Page</a></li>
-                                <li><a href="login.html">Login &amp; Register Page</a></li>
-                                <li><a href="myaccount.html">Account Page</a></li>
-                                <li><a href="wishlist.html">Wishlist Page</a></li>
-                            </ul>
+                            <a href="blog-grid-3-column.html">Tin tức</a>
                         </li>
+
+                        <!-- About page -->
                         <li>
-                            <a href="blog-grid-3-column.html"
-                            >Blog <i class="ion-ios-arrow-down"></i
-                                ></a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="blog-grid-3-column.html">Blog Grid</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="blog-grid-3-column.html">Blog Grid 3 column</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-grid-4-column.html">Blog Grid 4 column</a>
-                                        </li>
-                                        <li>
-                                            <a href="blog-grid-left-sidebar.html"
-                                            >Blog Grid Left Sidebar</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="blog-grid-right-sidebar.html"
-                                            >Blog Grid Right Sidebar</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="blog-single-left-sidebar.html">Blog List</a>
-                                    <ul class="sub-menu">
-                                        <li>
-                                            <a href="blog-list-left-sidebar.html"
-                                            >Blog List Left Sidebar</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="blog-list-right-sidebar.html"
-                                            >Blog List Right Sidebar</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="single-blog.html">Blog Single</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="single-blog.html">Single Blog</a></li>
-                                        <li>
-                                            <a href="blog-single-left-sidebar.html"
-                                            >Blog Single Left Sidebar</a
-                                            >
-                                        </li>
-                                        <li>
-                                            <a href="blog-single-right-sidebar.html"
-                                            >Blog Single Right Sidbar</a
-                                            >
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
+                            <a href="#">Về chúng tôi</a>
                         </li>
-                        <li><a href="contact.html">contact Us</a></li>
+
+                        <!-- Contact page -->
+                        <li><a href="contact.html">Liên hệ</a></li>
                     </ul>
                 </div>
+
                 <div class="col-6 col-lg-3">
                     <!-- search-form end -->
                     <div class="d-flex align-items-center justify-content-end">
                         <!-- static-media end -->
                         <div class="cart-block-links theme1 d-none d-sm-block">
                             <ul class="d-flex">
+                                <!-- search -->
                                 <li>
                                     <a href="javascript:void(0)" class="search search-toggle">
                                         <i class="icon-magnifier"></i>
                                     </a>
                                 </li>
+                                <!-- compare -->
                                 <li>
                                     <a href="compare.html">
-                    <span class="position-relative">
-                      <i class="icon-shuffle"></i>
-                      <span class="badge cbdg1">1</span>
-                    </span>
+                                    <span class="position-relative">
+                                      <i class="icon-shuffle"></i>
+                                      <span class="badge cbdg1">1</span>
+                                    </span>
                                     </a>
                                 </li>
+                                <!-- wish list -->
                                 <li>
                                     <a class="offcanvas-toggle" href="#offcanvas-wishlist">
-                    <span class="position-relative">
-                      <i class="icon-heart"></i>
-                      <span class="badge cbdg1">3</span>
-                    </span>
+                                    <span class="position-relative">
+                                      <i class="icon-heart"></i>
+                                      <span class="badge cbdg1">3</span>
+                                    </span>
                                     </a>
                                 </li>
+                                <!-- cart -->
                                 <li class="mr-xl-0 cart-block position-relative">
                                     <a class="offcanvas-toggle" href="#offcanvas-cart">
-                    <span class="position-relative">
-                      <i class="icon-bag"></i>
-                      <span class="badge cbdg1">3</span>
-                    </span>
+                                    <span class="position-relative">
+                                      <i class="icon-bag"></i>
+                                      <span class="badge cbdg1">3</span>
+                                    </span>
                                     </a>
                                 </li>
                                 <!-- cart block end -->
                             </ul>
                         </div>
+
                         <div class="mobile-menu-toggle theme1 d-lg-none">
                             <a href="#offcanvas-mobile-menu" class="offcanvas-toggle">
                                 <svg viewbox="0 0 700 550">

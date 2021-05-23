@@ -2,18 +2,21 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Auth;
+use App\Repositories\Category\CategoryRepositoryInterface;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
+    protected $catRepo;
+
     /**
      * Register any application services.
      *
      * @return void
      */
+
     public function register()
     {
         $this->app->singleton(
@@ -43,8 +46,12 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(CategoryRepositoryInterface $catRepo)
     {
+        $this->catRepo = $catRepo;
         Schema::defaultStringLength(255);
+        $fashions = $this->catRepo->getByCategory(1);
+        $cosmetics = $this->catRepo->getByCategory(2);
+        View::share(['fashions' => $fashions, 'cosmetics' => $cosmetics]);
     }
 }

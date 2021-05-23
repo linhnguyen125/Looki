@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories\Category;
 
 use App\Repositories\BaseRepository;
@@ -11,11 +12,13 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         return \App\Models\Category::class;
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return $this->model->paginate(10);
     }
 
-    public function getAllWithoutPaginate(){
+    public function getAllWithoutPaginate()
+    {
         return $this->model->all();
     }
 
@@ -33,13 +36,24 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         return $result;
     }
 
-    public function getByKeyWord($keyword){
+    public function getByKeyWord($keyword)
+    {
         return $this->model->where([
-                ['name', 'like', "%" . $keyword . "%"],
-            ])
+            ['name', 'like', "%" . $keyword . "%"],
+        ])
             ->orWhere([
                 ['description', 'like', "%" . $keyword . "%"],
             ])
             ->paginate(10);
+    }
+
+    public function getByCategory($id)
+    {
+        $cats = $this->model->whereIn('parent_id', [$id])->select('id', 'name', 'slug')->get();
+        $result = [];
+        foreach ($cats as $cat) {
+            $result[$cat->name][$cat->slug] = $this->model->whereIn('parent_id', [$cat->id])->select('id', 'name', 'slug')->get();
+        }
+        return $result;
     }
 }

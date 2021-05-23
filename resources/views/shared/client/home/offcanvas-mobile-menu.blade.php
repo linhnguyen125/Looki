@@ -33,151 +33,53 @@
         <nav class="offcanvas-menu">
             <ul>
                 <li>
-                    <a href="#"><span class="menu-text">Home</span></a>
+                    <a href="#"><span class="menu-text">Trang chủ</span></a>
+                </li>
+                <li>
+                    <a href="#"><span class="menu-text">Sản phẩm</span></a>
                     <ul class="offcanvas-submenu">
-                        <li><a href="index.html">Home 1</a></li>
-                        <li><a href="index-2.html">Home 2</a></li>
+
+                        <!-- col fashion -->
+                        @foreach($fashions as $name => $fashion)
+                            <li>
+                                @foreach($fashion as $slugParent => $itemParents)
+                                <a href="{{$slugParent}}"><span class="menu-text">{{$name}}</span></a>
+                                    <ul class="offcanvas-submenu">
+                                        @foreach($itemParents as $itemParent)
+                                            <li>
+                                                <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                            </li>
+                                        @endforeach
+                                @endforeach
+                                    </ul>
+                            </li>
+                        @endforeach
+
+                    <!-- col cosmetics -->
+                        @foreach($cosmetics as $name => $cosmetic)
+                            <li>
+                                @foreach($cosmetic as $slugParent => $itemParents)
+                                    <a href="{{$slugParent}}"><span class="menu-text">{{$name}}</span></a>
+                                    <ul class="offcanvas-submenu">
+                                        @foreach($itemParents as $itemParent)
+                                            <li>
+                                                <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                            </li>
+                                        @endforeach
+                                        @endforeach
+                                    </ul>
+                            </li>
+                        @endforeach
+
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="menu-text">Shop</span></a>
-                    <ul class="offcanvas-submenu">
-                        <li>
-                            <a href="#"><span class="menu-text">Shop Grid</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li>
-                                    <a href="shop-grid-3-column.html">Shop Grid 3 Column</a>
-                                </li>
-                                <li>
-                                    <a href="shop-grid-4-column.html">Shop Grid 4 Column</a>
-                                </li>
-                                <li>
-                                    <a href="shop-grid-left-sidebar.html"
-                                    >Shop Grid Left Sidebar</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="shop-grid-right-sidebar.html"
-                                    >Shop Grid Right Sidebar</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Shop List</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li><a href="shop-grid-list.html">Shop List</a></li>
-                                <li>
-                                    <a href="shop-grid-list-left-sidebar.html"
-                                    >Shop List Left Sidebar</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="shop-grid-list-right-sidebar.html"
-                                    >Shop List Right Sidebar</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Shop Single</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li><a href="single-product.html">Shop Single</a></li>
-                                <li>
-                                    <a href="single-product-configurable.html">Shop Variable</a>
-                                </li>
-                                <li>
-                                    <a href="single-product-affiliate.html">Shop Affiliate</a>
-                                </li>
-                                <li><a href="single-product-group.html">Shop Group</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">other pages</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li><a href="about-us.html">About Page</a></li>
-                                <li><a href="cart.html">Cart Page</a></li>
-                                <li><a href="checkout.html">Checkout Page</a></li>
-                                <li><a href="compare.html">Compare Page</a></li>
-                                <li><a href="login.html">Login &amp; Register Page</a></li>
-                                <li><a href="myaccount.html">Account Page</a></li>
-                                <li><a href="wishlist.html">Wishlist Page</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <a href="#"><span class="menu-text">Tin tức</span></a>
                 </li>
                 <li>
-                    <a href="#"><span class="menu-text">Pages</span></a>
-                    <ul class="offcanvas-submenu">
-                        <li><a href="about-us.html">About Page</a></li>
-                        <li><a href="cart.html">Cart Page</a></li>
-                        <li><a href="checkout.html">Checkout Page</a></li>
-                        <li><a href="compare.html">Compare Page</a></li>
-                        <li><a href="login.html">Login &amp; Register Page</a></li>
-                        <li><a href="myaccount.html">Account Page</a></li>
-                        <li><a href="wishlist.html">Wishlist Page</a></li>
-                    </ul>
+                    <a href="blog-grid-3-column.html"><span class="menu-text">Về chúng tôi</span></a>
                 </li>
-                <li>
-                    <a href="blog-grid-3-column.html"
-                    ><span class="menu-text">Blog</span></a
-                    >
-                    <ul class="offcanvas-submenu">
-                        <li>
-                            <a href="#"><span class="menu-text">Blog Grid</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li>
-                                    <a href="blog-grid-3-column.html">Blog Grid 3 column</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid-4-column.html">Blog Grid 4 column</a>
-                                </li>
-                                <li>
-                                    <a href="blog-grid-left-sidebar.html"
-                                    >Blog Grid Left Sidebar</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="blog-grid-right-sidebar.html"
-                                    >Blog Grid Right Sidebar</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Blog List</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li>
-                                    <a href="blog-list-left-sidebar.html"
-                                    >Blog List Left Sidebar</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="blog-list-right-sidebar.html"
-                                    >Blog List Right Sidebar</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><span class="menu-text">Blog Single</span></a>
-                            <ul class="offcanvas-submenu">
-                                <li><a href="single-blog.html">Single Blog</a></li>
-                                <li>
-                                    <a href="blog-single-left-sidebar.html"
-                                    >Blog Single Left Sidebar</a
-                                    >
-                                </li>
-                                <li>
-                                    <a href="blog-single-right-sidebar.html"
-                                    >Blog Single Right Sidbar</a
-                                    >
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.html">Liên hệ</a></li>
             </ul>
         </nav>
         <div class="offcanvas-social py-30">

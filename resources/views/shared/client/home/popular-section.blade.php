@@ -3,110 +3,31 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title text-center">
-                    <h2 class="title pb-3 mb-3">Popular products</h2>
+                    <h2 class="title pb-3 mb-3">Sản Phẩm Phổ Biến</h2>
                     <p class="text">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                        Perspiciatis, culpa?
+                        Sản phẩm được nhiều khách hàng ưa dùng
                     </p>
                 </div>
             </div>
             <div class="col-12">
                 <div class="popular-slider-init dots-style">
-                    <div class="slider-item">
-                        <div class="card popular-card zoom-in d-block overflow-hidden">
-                            <div class="card-body">
-                                <a href="#" class="thumb-naile">
-                                    <img
-                                        class="d-block mx-auto"
-                                        src="{{asset('assets/client/img/popular/5.png')}}"
-                                        alt="img"
-                                    /></a>
-                                <h3 class="popular-title">
-                                    <a href="#"> Accessories & Parts <span>(17)</span></a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
                     <!-- slider-item end -->
-                    <div class="slider-item">
-                        <div class="card popular-card zoom-in d-block overflow-hidden">
-                            <div class="card-body">
-                                <a href="#" class="thumb-naile">
-                                    <img
-                                        class="d-block mx-auto"
-                                        src="{{asset('assets/client/img/popular/1.png')}}"
-                                        alt="img"
-                                    /></a>
-                                <h3 class="popular-title">
-                                    <a href="#"> Audio & Video <span>(17)</span></a>
-                                </h3>
+                    @foreach($popular_products as $popular_product)
+                        <div class="slider-item">
+                            <div class="card popular-card zoom-in d-block overflow-hidden">
+                                <div class="card-body">
+                                    <a href="{{$popular_product->slug}}" class="thumb-naile">
+                                        <img
+                                            class="d-block mx-auto"
+                                            src="{{$popular_product->thumbnail}}"
+                                            alt="img"/></a>
+                                    <h3 class="popular-title">
+                                        <a href="{{$popular_product->slug}}">{{$popular_product->name}}</a>
+                                    </h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- slider-item end -->
-                    <div class="slider-item">
-                        <div class="card popular-card zoom-in d-block overflow-hidden">
-                            <div class="card-body">
-                                <a href="#" class="thumb-naile">
-                                    <img
-                                        class="d-block mx-auto"
-                                        src="{{asset('assets/client/img/popular/2.png')}}"
-                                        alt="img"
-                                    /></a>
-                                <h3 class="popular-title">
-                                    <a href="#"> Smart Fashion <span>(18)</span></a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- slider-item end -->
-                    <div class="slider-item">
-                        <div class="card popular-card zoom-in d-block overflow-hidden">
-                            <div class="card-body">
-                                <a href="#" class="thumb-naile">
-                                    <img
-                                        class="d-block mx-auto"
-                                        src="{{asset('assets/client/img/popular/3.png')}}"
-                                        alt="img"
-                                    /></a>
-                                <h3 class="popular-title">
-                                    <a href="#"> Camera & Photo <span>(19)</span></a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- slider-item end -->
-                    <div class="slider-item">
-                        <div class="card popular-card zoom-in d-block overflow-hidden">
-                            <div class="card-body">
-                                <a href="#" class="thumb-naile">
-                                    <img
-                                        class="d-block mx-auto"
-                                        src="{{asset('assets/client/img/popular/4.png')}}"
-                                        alt="img"
-                                    /></a>
-                                <h3 class="popular-title">
-                                    <a href="#"> Headphones <span>(20)</span></a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- slider-item end -->
-                    <div class="slider-item">
-                        <div class="card popular-card zoom-in d-block overflow-hidden">
-                            <div class="card-body">
-                                <a href="#" class="thumb-naile">
-                                    <img
-                                        class="d-block mx-auto"
-                                        src="{{asset('assets/client/img/popular/5.png')}}"
-                                        alt="img"
-                                    /></a>
-                                <h3 class="popular-title">
-                                    <a href="#"> Video Games <span>(21)</span></a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                     <!-- slider-item end -->
                 </div>
             </div>

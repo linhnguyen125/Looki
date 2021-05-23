@@ -2,14 +2,56 @@
 
 @section('title', 'Mỹ phầm và Thời trang Việt Nam chất lượng cao')
 
+@section('css')
+    <style>
+        h3.popular-title{
+            white-space: initial;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 50px;
+        }
+
+        section h3.title{
+            white-space: initial;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 50px;
+        }
+
+        @media only screen and (max-width: 990px) {
+            section h3.title{
+                white-space: initial;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 45px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) {
+            div.product-body{
+                min-height: 180px;
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            div.common-banner{
+                display: none;
+            }
+            div.popular-section{
+                padding-top: 50px;
+            }
+        }
+    </style>
+@endsection
+
 @section('content')
     <!-- main slider start -->
     @include('shared.client.home.main-slider')
     <!-- main slider end -->
 
-    <!-- staic media start -->
-    @include('shared.client.home.staic-media')
-    <!-- staic media end -->
+    <!-- static media start -->
+    @include('shared.client.home.static-media')
+    <!-- static media end -->
 
     <!-- common banner  start -->
     @include('shared.client.home.common-banner')

@@ -1,0 +1,18 @@
+@media only screen and (max-width: 768px) {
+    section.static-media-section{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    div.common-banner{
+        display: none;
+    }
+    div.popular-section{
+        padding-top: 50px;
+    }
+    div.header-top{
+        display: none;
+    }
+}
+

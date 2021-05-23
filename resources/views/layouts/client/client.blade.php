@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/client/css/bootstrap.min.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/client/css/plugins/plugins.css')}}"/>
     <link rel="stylesheet" href="{{asset('assets/client/css/style.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('assets/client/css/custom.css')}}"/>
     @yield('css')
 
 </head>
