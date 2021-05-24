@@ -1,6 +1,6 @@
 @extends('layouts.admin.admin')
 
-@section('title', 'Danh mục sản phẩm')
+@section('title', 'Danh mục tin tức')
 
 @section('content')
     <div class="nk-content ">
@@ -10,7 +10,7 @@
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="nk-block-between">
                             <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">Danh mục sản phẩm</h3>
+                                <h3 class="nk-block-title page-title">Danh mục tin tức</h3>
                             </div><!-- .nk-block-head-content -->
                             <div class="nk-block-head-content">
                                 <div class="toggle-wrap nk-block-tools-toggle">
@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="nk-tb-col"><span class="sub-text">Tên danh mục</span></div>
                                 <div class="nk-tb-col tb-col-lg"><span class="sub-text">Mô tả</span></div>
-                                <div class="nk-tb-col"><span class="sub-text">Người tạo</span></div>
+                                <div class="nk-tb-col"><span class="sub-text">SEO title</span></div>
                                 <div class="nk-tb-col nk-tb-col-tools">
                                     <ul class="nk-tb-actions gx-1 my-n1">
                                         <li>
@@ -106,26 +106,27 @@
 
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="nk-tb-col tb-col-lg">
                                         <span>{{$category->description}}</span>
                                     </div>
                                     <div class="nk-tb-col">
                                         <span class="text-soft">
-                                            {{$category->admin->name}}
+                                            {{$category->slug}}
                                         </span>
                                     </div>
                                     <div class="nk-tb-col nk-tb-col-tools">
                                         <ul class="nk-tb-actions gx-1">
                                             <li class="nk-tb-action-hidden">
-                                                <a href="{{route('admin.category.edit', $category->id)}}"
+                                                <a href="{{route('admin.category_news.edit', $category->id)}}"
                                                    class="btn btn-trigger btn-icon" data-toggle="tooltip"
                                                    data-placement="top" title="Chỉnh sửa">
                                                     <em class="icon ni ni-edit-fill"></em>
                                                 </a>
                                             </li>
                                             <li class="nk-tb-action-hidden">
-                                                <a href="{{route('admin.category.delete', $category->id)}}"
+                                                <a href="{{route('admin.category_news.delete', $category->id)}}"
                                                    class="btn btn-trigger btn-icon"
                                                    data-toggle="tooltip"
                                                    onclick="return confirm('Bạn có chắc chắn xóa danh mục này khỏi hệ thống? Mọi sản phẩm thuộc danh mục này cũng sẽ bị xóa!!')"
@@ -141,11 +142,11 @@
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <ul class="link-list-opt no-bdr">
                                                             <li>
-                                                                <a href="{{route('admin.category.edit', $category->id)}}">
+                                                                <a href="{{route('admin.category_news.edit', $category->id)}}">
                                                                     <em class="icon ni ni-edit"></em><span>Chỉnh sửa</span></a>
                                                             </li>
                                                             <li>
-                                                                <a href="{{route('admin.category.delete', $category->id)}}">
+                                                                <a href="{{route('admin.category_news.delete', $category->id)}}">
                                                                     <em class="icon ni ni-trash"></em><span>Xóa</span></a>
                                                             </li>
                                                         </ul>
@@ -171,5 +172,5 @@
             </div>
         </div>
     </div>
-    @include('shared.admin.layouts.category.form_create')
+    @include('shared.admin.layouts.category_news.form_create')
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.admin.admin')
 
-@section('title', 'Chỉnh sửa mục sản phẩm')
+@section('title', 'Chỉnh sửa danh mục tin tức')
 
 @section('content')
     <div class="nk-content ">
@@ -10,7 +10,7 @@
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="nk-block-between g-3">
                             <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">Chỉnh sửa danh mục sản phẩm</h3>
+                                <h3 class="nk-block-title page-title">Chỉnh sửa danh mục tin tức</h3>
                             </div>
                             <div class="nk-block-head-content">
                                 <a href="{{ url()->previous() }}"
@@ -29,7 +29,7 @@
                                 <div class="card-content">
                                     <div class="card-inner">
                                         <div class="nk-block">
-                                            <form id="form-edit" action="{{route('admin.category.update', $category->id)}}"
+                                            <form id="form-edit" action="{{route('admin.category_news.update', $category->id)}}"
                                                   method="POST">
                                                 @csrf
 

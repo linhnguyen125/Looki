@@ -171,5 +171,7 @@ return [
         'price'                 => 'giá sản phẩm',
         'detail'                => 'chi tiết',
         'path'                  => 'đường dẫn ảnh',
+        'blog_category_id'      => 'danh mục blog',
+        'news_category_id'      => 'danh mục tin tức'
     ],
 ];
