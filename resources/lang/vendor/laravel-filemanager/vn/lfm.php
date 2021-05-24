@@ -76,6 +76,9 @@ return [
     'resize-old-width'  => 'Chiều rộng ban đầu:',
     'resize-new-height' => 'Chiều cao:',
     'resize-new-width'  => 'Chiều rộng:',
+    'Insert/Edit Image' => 'Thêm/Sửa ảnh',
+    'with'              => 'Chiều rộng',
+    'height'            => 'Chiều cao',
 
     'locale-bootbox'    => 'vi',
 ];

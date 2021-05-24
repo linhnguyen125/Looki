@@ -38,8 +38,8 @@
                                                     </div>
                                                     <div class="d-flex align-items-center justify-content-between">
                                                         <span class="product-price">
-                                                            <del class="del">{{ number_format($featured_product->price, 0, '', '.') }} đ</del>
-                                                            <span class="on-sale">{{ number_format($featured_product->price, 0, '', '.') }} đ</span>
+{{--                                                            <del class="del">{{ number_format($featured_product->price, 0, '', '.') }} đ</del>--}}
+                                                            <span class="on-sale">{{ number_format($featured_product->price, 0, '', '.') }}</span>
                                                         </span>
                                                         <button
                                                             class="pro-btn"

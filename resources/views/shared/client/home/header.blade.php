@@ -5,19 +5,14 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 col-sm-6 order-last order-sm-first">
                     <div
-                        class="d-flex justify-content-center justify-content-sm-start align-items-center"
-                    >
+                        class="d-flex justify-content-center justify-content-sm-start align-items-center">
                         <div class="social-network2 modify">
                             <ul class="d-flex">
                                 <li>
-                                    <a href="https://www.facebook.com/" target="_blank"
-                                    ><span class="icon-social-facebook"></span
-                                        ></a>
+                                    <a href="https://www.facebook.com/" target="_blank"><span class="icon-social-facebook"></span></a>
                                 </li>
                                 <li>
-                                    <a href="https://twitter.com/" target="_blank"
-                                    ><span class="icon-social-twitter"></span
-                                        ></a>
+                                    <a href="https://twitter.com/" target="_blank"><span class="icon-social-twitter"></span></a>
                                 </li>
                                 <li>
                                     <a href="https://www.youtube.com/" target="_blank"
@@ -128,12 +123,12 @@
     <div id="sticky" class="header-middle theme1 py-15 py-lg-0">
         <div class="container position-relative">
             <div class="row align-items-center">
-                <div class="col-6 col-lg-3">
+                <div class="col-6 col-lg-2">
                     <div class="logo">
                         <a href="index.html"><img src="{{asset('assets/client/img/logo/logo.png')}}" alt="logo"/></a>
                     </div>
                 </div>
-                <div class="col-lg-6 d-none d-lg-block">
+                <div class="col-lg-8 d-none d-lg-block">
                     <ul class="main-menu d-flex justify-content-center">
                         <!-- Home -->
                         <li class="active ml-0">
@@ -191,14 +186,19 @@
                             </ul>
                         </li>
 
-                        <!-- Blog -->
+                        <!-- News -->
                         <li>
                             <a href="blog-grid-3-column.html">Tin tức</a>
                         </li>
 
+                        <!-- Blog -->
+                        <li>
+                            <a href="blog-grid-3-column.html">Blog</a>
+                        </li>
+
                         <!-- About page -->
                         <li>
-                            <a href="#">Về chúng tôi</a>
+                            <a href="#">Về Looki</a>
                         </li>
 
                         <!-- Contact page -->
@@ -206,7 +206,7 @@
                     </ul>
                 </div>
 
-                <div class="col-6 col-lg-3">
+                <div class="col-6 col-lg-2">
                     <!-- search-form end -->
                     <div class="d-flex align-items-center justify-content-end">
                         <!-- static-media end -->

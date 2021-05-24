@@ -11,19 +11,26 @@
             height: 50px;
         }
 
-        section h3.title{
+        section.product-tab h3.title{
             white-space: initial;
             overflow: hidden;
             text-overflow: ellipsis;
             height: 50px;
         }
 
+        section.blog-section h3.title{
+            white-space: initial;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 40px;
+        }
+
         @media only screen and (max-width: 990px) {
-            section h3.title{
+            section.product-tab h3.title{
                 white-space: initial;
                 overflow: hidden;
                 text-overflow: ellipsis;
-                height: 45px;
+                height: 40px;
             }
         }
 
@@ -39,6 +46,12 @@
             }
             div.popular-section{
                 padding-top: 50px;
+            }
+            section.featured-slider h3.title{
+                white-space: initial;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                height: 62px;
             }
         }
     </style>

@@ -49,7 +49,7 @@ class Admin extends Authenticatable
         return $this->hasMany('App\Models\Category');
     }
 
-    public function news()
+    public function newses()
     {
         return $this->hasMany('App\Models\News');
     }
