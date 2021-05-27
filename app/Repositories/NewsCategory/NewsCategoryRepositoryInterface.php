@@ -18,5 +18,5 @@ interface NewsCategoryRepositoryInterface
 
     public function getByKeyWord($keyword);
 
-    public function getByCategory($id);
+    public function findBySlug($slug);
 }

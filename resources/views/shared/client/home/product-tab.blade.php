@@ -71,7 +71,7 @@
                                             <div class="media flex-column">
                                                 <div class="product-thumbnail position-relative">
                                                     <span class="badge badge-danger top-right">New</span>
-                                                    <a href="single-product.html">
+                                                    <a href="{{route('client.category', $new_product->slug)}}">
                                                         <img
                                                             class="first-img"
                                                             src="{{$new_product->thumbnail}}"
@@ -121,7 +121,7 @@
                                                 <div class="media-body">
                                                     <div class="product-desc">
                                                         <h3 class="title">
-                                                            <a href="{{$new_product->slug}}">{{$new_product->name}}</a>
+                                                            <a href="{{route('client.category', $new_product->slug)}}">{{$new_product->name}}</a>
                                                         </h3>
                                                         <div class="star-rating">
                                                             <span class="ion-ios-star"></span>
@@ -165,7 +165,7 @@
                                             <div class="media flex-column">
                                                 <div class="product-thumbnail position-relative">
                                                     <span class="badge badge-danger top-right">Sale</span>
-                                                    <a href="{{$sale_product->slug}}">
+                                                    <a href="{{route('client.category', $sale_product->slug)}}">
                                                         <img
                                                             class="first-img"
                                                             src="{{$sale_product->thumbnail}}"
@@ -216,7 +216,7 @@
                                                 <div class="media-body">
                                                     <div class="product-desc">
                                                         <h3 class="title">
-                                                            <a href="{{$sale_product->slug}}">{{$sale_product->name}}</a>
+                                                            <a href="{{route('client.category', $sale_product->slug)}}">{{$sale_product->name}}</a>
                                                         </h3>
                                                         <div class="star-rating">
                                                             <span class="ion-ios-star"></span>

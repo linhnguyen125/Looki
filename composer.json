@@ -16,7 +16,8 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
-        "unisharp/laravel-filemanager": "^2.2"
+        "unisharp/laravel-filemanager": "^2.2",
+        "squizlabs/php_codesniffer": "3.5.5"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

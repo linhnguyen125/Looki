@@ -12,11 +12,6 @@ class NewsRepository extends BaseRepository implements NewsRepositoryInterface
         return \App\Models\News::class;
     }
 
-    public function getAll()
-    {
-        return $this->model->paginate(10);
-    }
-
     public function data_tree($data, $parent_id = 0, $level = 0)
     {
         $result = [];
@@ -61,10 +56,13 @@ class NewsRepository extends BaseRepository implements NewsRepositoryInterface
         ])->orderBy($filter, 'desc')->paginate(10);
     }
 
-
     public function getNewNews($num)
     {
         return $this->model->orderBy('created_at', 'desc')->take($num)->get();
     }
 
+    public function getByCategory($id, $page)
+    {
+        return $this->model->where('news_category_id', $id)->paginate($page);
+    }
 }

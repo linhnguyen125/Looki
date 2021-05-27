@@ -52,8 +52,19 @@ class CategoryRepository extends BaseRepository implements CategoryRepositoryInt
         $cats = $this->model->whereIn('parent_id', [$id])->select('id', 'name', 'slug')->get();
         $result = [];
         foreach ($cats as $cat) {
-            $result[$cat->name][$cat->slug] = $this->model->whereIn('parent_id', [$cat->id])->select('id', 'name', 'slug')->get();
+            $result[$cat->name][$cat->slug] = $this->model->whereIn('parent_id', [$cat->id])->select('id', 'name',
+                'slug')->get();
         }
         return $result;
+    }
+
+    public function getBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
+    }
+
+    public function getChild($id)
+    {
+        return $this->model->where('parent_id', $id)->pluck('id');
     }
 }

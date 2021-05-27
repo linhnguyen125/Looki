@@ -21,4 +21,8 @@ interface CategoryRepositoryInterface
     public function getByKeyWord($keyword);
 
     public function getByCategory($id);
+
+    public function getBySlug($slug);
+
+    public function getChild($id);
 }

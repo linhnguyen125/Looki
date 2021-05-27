@@ -11,11 +11,11 @@
             height: 50px;
         }
 
-        section.product-tab h3.title{
+        section.product-tab h3.title, section.featured-slider h3{
             white-space: initial;
             overflow: hidden;
             text-overflow: ellipsis;
-            height: 50px;
+            height: 45px;
         }
 
         section.blog-section h3.title{
@@ -93,4 +93,8 @@
     <!-- blog-section start -->
     @include('shared.client.home.blog-section')
     <!-- blog-section end -->
+
+    <!-- modals start -->
+    @include('shared.client.home.modal')
+    <!-- modals end -->
 @endsection

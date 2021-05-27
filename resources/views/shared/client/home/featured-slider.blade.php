@@ -16,7 +16,7 @@
                                     <div class="card-body p-0">
                                         <div class="media">
                                             <div class="product-thumbnail">
-                                                <a href="single-product.html">
+                                                <a href="{{route('client.category', $featured_product->slug)}}">
                                                     <img
                                                         class="first-img"
                                                         src="{{$featured_product->thumbnail}}"
@@ -26,7 +26,7 @@
                                             <div class="media-body">
                                                 <div class="product-desc">
                                                     <h3 class="title">
-                                                        <a href="{{$featured_product->slug}}">
+                                                        <a href="{{route('client.category', $featured_product->slug)}}">
                                                             {{$featured_product->name}}</a>
                                                     </h3>
                                                     <div class="star-rating">
@@ -39,7 +39,7 @@
                                                     <div class="d-flex align-items-center justify-content-between">
                                                         <span class="product-price">
 {{--                                                            <del class="del">{{ number_format($featured_product->price, 0, '', '.') }} đ</del>--}}
-                                                            <span class="on-sale">{{ number_format($featured_product->price, 0, '', '.') }}</span>
+                                                            <span class="on-sale">{{ number_format($featured_product->price, 0, '', '.') }} đ</span>
                                                         </span>
                                                         <button
                                                             class="pro-btn"

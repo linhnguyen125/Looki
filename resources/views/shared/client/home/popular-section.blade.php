@@ -16,13 +16,13 @@
                         <div class="slider-item">
                             <div class="card popular-card zoom-in d-block overflow-hidden">
                                 <div class="card-body">
-                                    <a href="{{$popular_product->slug}}" class="thumb-naile">
+                                    <a href="{{route('client.category', $popular_product->slug)}}" class="thumb-naile">
                                         <img
                                             class="d-block mx-auto"
                                             src="{{$popular_product->thumbnail}}"
                                             alt="img"/></a>
                                     <h3 class="popular-title">
-                                        <a href="{{$popular_product->slug}}">{{$popular_product->name}}</a>
+                                        <a href="{{route('client.category', $popular_product->slug)}}">{{$popular_product->name}}</a>
                                     </h3>
                                 </div>
                             </div>

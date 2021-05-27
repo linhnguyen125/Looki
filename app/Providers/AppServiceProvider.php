@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Repositories\Category\CategoryRepositoryInterface;
+use App\Repositories\NewsCategory\NewsCategoryRepositoryInterface;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\View;
 class AppServiceProvider extends ServiceProvider
 {
     protected $catRepo;
+    protected $newsCategoryRepo;
 
     /**
      * Register any application services.
@@ -62,12 +64,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(CategoryRepositoryInterface $catRepo)
+    public function boot(CategoryRepositoryInterface $catRepo, NewsCategoryRepositoryInterface $newsCategoryRepo)
     {
         $this->catRepo = $catRepo;
+        $this->newsCategoryRepo = $newsCategoryRepo;
         Schema::defaultStringLength(255);
         $fashions = $this->catRepo->getByCategory(1);
         $cosmetics = $this->catRepo->getByCategory(2);
-        View::share(['fashions' => $fashions, 'cosmetics' => $cosmetics]);
+        $news_categories = $this->newsCategoryRepo->getAll();
+        View::share(['fashions' => $fashions, 'cosmetics' => $cosmetics, 'news_categories' => $news_categories]);
     }
 }

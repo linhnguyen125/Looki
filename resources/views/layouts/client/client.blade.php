@@ -54,10 +54,6 @@
 @include('shared.client.home.footer')
 <!-- footer end -->
 
-<!-- modals start -->
-@include('shared.client.home.modal')
-<!-- modals end -->
-
 <!-- search-box and overlay start -->
 @include('shared.client.home.search-box-and-overlay')
 <!-- search-box and overlay end -->

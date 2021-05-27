@@ -83,15 +83,15 @@
                                     <span class="product-price text-center">
                                       <span class="new-price">{{ number_format($new_product->price, 0, '', '.') }} đ</span>
                                     </span>
-                                    <p>
+                                    <div>
                                         {!! $new_product->description !!}
-                                    </p>
+                                    </div>
                                 </div>
                                 <div class="product-footer">
                                     <div
                                         class="product-count style d-flex flex-column flex-sm-row my-4">
                                         <div class="count d-flex">
-                                            <input type="number" min="1" max="10" step="1" value="1"/>
+                                            <input type="number" min="1" max="{{$new_product->stock}}" disabled step="1" value="1"/>
                                             <div class="button-group">
                                                 <button class="count-btn increment">
                                                     <i class="fas fa-chevron-up"></i>
@@ -224,15 +224,15 @@
                                     <span class="product-price text-center">
                                       <span class="new-price">{{ number_format($sale_product->price, 0, '', '.') }} đ</span>
                                     </span>
-                                    <p>
+                                    <div>
                                         {!! $sale_product->description !!}
-                                    </p>
+                                    </div>
                                 </div>
                                 <div class="product-footer">
                                     <div
                                         class="product-count style d-flex flex-column flex-sm-row my-4">
                                         <div class="count d-flex">
-                                            <input type="number" min="1" max="10" step="1" value="1"/>
+                                            <input type="number" min="1" max="{{$sale_product->stock}}" disabled step="1" value="1"/>
                                             <div class="button-group">
                                                 <button class="count-btn increment">
                                                     <i class="fas fa-chevron-up"></i>

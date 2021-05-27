@@ -35,4 +35,8 @@ interface ProductRepositoryInterface
     public function getComingUpProduct($num);
 
     public function getFeaturedProduct($num);
+
+    public function getByCategory($catId, $page);
+
+    public function findBySlug($slug);
 }

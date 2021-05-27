@@ -14,5 +14,11 @@
     div.header-top{
         display: none;
     }
+    div.form-register-bottom-md{
+        display: none !important;
+    }
+    div.form-register-bottom-sm{
+        display: block !important;
+    }
 }
 

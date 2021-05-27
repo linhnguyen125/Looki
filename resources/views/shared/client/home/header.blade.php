@@ -9,29 +9,29 @@
                         <div class="social-network2 modify">
                             <ul class="d-flex">
                                 <li>
-                                    <a href="https://www.facebook.com/" target="_blank"><span class="icon-social-facebook"></span></a>
+                                    <a href="https://www.facebook.com/profile.php?id=100015452952494" target="_blank"><span
+                                            class="icon-social-facebook"></span></a>
                                 </li>
                                 <li>
-                                    <a href="https://twitter.com/" target="_blank"><span class="icon-social-twitter"></span></a>
+                                    <a href="https://twitter.com/" target="_blank"><span
+                                            class="icon-social-twitter"></span></a>
                                 </li>
                                 <li>
-                                    <a href="https://www.youtube.com/" target="_blank"
+                                    <a href="https://www.youtube.com/channel/UCnVG2vgTPlOTb23Uc4bUnew" target="_blank"
                                     ><span class="icon-social-youtube"></span
                                         ></a>
                                 </li>
                                 <li class="mr-0">
-                                    <a href="https://www.instagram.com/" target="_blank"
-                                    ><span class="icon-social-instagram"></span
-                                        ></a>
+                                    <a href="https://www.instagram.com/linh.looki/" target="_blank">
+                                        <span class="icon-social-instagram"></span></a>
                                 </li>
                             </ul>
                         </div>
                         <div class="media static-media ml-4 d-flex align-items-center">
                             <div class="media-body">
                                 <div class="phone modify">
-                                    <a href="tel:(+123)4567890" class="text-white"
-                                    ><i class="icon-call-out mr-1"></i> (+123)4567890</a
-                                    >
+                                    <a href="tel:(+84)981958120" class="text-white">
+                                        <i class="icon-call-out mr-1"></i> (+84) 981 958 120</a>
                                 </div>
                             </div>
                         </div>
@@ -39,78 +39,43 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <nav class="navbar-top modify pb-2 pb-sm-0 position-relative">
-                        <ul
-                            class="d-flex justify-content-center justify-content-md-end align-items-center"
-                        >
-                            <li>
-                                <a
-                                    href="#"
-                                    id="dropdown1"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >Setting <i class="ion ion-ios-arrow-down"></i
-                                    ></a>
-                                <ul
-                                    class="topnav-submenu dropdown-menu"
-                                    aria-labelledby="dropdown1"
-                                >
-                                    <li><a href="myaccount.html">My account</a></li>
-                                    <li><a href="checkout.html">Checkout</a></li>
-                                    <li><a href="login.html">Sign out</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    id="dropdown2"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >USD $ <i class="ion ion-ios-arrow-down"></i>
-                                </a>
-                                <ul
-                                    class="topnav-submenu dropdown-menu"
-                                    aria-labelledby="dropdown2"
-                                >
-                                    <li class="active"><a href="#">EUR €</a></li>
-                                    <li><a href="#">USD $</a></li>
-                                </ul>
-                            </li>
-                            <li class="english">
-                                <a
-                                    href="#"
-                                    id="dropdown3"
-                                    class="pr-0"
-                                    data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    <img src="{{asset('assets/client/img/logo/us-flag.jpg')}}" alt="us flag"/>
-                                    English
-                                    <i class="ion ion-ios-arrow-down"></i>
-                                </a>
-                                <ul
-                                    class="topnav-submenu dropdown-menu"
-                                    aria-labelledby="dropdown3"
-                                >
-                                    <li class="active">
-                                        <a href="#"
-                                        ><img src="{{asset('assets/client/img/logo/us-flag.jpg')}}" alt="us flag"/>
-                                            English</a
-                                        >
-                                    </li>
+                        <ul class="d-flex justify-content-center justify-content-md-end align-items-center">
+                            @if(Route::has('login'))
+                                @auth
                                     <li>
-                                        <a href="#"
-                                        ><img
-                                                src="{{asset('assets/client/img/logo/france.jpg')}}"
-                                                alt="france flag"
-                                            />
-                                            Français</a
-                                        >
+                                        <a
+                                            href="#"
+                                            id="dropdown1"
+                                            data-toggle="dropdown"
+                                            aria-haspopup="true"
+                                            aria-expanded="false">{{Auth::user()->name}} <i class="ion ion-ios-arrow-down"></i></a>
+                                        <ul
+                                            class="topnav-submenu dropdown-menu"
+                                            aria-labelledby="dropdown1">
+                                            <li><a href="myaccount.html">Tài khoản</a></li>
+                                            <li><a href="{{route('logout')}}"
+                                                    onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">Đăng xuất</a></li>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                @csrf
+                                            </form>
+                                        </ul>
                                     </li>
-                                </ul>
-                            </li>
+                                @else
+                                    <li>
+                                        <a
+                                            href="{{ route('login') }}">Đăng nhập</i>
+                                        </a>
+                                    </li>
+                                    @if (Route::has('register'))
+                                        <li>
+                                            <a
+                                                href="{{ route('register') }}">Đăng ký
+                                            </a>
+                                        </li>
+                                    @endif
+                                @endauth
+                            @endif
                         </ul>
                     </nav>
                 </div>
@@ -125,29 +90,29 @@
             <div class="row align-items-center">
                 <div class="col-6 col-lg-2">
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('assets/client/img/logo/logo.png')}}" alt="logo"/></a>
+                        <a href="{{url('/')}}"><img src="{{asset('assets/client/img/logo/logo.png')}}" alt="logo"/></a>
                     </div>
                 </div>
                 <div class="col-lg-8 d-none d-lg-block">
                     <ul class="main-menu d-flex justify-content-center">
                         <!-- Home -->
                         <li class="active ml-0">
-                            <a href="index.html" class="pl-0">Trang chủ</a>
+                            <a href="{{url('/')}}" class="pl-0">Trang chủ</a>
                         </li>
 
                         <!-- Sản phẩm -->
                         <li class="position-static">
-                            <a href="shop-grid-3-column.html">Sản phẩm <i class="ion-ios-arrow-down"></i></a>
+                            <a href="#" onclick="return false;">Sản phẩm <i class="ion-ios-arrow-down"></i></a>
                             <ul class="mega-menu row">
                                 <!-- col fashion -->
                                 @foreach($fashions as $name => $fashion)
                                     <li class="col-2">
                                         <ul>
                                             @foreach($fashion as $slugParent => $itemParents)
-                                                <li class="mega-menu-title"><a href="{{$slugParent}}">{{$name}}</a></li>
+                                                <li class="mega-menu-title"><a href="{{route('client.category', $slugParent)}}">{{$name}}</a></li>
                                                 @foreach($itemParents as $itemParent)
                                                     <li>
-                                                        <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                                        <a href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
                                                     </li>
                                                 @endforeach
                                             @endforeach
@@ -160,40 +125,43 @@
                                     <li class="col-2">
                                         <ul>
                                             @foreach($cosmetic as $slugParent => $itemParents)
-                                                <li class="mega-menu-title"><a href="{{$slugParent}}">{{$name}}</a></li>
+                                                <li class="mega-menu-title"><a href="{{route('client.category', $slugParent)}}">{{$name}}</a></li>
                                                 @foreach($itemParents as $itemParent)
                                                     <li>
-                                                        <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                                        <a href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
                                                     </li>
                                                 @endforeach
                                             @endforeach
                                         </ul>
                                     </li>
-                                @endforeach
-
-
-                                <!-- img -->
+                            @endforeach
+                            <!-- img -->
                                 <li class="col-6 mt-4">
                                     <a href="single-product.html" class="zoom-in overflow-hidden">
-                                        <img src="{{asset('assets/client/img/mega-menu/1.jpg')}}" alt="img"/></a>
+                                        <img src="{{asset('assets/client/img/mega-menu/pexels-monstera-6311720.jpg')}}" alt="img"/></a>
                                 </li>
 
                                 <!-- img -->
                                 <li class="col-6 mt-4">
                                     <a href="single-product.html" class="zoom-in overflow-hidden">
-                                        <img src="{{asset('assets/client/img/mega-menu/2.jpg')}}" alt="img"/></a>
+                                        <img src="{{asset('assets/client/img/mega-menu/pexels-lumn-167703.jpg')}}" alt="img"/></a>
                                 </li>
                             </ul>
                         </li>
 
                         <!-- News -->
                         <li>
-                            <a href="blog-grid-3-column.html">Tin tức</a>
+                            <a href="#" onclick="return false;">Tin tức <i class="ion-ios-arrow-down"></i></a>
+                            <ul class="sub-menu">
+                                @foreach($news_categories as $news_category)
+                                    <li><a href="{{route('client.category', $news_category->slug)}}">{{$news_category->name}}</a></li>
+                                @endforeach
+                            </ul>
                         </li>
 
                         <!-- Blog -->
                         <li>
-                            <a href="blog-grid-3-column.html">Blog</a>
+                            <a href="{{route('client.category', 'blog')}}">Blog</a>
                         </li>
 
                         <!-- About page -->

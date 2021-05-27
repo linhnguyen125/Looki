@@ -33,7 +33,7 @@
         <nav class="offcanvas-menu">
             <ul>
                 <li>
-                    <a href="#"><span class="menu-text">Trang chủ</span></a>
+                    <a href="{{url('/')}}"><span class="menu-text">Trang chủ</span></a>
                 </li>
                 <li>
                     <a href="#"><span class="menu-text">Sản phẩm</span></a>
@@ -43,11 +43,11 @@
                         @foreach($fashions as $name => $fashion)
                             <li>
                                 @foreach($fashion as $slugParent => $itemParents)
-                                <a href="{{$slugParent}}"><span class="menu-text">{{$name}}</span></a>
+                                <a href="{{route('client.category', $slugParent)}}"><span class="menu-text">{{$name}}</span></a>
                                     <ul class="offcanvas-submenu">
                                         @foreach($itemParents as $itemParent)
                                             <li>
-                                                <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                                <a href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
                                             </li>
                                         @endforeach
                                 @endforeach
@@ -59,14 +59,14 @@
                         @foreach($cosmetics as $name => $cosmetic)
                             <li>
                                 @foreach($cosmetic as $slugParent => $itemParents)
-                                    <a href="{{$slugParent}}"><span class="menu-text">{{$name}}</span></a>
+                                    <a href="{{route('client.category', $slugParent)}}"><span class="menu-text">{{$name}}</span></a>
                                     <ul class="offcanvas-submenu">
                                         @foreach($itemParents as $itemParent)
                                             <li>
-                                                <a href="{{$itemParent['slug']}}">{{$itemParent['name']}}</a>
+                                                <a href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
                                             </li>
                                         @endforeach
-                                        @endforeach
+                                @endforeach
                                     </ul>
                             </li>
                         @endforeach
@@ -75,11 +75,52 @@
                 </li>
                 <li>
                     <a href="#"><span class="menu-text">Tin tức</span></a>
+                    <ul class="offcanvas-submenu">
+                        @foreach($news_categories as $news_category)
+                            <li>
+                                <a href="{{route('client.category', $news_category->slug)}}">
+                                    <span class="menu-text">{{$news_category->name}}</span>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
                 </li>
                 <li>
-                    <a href="blog-grid-3-column.html"><span class="menu-text">Về chúng tôi</span></a>
+                    <a href="{{route('client.category', 'blog')}}"><span class="menu-text">Blog</span></a>
+                </li>
+                <li>
+                    <a href="blog-grid-3-column.html"><span class="menu-text">Về Looki</span></a>
                 </li>
                 <li><a href="contact.html">Liên hệ</a></li>
+                @if(Route::has('login'))
+                    @auth
+                        <li>
+                            <a href="#"><span class="menu-text">{{Auth::user()->name}}</span></a>
+                            <ul class="offcanvas-submenu">
+                                <li><a href="myaccount.html">Tài khoản</a></li>
+                                <li><a href="{{route('logout')}}"
+                                       onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">Đăng xuất</a></li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </ul>
+                        </li>
+                    @else
+                        <li>
+                            <a
+                                href="{{ route('login') }}">Đăng nhập</i>
+                            </a>
+                        </li>
+                        @if (Route::has('register'))
+                            <li>
+                                <a
+                                    href="{{ route('register') }}">Đăng ký
+                                </a>
+                            </li>
+                        @endif
+                    @endauth
+                @endif
             </ul>
         </nav>
         <div class="offcanvas-social py-30">

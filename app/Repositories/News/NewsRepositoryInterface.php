@@ -25,4 +25,6 @@ interface NewsRepositoryInterface
     public function getByStatusAndFilter($status, $filter, $keyword);
 
     public function getNewNews($num);
+
+    public function getByCategory($id, $page);
 }

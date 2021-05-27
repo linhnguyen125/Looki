@@ -87,7 +87,7 @@
                             Đăng ký vào danh sách gửi thư để nhận thông tin cập nhật về lượng khách mới đến,
                             ưu đãi đặc biệt và thông tin giảm giá khác.
                         </p>
-                        <div class="nletter-form mb-35">
+                        <div class="form-register-bottom-md nletter-form mb-35">
                             <form
                                 class="form-inline position-relative"
                                 action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef"
@@ -96,14 +96,33 @@
                                 <input
                                     class="form-control"
                                     type="text"
-                                    placeholder="Your email address"/>
+                                    placeholder="Địa chỉ email"/>
                                 <button
                                     class="btn news-letter-btn text-capitalize"
                                     type="submit">
-                                    Sign up
+                                    Đăng ký
                                 </button>
                             </form>
                         </div>
+                    </div>
+                </div>
+                <div class="col-12 form-register-bottom-sm d-none">
+                    <div class="nletter-form mb-35">
+                        <form
+                            class="form-inline position-relative"
+                            action="http://devitems.us11.list-manage.com/subscribe/post?u=6bbb9b6f5827bd842d9640c82&amp;id=05d85f18ef"
+                            target="_blank"
+                            method="post">
+                            <input
+                                class="form-control"
+                                type="text"
+                                placeholder="Địa chỉ email"/>
+                            <button
+                                class="btn news-letter-btn text-capitalize"
+                                type="submit">
+                                Đăng ký
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

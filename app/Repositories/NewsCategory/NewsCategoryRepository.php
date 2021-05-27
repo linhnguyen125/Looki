@@ -37,13 +37,8 @@ class NewsCategoryRepository extends BaseRepository implements NewsCategoryRepos
             ->paginate(10);
     }
 
-    public function getByCategory($id)
+    public function findBySlug($slug)
     {
-        $cats = $this->model->whereIn('parent_id', [$id])->select('id', 'name', 'slug')->get();
-        $result = [];
-        foreach ($cats as $cat) {
-            $result[$cat->name][$cat->slug] = $this->model->whereIn('parent_id', [$cat->id])->select('id', 'name', 'slug')->get();
-        }
-        return $result;
+        return $this->model->where('slug', $slug)->first();
     }
 }
