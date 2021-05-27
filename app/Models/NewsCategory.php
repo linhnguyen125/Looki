@@ -10,7 +10,7 @@ class NewsCategory extends Model
 
     protected $fillable = ['name', 'parent_id', 'description', 'slug'];
 
-    public function news()
+    public function newses()
     {
         return $this->hasMany('App\Models\News');
     }

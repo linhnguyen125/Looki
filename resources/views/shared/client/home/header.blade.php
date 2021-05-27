@@ -96,12 +96,12 @@
                 <div class="col-lg-8 d-none d-lg-block">
                     <ul class="main-menu d-flex justify-content-center">
                         <!-- Home -->
-                        <li class="active ml-0">
+                        <li class="ml-0 {{session('module') == 'home' ? 'active' : ' '}}">
                             <a href="{{url('/')}}" class="pl-0">Trang chủ</a>
                         </li>
 
                         <!-- Sản phẩm -->
-                        <li class="position-static">
+                        <li class="position-static {{session('module') == 'product' ? 'active' : ' '}}">
                             <a href="#" onclick="return false;">Sản phẩm <i class="ion-ios-arrow-down"></i></a>
                             <ul class="mega-menu row">
                                 <!-- col fashion -->
@@ -150,27 +150,22 @@
                         </li>
 
                         <!-- News -->
-                        <li>
-                            <a href="#" onclick="return false;">Tin tức <i class="ion-ios-arrow-down"></i></a>
-                            <ul class="sub-menu">
-                                @foreach($news_categories as $news_category)
-                                    <li><a href="{{route('client.category', $news_category->slug)}}">{{$news_category->name}}</a></li>
-                                @endforeach
-                            </ul>
+                        <li class="{{session('module') == 'news' ? 'active' : ' '}}">
+                            <a href="{{route('client.category', 'tin-tuc')}}">Tin tức</a>
                         </li>
 
                         <!-- Blog -->
-                        <li>
+                        <li class="{{session('module') == 'blog' ? 'active' : ' '}}">
                             <a href="{{route('client.category', 'blog')}}">Blog</a>
                         </li>
 
                         <!-- About page -->
-                        <li>
+                        <li class="{{session('module') == 'about us' ? 'active' : ' '}}">
                             <a href="#">Về Looki</a>
                         </li>
 
                         <!-- Contact page -->
-                        <li><a href="contact.html">Liên hệ</a></li>
+                        <li class="{{session('module') == 'contact' ? 'active' : ' '}}"><a href="contact.html">Liên hệ</a></li>
                     </ul>
                 </div>
 

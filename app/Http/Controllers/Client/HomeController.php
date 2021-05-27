@@ -21,6 +21,11 @@ class HomeController extends Controller
         $this->catRepo = $cateRepo;
         $this->productRepo = $productRepo;
         $this->newsRepo = $newsRepo;
+        $this->middleware(function ($request, $next) {
+            session(['module' => 'home']);
+
+            return $next($request);
+        });
     }
 
     public function index()

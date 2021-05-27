@@ -9,7 +9,7 @@ abstract class BaseRepository implements RepositoryInterface
     //model muốn tương tác
     protected $model;
 
-   //khởi tạo
+    //khởi tạo
     public function __construct()
     {
         $this->setModel();
@@ -66,5 +66,10 @@ abstract class BaseRepository implements RepositoryInterface
         }
 
         return false;
+    }
+
+    public function findBySlug($slug)
+    {
+        return $this->model->where('slug', $slug)->first();
     }
 }

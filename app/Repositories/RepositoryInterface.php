@@ -38,4 +38,11 @@ interface RepositoryInterface
      * @return mixed
      */
     public function delete($id);
+
+    /**
+     * Find By Slug
+     * @param $slug
+     * @return mixed
+     */
+    public function findBySlug($slug);
 }

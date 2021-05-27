@@ -25,9 +25,6 @@ Route::get('/', 'Client\HomeController@index')->name('home');
 Route::get('{slug}.html', 'Client\CategoryController@index')->name('client.category');
 
 
-
-
-
 Auth::routes();
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin']], function () {

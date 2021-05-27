@@ -32,10 +32,10 @@
         </div>
         <nav class="offcanvas-menu">
             <ul>
-                <li>
+                <li class="{{session('module') == 'home' ? 'active' : ' '}}">
                     <a href="{{url('/')}}"><span class="menu-text">Trang chủ</span></a>
                 </li>
-                <li>
+                <li class="{{session('module') == 'product' ? 'active' : ' '}}">
                     <a href="#"><span class="menu-text">Sản phẩm</span></a>
                     <ul class="offcanvas-submenu">
 
@@ -73,25 +73,16 @@
 
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><span class="menu-text">Tin tức</span></a>
-                    <ul class="offcanvas-submenu">
-                        @foreach($news_categories as $news_category)
-                            <li>
-                                <a href="{{route('client.category', $news_category->slug)}}">
-                                    <span class="menu-text">{{$news_category->name}}</span>
-                                </a>
-                            </li>
-                        @endforeach
-                    </ul>
+                <li class="{{session('module') == 'news' ? 'active' : ' '}}">
+                    <a href="{{route('client.category', 'tin-tuc')}}"><span class="menu-text">Tin tức</span></a>
                 </li>
-                <li>
+                <li class="{{session('module') == 'blog' ? 'active' : ' '}}">
                     <a href="{{route('client.category', 'blog')}}"><span class="menu-text">Blog</span></a>
                 </li>
-                <li>
+                <li class="{{session('module') == 'about us' ? 'active' : ' '}}">
                     <a href="blog-grid-3-column.html"><span class="menu-text">Về Looki</span></a>
                 </li>
-                <li><a href="contact.html">Liên hệ</a></li>
+                <li class="{{session('module') == 'contact' ? 'active' : ' '}}"><a href="contact.html">Liên hệ</a></li>
                 @if(Route::has('login'))
                     @auth
                         <li>

@@ -65,4 +65,19 @@ class NewsRepository extends BaseRepository implements NewsRepositoryInterface
     {
         return $this->model->where('news_category_id', $id)->paginate($page);
     }
+
+    public function getByCategoryAndNum($id, $num)
+    {
+        return $this->model->where('news_category_id', $id)->take($num)->get();
+    }
+
+    public function getByCol($skip, $num)
+    {
+        return $this->model->all()->skip($skip)->take($num);
+    }
+
+    public function getSameNewses($categoryId)
+    {
+        return $this->model->where('news_category_id', $categoryId)->get();
+    }
 }

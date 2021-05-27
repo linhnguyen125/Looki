@@ -14,6 +14,8 @@ interface NewsRepositoryInterface
 
     public function update($id, $attributes = []);
 
+    public function findBySlug($slug);
+
     public function data_tree($data, $parent_id = 0, $level = 0);
 
     public function getByKeyWord($keyword);
@@ -27,4 +29,10 @@ interface NewsRepositoryInterface
     public function getNewNews($num);
 
     public function getByCategory($id, $page);
+
+    public function getByCol($skip, $num);
+
+    public function getByCategoryAndNum($id, $num);
+
+    public function getSameNewses($categoryId);
 }

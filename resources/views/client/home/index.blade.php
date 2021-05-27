@@ -47,11 +47,8 @@
             div.popular-section{
                 padding-top: 50px;
             }
-            section.featured-slider h3.title{
-                white-space: initial;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                height: 62px;
+            section.featured-slider{
+                display: none;
             }
         }
     </style>
