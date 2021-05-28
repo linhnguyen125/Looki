@@ -27,8 +27,8 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
             ->paginate(10);
     }
 
-    public function findByEmail($email)
+    public function findByProviderId($providerId)
     {
-        return $this->model->where('email', $email)->first();
+        return $this->model->where('provider_id', $providerId)->first();
     }
 }

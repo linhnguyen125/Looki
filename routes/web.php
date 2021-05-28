@@ -24,12 +24,12 @@ Route::get('/', 'Client\HomeController@index')->name('home');
 //===================  CATEGORY & DETAIL =======================
 Route::get('{slug}.html', 'Client\CategoryController@index')->name('client.category');
 
-//Route::get('ve-looki/{slug}.html', 'Client\AboutUsController@index')->name('client.about_us');
+Route::get('tai-khoan', 'Client\AccountController@index')->name('client.account');
 
 
 Auth::routes();
-Route::get('auth/redirect', 'Auth\SocialController@redirect');
-Route::get('auth/callback', 'Auth\SocialController@callback');
+Route::get('auth/redirect/{provider_name}', 'Auth\SocialController@redirect')->name('redirect');
+Route::get('auth/callback/{provider_name}', 'Auth\SocialController@callback');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:admin']], function () {
     \UniSharp\LaravelFilemanager\Lfm::routes();

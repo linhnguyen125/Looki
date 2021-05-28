@@ -1,68 +1,56 @@
-@extends('layouts.client.client')
+@extends('layouts.auth.auth')
 
-@section('title', 'Quên mật khẩu')
+@section('title',  'Thay đổi mật khẩu')
 
 @section('content')
-    <div class="login-register-area pt-80 pb-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-12 ml-auto mr-auto">
-                    <div class="login-register-wrapper">
-                        <div class="login-register-tab-list nav">
-                            <h4>Đặt lại mật khẩu</h4>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-pane active">
-                                <div class="login-form-container">
-                                    <div class="login-register-form">
-                                        <form method="POST" action="{{ route('password.update') }}">
-                                            @csrf
-
-                                            <input type="hidden" name="token" value="{{ $token }}">
-
-                                            <div class="input-group has-validation mb-30">
-                                                <input id="email" type="email" class="mb-1 form-control @error('email') is-invalid @enderror"
-                                                       name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus
-                                                        placeholder="Địa chỉ email">
-
-                                                @error('email')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="input-group has-validation mb-10">
-                                                <input iid="password" type="password" class="form-control @error('password') is-invalid @enderror"
-                                                       name="password" required autocomplete="new-password"
-                                                       placeholder="Mật khẩu">
-
-                                                @error('password')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="input-group mb-10">
-                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                                       required autocomplete="new-password"
-                                                       placeholder="Xác nhận mật khẩu" >
-                                            </div>
-
-                                            <div class="button-box">
-                                                <button type="submit" class="btn btn-dark btn--md">
-                                                    <span>Đồng ý</span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="col-lg-6 col-12 fxt-bg-color">
+        <div class="fxt-content">
+            <div class="fxt-form">
+                <h2>Thay đổi mật khẩu</h2>
+                <p>Thay đổi mật khẩu của bạn</p>
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
                     </div>
-                </div>
+                @endif
+                <form method="POST" action="{{ route('password.update') }}">
+                    @csrf
+                    <input type="hidden" name="token" value="{{ $token }}">
+                    <div class="form-group">
+                        <label for="email" class="input-label">Địa Chỉ Email</label>
+                        <input type="email" id="email" class="form-control @error('email') is-invalid @enderror"
+                               value="{{ $email ?? old('email') }}" name="email" placeholder="Email" required="required">
+                        @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="input-label">Mật khẩu</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="********" required="required">
+                        <i toggle="#password" class="fa fa-fw fa-eye toggle-password field-icon"></i>
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="input-label">Xác Nhận Mật Khẩu</label>
+                        <input id="re-password" type="password" class="form-control" name="password_confirmation" placeholder="********" required="required">
+                        <i toggle="#re-password" class="fa fa-fw fa-eye toggle-password field-icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="fxt-btn-fill">Đồng ý</button>
+                    </div>
+                </form>
+            </div>
+            <div class="fxt-footer">
+                <p>Quay lại đăng nhập<a href="{{route('login')}}" class="switcher-text2 inline-text">Đăng nhập</a></p>
             </div>
         </div>
     </div>
 @endsection
+
+

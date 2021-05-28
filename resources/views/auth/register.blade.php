@@ -1,82 +1,58 @@
-@extends('layouts.client.client')
+@extends('layouts.auth.auth')
 
-@section('title', 'Đăng nhập / Đăng ký')
+@section('title',  'Đăng Ký')
 
 @section('content')
-    <!-- login area start -->
-    <div class="login-register-area pt-80 pb-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-7 col-md-12 ml-auto mr-auto">
-                    <div class="login-register-wrapper">
-                        <div class="login-register-tab-list nav">
-                            <a href="{{route('login')}}">
-                                <h4>Đăng nhập</h4>
-                            </a>
-                            <a class="active" href="{{route('register')}}">
-                                <h4>Đăng ký</h4>
-                            </a>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-pane active">
-                                <div class="login-form-container">
-                                    <div class="login-register-form">
-                                        <form method="POST" action="{{ route('register') }}">
-                                            @csrf
-
-                                            <div class="input-group has-validation mb-30">
-                                                <input id="name" type="text" class="mb-1 form-control @error('name') is-invalid @enderror" name="name"
-                                                       value="{{ old('name') }}" required autocomplete="name" placeholder="Tên của bạn">
-
-                                                @error('name')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="input-group has-validation mb-30">
-                                                <input id="email" type="email" class="mb-1 form-control @error('email') is-invalid @enderror" name="email"
-                                                       value="{{ old('email') }}" placeholder="Địa chỉ email" required autocomplete="email" autofocus>
-
-                                                @error('email')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="input-group has-validation mb-30">
-                                                <input id="password" type="password" class="mb-1 form-control @error('password') is-invalid @enderror" name="password"
-                                                       placeholder="Mật khẩu" required autocomplete="current-password">
-
-                                                @error('password')
-                                                <div class="invalid-feedback">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                            </div>
-
-                                            <div class="input-group mb-10">
-                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
-                                                       required autocomplete="new-password"
-                                                       placeholder="Xác nhận mật khẩu" >
-                                            </div>
-
-                                            <div class="button-box">
-                                                <button type="submit" class="btn btn-dark btn--md">
-                                                    <span>Đăng ký</span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+    <div class="col-lg-6 col-12 fxt-bg-color">
+        <div class="fxt-content">
+            <div class="fxt-form">
+                <h2>Đăng ký</h2>
+                <p>Tạo tài khoản cá nhân</p>
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name" class="input-label">Họ Và Tên</label>
+                        <input type="text" id="name" class="form-control @error('name') is-invalid @enderror"
+                               value="{{ old('name') }}" name="name" placeholder="Họ và tên" required="required">
+                        @error('name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
                             </div>
-                        </div>
+                        @enderror
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="email" class="input-label">Địa Chỉ Email</label>
+                        <input type="email" id="email" class="form-control @error('email') is-invalid @enderror"
+                               value="{{ old('email') }}" name="email" placeholder="Địa chỉ email" required="required">
+                        @error('email')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="input-label">Mật khẩu</label>
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="********" required="required">
+                        <i toggle="#password" class="fa fa-fw fa-eye toggle-password field-icon"></i>
+                        @error('password')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="input-label">Xác Nhận Mật Khẩu</label>
+                        <input id="re-password" type="password" class="form-control" name="password_confirmation" placeholder="********" required="required">
+                        <i toggle="#re-password" class="fa fa-fw fa-eye toggle-password field-icon"></i>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="fxt-btn-fill">Đăng Ký</button>
+                    </div>
+                </form>
+            </div>
+            <div class="fxt-footer">
+                <p>Nếu bạn đã có tài khoản?<a href="{{route('login')}}" class="switcher-text2 inline-text">Đăng nhập</a></p>
             </div>
         </div>
     </div>
-    <!-- login area end -->
 @endsection

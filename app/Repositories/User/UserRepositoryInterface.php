@@ -15,5 +15,5 @@ interface UserRepositoryInterface
 
     public function getByKeyWord($keyword);
 
-    public function findByEmail($email);
+    public function findByProviderId($providerId);
 }

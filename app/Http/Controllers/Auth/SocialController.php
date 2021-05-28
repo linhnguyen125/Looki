@@ -18,31 +18,31 @@ class SocialController extends Controller
         $this->userRepo = $userRepo;
     }
 
-    public function redirect()
+    public function redirect($provider_name)
     {
-        return Socialite::driver('google')->redirect();
+        return Socialite::driver($provider_name)->redirect();
     }
 
-    public function callback(Request $request)
+    public function callback($provider_name)
     {
         try {
-            $user = Socialite::driver('google')->user();
+            $user = Socialite::driver($provider_name)->user();
         } catch (\Exception $e) {
             return redirect()->route('login');
         }
 
-        $existingUser = $this->userRepo->findByEmail($user->getEmail());
+        $existingUser = $this->userRepo->findByProviderId($user->getId());
 
         if ($existingUser) {
             auth()->login($existingUser, true);
         } else {
             $data = [
-                'provider_name' => 'google',
+                'provider_name' => $provider_name,
                 'provider_id' => $user->getId(),
                 'name' => $user->getName(),
                 'email' => $user->getEmail(),
                 'avatar' => $user->getAvatar(),
-                'password' => encrypt(Str::random(16)),
+                'password' => bcrypt(Str::random(16)),
             ];
             $newUser = $this->userRepo->create($data);
 

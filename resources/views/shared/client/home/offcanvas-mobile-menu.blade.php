@@ -1,7 +1,16 @@
 <div id="offcanvas-mobile-menu" class="offcanvas theme1 offcanvas-mobile-menu">
     <div class="inner">
-        <div class="border-bottom mb-4 pb-4 text-right">
-            <button class="offcanvas-close">×</button>
+        <div class="border-bottom py-2 mb-2">
+            <div class="row">
+                <div class="col-6">
+                    <span class="text-left">
+                        <img style="height: 30px" class="img-fluid rounded-circle" src="{{Auth::user()->avatar}}" alt="">
+                    </span>
+                </div>
+                <div class="col-6 text-right">
+                    <button class="offcanvas-close">×</button>
+                </div>
+            </div>
         </div>
         <div class="offcanvas-head mb-4">
             <nav class="offcanvas-top-nav">
@@ -88,7 +97,7 @@
                         <li>
                             <a href="#"><span class="menu-text">{{Auth::user()->name}}</span></a>
                             <ul class="offcanvas-submenu">
-                                <li><a href="myaccount.html">Tài khoản</a></li>
+                                <li><a href="{{route('client.account')}}">Tài khoản</a></li>
                                 <li><a href="{{route('logout')}}"
                                        onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">Đăng xuất</a></li>

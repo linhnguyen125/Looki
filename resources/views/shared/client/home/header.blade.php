@@ -43,16 +43,16 @@
                             @if(Route::has('login'))
                                 @auth
                                     <li>
-                                        <a
-                                            href="#"
-                                            id="dropdown1"
-                                            data-toggle="dropdown"
-                                            aria-haspopup="true"
-                                            aria-expanded="false">{{Auth::user()->name}} <i class="ion ion-ios-arrow-down"></i></a>
+                                        <a href="#" id="dropdown1" data-toggle="dropdown" aria-haspopup="true" ria-expanded="false">
+                                            {{Auth::user()->name}}
+                                            <span>
+                                                <img style="height: 25px" class="img-fluid rounded-circle" src="{{Auth::user()->avatar}}" alt="">
+                                            </span>
+                                        </a>
                                         <ul
                                             class="topnav-submenu dropdown-menu"
                                             aria-labelledby="dropdown1">
-                                            <li><a href="myaccount.html">Tài khoản</a></li>
+                                            <li><a href="{{route('client.account')}}">Tài khoản</a></li>
                                             <li><a href="{{route('logout')}}"
                                                     onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">Đăng xuất</a></li>
