@@ -61,4 +61,23 @@ class BlogRepository extends BaseRepository implements BlogRepositoryInterface
         return $this->model->orderBy('created_at', 'desc')->take($num)->get();
     }
 
+    public function getByCol($skip, $num)
+    {
+        return $this->model->orderBy('created_at', 'desc')->skip($skip)->take($num)->get();
+    }
+
+    public function getByCategoryAndNum($id, $num)
+    {
+        return $this->model->where('blog_category_id', $id)->take($num)->get();
+    }
+
+    public function getByCategory($id, $page)
+    {
+        return $this->model->where('blog_category_id', $id)->paginate($page);
+    }
+
+    public function getSameBlogs($categoryId)
+    {
+        return $this->model->where('blog_category_id', $categoryId)->get();
+    }
 }

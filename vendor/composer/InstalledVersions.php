@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'e99883e72a7760b57eba06767b0b7af36c19b940',
+    'reference' => 'a7917e981ea80aeb2eb48303076c7f451411b2f1',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -464,7 +464,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'e99883e72a7760b57eba06767b0b7af36c19b940',
+      'reference' => 'a7917e981ea80aeb2eb48303076c7f451411b2f1',
+    ),
+    'laravel/socialite' => 
+    array (
+      'pretty_version' => 'v5.2.3',
+      'version' => '5.2.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1960802068f81e44b2ae9793932181cf1cb91b5c',
     ),
     'laravel/tinker' => 
     array (
@@ -510,6 +519,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '3b9dff8aaf7323590c1d2e443db701eb1f9aa0d3',
+    ),
+    'league/oauth1-client' => 
+    array (
+      'pretty_version' => 'v1.9.0',
+      'version' => '1.9.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1e7e6be2dc543bf466236fb171e5b20e1b06aee6',
     ),
     'maatwebsite/excel' => 
     array (
@@ -1007,6 +1025,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '99732be0ddb3361e16ad77b68ba41efc8e979019',
+    ),
+    'squizlabs/php_codesniffer' => 
+    array (
+      'pretty_version' => '3.5.5',
+      'version' => '3.5.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '73e2e7f57d958e7228fce50dc0c61f58f017f9f6',
     ),
     'swiftmailer/swiftmailer' => 
     array (

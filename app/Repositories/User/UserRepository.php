@@ -11,17 +11,24 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         return \App\Models\User::class;
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return $this->model->paginate(10);
     }
 
-    public function getByKeyWord($keyword){
+    public function getByKeyWord($keyword)
+    {
         return $this->model->where([
-                ['name', 'like', "%" . $keyword . "%"],
-            ])
+            ['name', 'like', "%" . $keyword . "%"],
+        ])
             ->orWhere([
                 ['email', 'like', "%" . $keyword . "%"],
             ])
             ->paginate(10);
+    }
+
+    public function findByEmail($email)
+    {
+        return $this->model->where('email', $email)->first();
     }
 }

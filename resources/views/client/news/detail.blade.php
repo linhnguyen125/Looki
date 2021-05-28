@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="blog-post-content-inner">
-                                <h4 class="blog-title">{{$news->name}}</h4>
+                                <h4 class="blog-title text-capitalize">{{$news->name}}</h4>
                                 <ul class="blog-page-meta">
                                     <li>
                                         <i class="ion-calendar"></i> {{ \Carbon\Carbon::parse($news->created_at)->format('d M, Y') }}

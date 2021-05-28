@@ -13,12 +13,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    protected $catRepo;
-    protected $productRepo;
-    protected $newsCategoryRepo;
-    protected $newsRepo;
-    protected $blogCategoryRepo;
-    protected $blogRepo;
+    protected $catRepo, $productRepo, $newsCategoryRepo, $newsRepo, $blogCategoryRepo, $blogRepo;
     protected $result = [];
 
     public function __construct(
@@ -43,6 +38,8 @@ class CategoryController extends Controller
         $product_detail = $this->productRepo->findBySlug($slug);
         $news = $this->newsRepo->findBySlug($slug);
         $news_category = $this->newsCategoryRepo->findBySlug($slug);
+        $blog_category = $this->blogCategoryRepo->findBySlug($slug);
+        $blog = $this->blogRepo->findBySlug($slug);
         // is category ?
         if ($product_category) {
             session(['module' => 'product']);
@@ -59,7 +56,46 @@ class CategoryController extends Controller
         } elseif ($news) { // is news detail
             session(['module' => 'news']);
             return $this->isNews($news);
+        } elseif ($slug === 'blog') { // is blog category
+            session(['module' => 'blog']);
+            return $this->blog();
+        } elseif ($blog_category) {
+            session(['module' => 'blog']);
+            return $this->isBlogCategory($blog_category);
+        } elseif ($blog) { // is blog detail
+            session(['module' => 'blog']);
+            return $this->isBlog($blog);
+        } elseif ($slug === 'lien-he') {
+            return $this->contact();
         }
+    }
+
+    protected function blog()
+    {
+        $blogs_col_1 = $this->blogRepo->getByCol(0, 1);
+        $blogs_col_2 = $this->blogRepo->getByCol(1, 2);
+        $categories = $this->blogCategoryRepo->getAll();
+        foreach ($categories as $category) {
+            $blogs_by_category[$category->name] = $this->blogRepo->getByCategoryAndNum($category->id, 6);
+        }
+        return view('client.blog.index', compact('blogs_col_1',
+            'blogs_col_2', 'blogs_by_category'));
+    }
+
+    protected function isBlogCategory($category)
+    {
+        $blogs = $this->blogRepo->getByCategory($category->id, 9);
+        return view('client.blog.category', compact('category', 'blogs'));
+    }
+
+    protected function isBlog($blog)
+    {
+        $category = $blog->blog_category;
+        $same_blogs = $this->blogRepo->getSameBlogs($category->id);
+        if (count($same_blogs) > 4) {
+            $same_blogs = $same_blogs->random(4);
+        }
+        return view('client.blog.detail', compact('blog', 'category', 'same_blogs'));
     }
 
     protected function news()
@@ -83,7 +119,7 @@ class CategoryController extends Controller
     {
         $category = $news->news_category;
         $same_newses = $this->newsRepo->getSameNewses($category->id);
-        if(count($same_newses) > 4){
+        if (count($same_newses) > 4) {
             $same_newses = $same_newses->random(4);
         }
         return view('client.news.detail', compact('news', 'category', 'same_newses'));
@@ -107,6 +143,10 @@ class CategoryController extends Controller
         $breadcrumbs = $this->breadcrumb($category->parent_id);
         $same_products = $this->productRepo->getByCategory([$category->id], 0);
         return view('client.product.detail', compact('product', 'category', 'breadcrumbs', 'same_products'));
+    }
+
+    protected function contact(){
+        return view('client.contact.index');
     }
 
     protected function breadcrumb($parentId)

@@ -14,6 +14,8 @@ interface BlogRepositoryInterface
 
     public function update($id, $attributes = []);
 
+    public function findBySlug($slug);
+
     public function data_tree($data, $parent_id = 0, $level = 0);
 
     public function getByKeyWord($keyword);
@@ -25,4 +27,12 @@ interface BlogRepositoryInterface
     public function getByStatusAndFilter($status, $filter, $keyword);
 
     public function getNewBlog($num);
+
+    public function getByCol($skip, $num);
+
+    public function getByCategoryAndNum($id, $num);
+
+    public function getByCategory($id, $page);
+
+    public function getSameBlogs($categoryId);
 }

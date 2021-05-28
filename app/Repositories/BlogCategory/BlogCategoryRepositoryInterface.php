@@ -14,6 +14,8 @@ interface BlogCategoryRepositoryInterface
 
     public function update($id, $attributes = []);
 
+    public function findBySlug($slug);
+
     public function data_tree($data, $parent_id = 0, $level = 0);
 
     public function getByKeyWord($keyword);

@@ -178,6 +178,8 @@ return [
         //Laravel FileManager
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        //Google login
+        Laravel\Socialite\SocialiteServiceProvider::class,
 
     ],
 
@@ -233,6 +235,8 @@ return [
 
         //Laravel FileManager
         'Image' => Intervention\Image\Facades\Image::class,
+        //Google login
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

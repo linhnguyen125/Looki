@@ -19,6 +19,12 @@
             text-overflow: ellipsis;
             height: 50px;
         }
+
+        @media only screen and (max-width: 767px) {
+            div.text{
+                display: none !important;
+            }
+        }
     </style>
 @endsection
 
@@ -60,7 +66,6 @@
                     </nav>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- news tab end -->

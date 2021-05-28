@@ -161,11 +161,13 @@
 
                         <!-- About page -->
                         <li class="{{session('module') == 'about us' ? 'active' : ' '}}">
-                            <a href="#">Về Looki</a>
+                            <a href="{{route('client.category', 've-looki')}}">Về Looki</a>
                         </li>
 
                         <!-- Contact page -->
-                        <li class="{{session('module') == 'contact' ? 'active' : ' '}}"><a href="contact.html">Liên hệ</a></li>
+                        <li class="{{session('module') == 'contact' ? 'active' : ' '}}">
+                            <a href="{{route('client.category', 'lien-he')}}">Liên hệ</a>
+                        </li>
                     </ul>
                 </div>
 

@@ -73,7 +73,7 @@ class NewsRepository extends BaseRepository implements NewsRepositoryInterface
 
     public function getByCol($skip, $num)
     {
-        return $this->model->all()->skip($skip)->take($num);
+        return $this->model->orderBy('created_at', 'desc')->skip($skip)->take($num)->get();
     }
 
     public function getSameNewses($categoryId)

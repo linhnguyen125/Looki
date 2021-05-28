@@ -60,6 +60,12 @@
                                                     <span>Đăng nhập</span>
                                                 </button>
                                             </div>
+
+                                            <div class="row my-3">
+                                                <div class="col-5 text-right"><i class="fab fa-google-plus-g"></i> Google</div>
+                                                <div class="col-2 text-center">Hoặc</div>
+                                                <div class="col-5 text-left">Facebook <i class="fab fa-facebook"></i></div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
