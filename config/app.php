@@ -180,6 +180,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         //Google login
         Laravel\Socialite\SocialiteServiceProvider::class,
+        //Shopping Cart
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
     ],
 
@@ -237,6 +239,8 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         //Google login
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        //Shopping Cart
+        'Cart' => Gloudemans\Shoppingcart\Facades\Cart::class,
     ],
 
 ];

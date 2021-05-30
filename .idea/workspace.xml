@@ -20,27 +20,113 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31f70f7e-34ea-491d-a7b7-f22f43649d1f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Looki.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Looki.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Product/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Repositories/Product/ProductRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Repositories/Product/ProductRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/admin/js/apps/user-profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/admin/js/apps/user-profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/vn/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/vn/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/account/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/account/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/product/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/product/detail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/client/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/client/client.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/admin/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/admin/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/admin/layouts/user_profile/profile_edit_modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/admin/layouts/user_profile/profile_edit_modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/category/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/category/modal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/home/offcanvas-mobile-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/home/offcanvas-mobile-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/home/product-tab.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/home/product-tab.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/abs.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/abs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acos.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acosh.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acosh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acot.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acoth.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acoth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acsc.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acsc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acsch.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/acsch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/argument.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/argument.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asec.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asec.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asech.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asech.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asin.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asinh.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/asinh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/atan.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/atan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/atanh.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/atanh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/conjugate.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/conjugate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/cos.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/cos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/cosh.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/cosh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/cot.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/cot.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/coth.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/coth.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/csc.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/csc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/csch.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/csch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/exp.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/exp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/inverse.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/inverse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/ln.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/ln.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/log10.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/log10.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/log2.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/log2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/negative.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/negative.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/pow.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/pow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/rho.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/rho.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sec.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sec.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sech.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sech.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sin.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sinh.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sinh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sqrt.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/sqrt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/tan.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/tan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/tanh.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/tanh.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/theta.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/functions/theta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/divideby.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/divideby.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/divideinto.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/divideinto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/multiply.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/multiply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/subtract.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/classes/src/operations/subtract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/complex/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/complex/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Builder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Builder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/adjoint.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/adjoint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/antidiagonal.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/antidiagonal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/cofactors.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/cofactors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/determinant.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/determinant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/diagonal.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/diagonal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/identity.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/identity.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/inverse.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/inverse.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/minors.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/minors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/trace.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/trace.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/transpose.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Functions/transpose.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/add.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/add.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/directsum.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/directsum.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/divideby.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/divideby.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/divideinto.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/divideinto.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/multiply.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/multiply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/subtract.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operations/subtract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operators/Division.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operators/Division.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operators/Multiplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/markbaker/matrix/classes/src/Operators/Multiplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Date.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Date.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Difference.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/nesbot/carbon/src/Carbon/Traits/Difference.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/css-selector/XPath/Extension/NodeExtension.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/css-selector/XPath/Extension/NodeExtension.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/finder/Comparator/NumberComparator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Comparator/NumberComparator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/finder/Gitignore.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/finder/Gitignore.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/DependencyInjection/RegisterControllerArgumentLocatorsPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/DependencyInjection/RegisterControllerArgumentLocatorsPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/EventListener/RouterListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/EventListener/RouterListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/http-kernel/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/mime/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/mime/Email.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-ctype/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/Resources/charset/translit.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/Resources/charset/translit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/bootstrap80.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/bootstrap80.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-iconv/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme/bootstrap80.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme/bootstrap80.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/Resources/unidata/Regex.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/Resources/unidata/Regex.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/bootstrap80.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/bootstrap80.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Mbstring.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/lowerCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/Resources/unidata/upperCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap80.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/bootstrap80.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php72/Php72.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-php72/Php72.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php72/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-php72/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php73/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-php73/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/polyfill-php80/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/routing/Generator/UrlGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/Loader/XliffFileLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Loader/XliffFileLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/symfony/translation/Translator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/symfony/translation/Translator.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,6 +262,7 @@
       <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
       <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
       <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
+      <path value="$PROJECT_DIR$/vendor/bumbummen99/shoppingcart" />
     </include_path>
   </component>
   <component name="ProjectId" id="1sfKX2jBOPum5UwB03YrIrEGvJ5" />
@@ -271,6 +358,8 @@
       <workItem from="1622185525312" duration="11572000" />
       <workItem from="1622247254905" duration="14927000" />
       <workItem from="1622271326153" duration="12385000" />
+      <workItem from="1622336785027" duration="1752000" />
+      <workItem from="1622338589424" duration="140000" />
     </task>
     <servers />
   </component>
@@ -306,6 +395,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="71" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1621382860432" />
+    <state x="421" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1622338525170">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="421" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1622338525170" />
     <state x="560" y="94" key="#com.intellij.ide.util.MemberChooser" timestamp="1621412537275">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
