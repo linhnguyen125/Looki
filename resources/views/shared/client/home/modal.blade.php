@@ -236,8 +236,9 @@
                                             <div class="count d-flex">
                                                 <input type="hidden" class="{{$sale_product->slug}}"
                                                        data-name="{{$sale_product->name}}" data-url="{{route('client.cart.add')}}"
-                                                    data-id="{{$sale_product->id}}" data-thumbnail="{{$sale_product->thumbnail}}"
-                                                    data-price="{{$sale_product->price}}" data-discount="{{$sale_product->discount->percent}}" value="1"
+                                                        data-id="{{$sale_product->id}}" data-thumbnail="{{$sale_product->thumbnail}}"
+                                                       data-slug="{{$sale_product->slug}}"
+                                                        data-price="{{$sale_product->price}}" data-discount="{{$sale_product->discount->percent}}" value="1"
                                                 />
                                                 <input type="number" min="1" max="{{$sale_product->stock}}" step="1" value="1" />
                                                 <div class="button-group">

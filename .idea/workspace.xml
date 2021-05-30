@@ -21,14 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="31f70f7e-34ea-491d-a7b7-f22f43649d1f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/client/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/client/client.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/client/client.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/category/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/category/modal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Client/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/client/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/client/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/client/cart/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/client/cart/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shared/client/home/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/home/modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/shared/client/home/offcanvas-cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/home/offcanvas-cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/home/product-tab.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/home/product-tab.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/product/also_like.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/product/also_like.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/shared/client/product/modal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/client/product/modal.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -262,7 +261,8 @@
       <workItem from="1622247254905" duration="14927000" />
       <workItem from="1622271326153" duration="12385000" />
       <workItem from="1622336785027" duration="1752000" />
-      <workItem from="1622338589424" duration="8190000" />
+      <workItem from="1622338589424" duration="8225000" />
+      <workItem from="1622357769271" duration="14424000" />
     </task>
     <servers />
   </component>
@@ -342,9 +342,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="300" y="57" width="1106" height="709" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621903050907" />
-    <state x="550" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1622348804842">
+    <state x="595" y="327" key="VCS.ChangelistChooser" timestamp="1622365836762">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="550" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622348804842" />
+    <state x="595" y="327" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1622365836762" />
+    <state x="550" y="102" width="672" height="678" key="search.everywhere.popup" timestamp="1622372089810">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="550" y="102" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1622372089810" />
   </component>
 </project>

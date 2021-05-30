@@ -23,7 +23,6 @@ class HomeController extends Controller
         $this->newsRepo = $newsRepo;
         $this->middleware(function ($request, $next) {
             session(['module' => 'home']);
-
             return $next($request);
         });
     }
