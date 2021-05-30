@@ -20,7 +20,10 @@ $(document).ready(function () {
                 qty: qty, slug: slug, _token: _token
             },
         }).done(function (data) {
-            swal("Thành công", data, "success");
+            $('div#cart').html(data.html);
+            $('div#empty').remove();
+            $('#cart-count').html(data.cart_count);
+            swal("Thành công", data.message, "success");
         })
     });
 
@@ -30,7 +33,6 @@ $(document).ready(function () {
         let input = $('input.' + target_rowId);
         let qty = input.val();
         let url = input.data('url_update');
-        let load = location.href + " #cart";
         let _token = $('input[name="_token"]').val();
         $.ajax({
             url: url,
@@ -70,6 +72,8 @@ $(document).ready(function () {
                 Tổng thanh toán: ${data.total} đ
             `;
                 $('.total').html(total);
+                $('#cart-count').html(data.cart_count);
+                $('div#cart').html(data.html);
                 swal("Thành công", data.message, "success");
             }else {
                 let image = input.data('img');
@@ -84,6 +88,8 @@ $(document).ready(function () {
                     </div>
                 `;
                 $('#cart-wp').html(html);
+                $('div#cart').html(data.html);
+                $('#cart-count').html(data.cart_count);
                 swal("Thành công", data.message, "success");
             }
 
