@@ -79,9 +79,15 @@
                                     </div>
                                 </div>
                                 <div class="product-body">
-                                    <span class="product-price text-center">
-                                      <span class="new-price">{{ number_format($product->price, 0, '', '.') }} đ</span>
-                                    </span>
+                                    @if($product->sale == '1' && $product->discount_id != null)
+                                        <span class="product-price text-center">
+                                        <del class="del">{{ number_format($product->price, 0, '', '.') }} đ</del>
+                                        <span class="onsale">{{ number_format(($product->price - ($product->price * $product->discount->percent) / 100), 0, '', '.') }} đ</span>
+                                        </span>
+                                    @else
+                                        <span class="product-price text-center new-price">{{ number_format($product->price, 0, '', '.') }} đ</span>
+                                    @endif
+
                                     <div>
                                         {!! $product->description !!}
                                     </div>
@@ -90,7 +96,8 @@
                                     <div
                                         class="product-count style d-flex flex-column flex-sm-row my-4">
                                         <div class="count d-flex">
-                                            <input type="number" min="1" max="{{$product->stock}}" disabled step="1" value="1"/>
+                                            <input type="number" min="1" max="{{$product->stock}}" disabled step="1"
+                                                   value="1"/>
                                             <div class="button-group">
                                                 <button class="count-btn increment">
                                                     <i class="fas fa-chevron-up"></i>

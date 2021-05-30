@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Product\ProductRequest;
+use App\Models\Discount;
 use App\Repositories\Category\CategoryRepositoryInterface;
 use App\Repositories\Product\ProductRepositoryInterface;
 use Illuminate\Http\Request;
@@ -24,27 +25,27 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $keyword = " ";
-        if($request->status){
+        if ($request->status) {
             $status = $this->status($request->status);
-            if($request->keyword){
+            if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
             $products = $this->productRepo->getByStatus($status, $keyword);
-        }elseif ($request->filter){
+        } elseif ($request->filter) {
             $filter = $this->filter($request->filter);
-            if($request->keyword){
+            if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
             $products = $this->productRepo->getByFilter($filter, $keyword);
-        }elseif ($request->status && $request->filter){
+        } elseif ($request->status && $request->filter) {
             $status = $this->status($request->status);
             $filter = $this->filter($request->filter);
-            if($request->keyword){
+            if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
             $products = $this->productRepo->getByStatusAndFilter($status, $filter, $keyword);
-        }else{
-            if($request->keyword){
+        } else {
+            if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
             $products = $this->productRepo->getByKeyWord($keyword);
@@ -72,30 +73,35 @@ class ProductController extends Controller
         }
     }
 
-    protected function status($status){
-        if($status == 'an'){
+    protected function status($status)
+    {
+        if ($status == 'an') {
             return '0';
-        }else{
+        } else {
             return '1';
         }
     }
 
-    protected function filter($filter){
-        if($filter == 'view'){
+    protected function filter($filter)
+    {
+        if ($filter == 'view') {
             return 'view';
-        }else{
+        } else {
             return 'price';
         }
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $product = $this->productRepo->find($id);
         $categories = $this->catRepo->getAllWithoutPaginate();
         $division_categories = $this->catRepo->data_tree($categories, 0, 0);
-        return view('admin.product.edit', compact('product', 'division_categories'));
+        $discounts = Discount::all();
+        return view('admin.product.edit', compact('product', 'division_categories', 'discounts'));
     }
 
-    public function update(ProductRequest $request, $id){
+    public function update(ProductRequest $request, $id)
+    {
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
         $product = $this->productRepo->update($id, $data);
@@ -106,7 +112,8 @@ class ProductController extends Controller
         }
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $product = $this->productRepo->delete($id);
         if ($product) {
             return back()->with(['success' => 'Sản phẩm đã được xóa khỏi hệ thống.']);
@@ -115,7 +122,8 @@ class ProductController extends Controller
         }
     }
 
-    public function updateStock(Request $request, $id){
+    public function updateStock(Request $request, $id)
+    {
         $request->validate([
             'stock' => ['required', 'integer']
         ]);
@@ -127,7 +135,8 @@ class ProductController extends Controller
         }
     }
 
-    public function updatePrice(Request $request, $id){
+    public function updatePrice(Request $request, $id)
+    {
         $request->validate([
             'price' => ['required', 'integer']
         ]);

@@ -25,7 +25,7 @@
                     <div>
                         <div class="position-relative">
                             @if($product->sale == '1')
-                                <span class="badge badge-success top-left">-10%</span>
+                                <span class="badge badge-success top-left">-{{$product->discount->percent}}%</span>
                                 <span class="badge badge-danger top-right">onsale</span>
                             @else
                                 <span class="badge badge-danger top-right">New</span>
@@ -82,12 +82,12 @@
                         </div>
                         <div class="product-body mb-40">
                             <div class="d-flex align-items-center mb-30">
-                                @if($product->sale == '1')
-                                <span class="product-price mr-20">
-                                    <del class="del">{{ number_format($product->price, 0, '', '.') }} đ</del>
-                                    <span class="onsale">{{ number_format(($product->price * 0.9), 0, '', '.') }} đ</span>
-                                </span>
-                                <span class="badge position-static bg-dark rounded-0">Save 10%</span>
+                                @if($product->sale == '1' && $product->discount_id != null)
+                                    <span class="product-price">
+                                        <del class="del">{{ number_format($product->price, 0, '', '.') }} đ</del>
+                                        <span class="onsale">{{ number_format(($product->price - ($product->price * $product->discount->percent) / 100), 0, '', '.') }} đ</span>
+                                    </span>
+                                <span class="badge position-static bg-dark rounded-2 ml-3">Save {{$product->discount->percent}}%</span>
                                 @else
                                     <span class="product-price mr-20">{{ number_format($product->price, 0, '', '.') }} đ</span>
                                 @endif

@@ -88,7 +88,7 @@
                                             <div class="card-body">
                                                 <div class="product-thumbnail position-relative">
                                                     @if($product->sale == '1')
-                                                        <span class="badge badge-success top-left">-10%</span>
+                                                        <span class="badge badge-success top-left">-{{$product->discount->percent}}%</span>
                                                         <span class="badge badge-danger top-right">onsale</span>
                                                     @else
                                                         <span class="badge badge-danger top-right">New</span>
@@ -152,12 +152,10 @@
                                                         <span class="ion-ios-star de-selected"></span>
                                                     </div>
                                                     <div class="d-flex align-items-center justify-content-between">
-                                                        @if($product->sale == '1')
+                                                        @if($product->sale == '1' && $product->discount_id != null)
                                                             <span class="product-price">
-                                                                <del
-                                                                    class="del">{{ number_format($product->price, 0, '', '.') }} đ
-                                                                </del>
-                                                                <span class="onsale">{{ number_format(($product->price * 0.9), 0, '', '.') }} đ</span>
+                                                                <del class="del">{{ number_format($product->price, 0, '', '.') }} đ</del>
+                                                                <span class="onsale">{{ number_format(($product->price - ($product->price * $product->discount->percent) / 100), 0, '', '.') }} đ</span>
                                                             </span>
                                                         @else
                                                             <span class="product-price">{{ number_format($product->price, 0, '', '.') }} đ</span>

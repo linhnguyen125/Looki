@@ -172,6 +172,9 @@ return [
         'detail'                => 'chi tiết',
         'path'                  => 'đường dẫn ảnh',
         'blog_category_id'      => 'danh mục blog',
-        'news_category_id'      => 'danh mục tin tức'
+        'news_category_id'      => 'danh mục tin tức',
+        'percent'               => '% giảm giá',
+        'from_date'             => 'Ngày bắt đầu',
+        'to_date'               => 'Ngày kết thúc',
     ],
 ];

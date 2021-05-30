@@ -73,6 +73,13 @@
                     </li><!-- .nk-menu-item -->
 
                     <li class="nk-menu-item has-sub">
+                        <a href="{{route('admin.discount.index')}}" class="nk-menu-link">
+                            <span class="nk-menu-icon"><em class="icon ni ni-tags-fill"></em></span>
+                            <span class="nk-menu-text">Khuyến mại</span>
+                        </a>
+                    </li><!-- .nk-menu-item -->
+
+                    <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-b-firefox"></em></span>
                             <span class="nk-menu-text">Tin tức</span>

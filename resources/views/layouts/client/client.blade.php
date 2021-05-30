@@ -68,6 +68,7 @@
 <script src="{{asset('assets/client/js/main.js')}}"></script>
 @yield('script')
 
+
 </body>
 
 </html>

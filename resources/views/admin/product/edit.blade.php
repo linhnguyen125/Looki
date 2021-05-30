@@ -140,7 +140,7 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="category">Danh
                                                                     mục</label>
-                                                                <select
+                                                                <select data-search="on"
                                                                     class="form-select @error('category_id') error @enderror"
                                                                     name="category_id" id="category">
                                                                     @foreach ($division_categories as $division_category)
@@ -251,6 +251,35 @@
                                                                         thị</label>
                                                                 </div>
                                                             </div>
+                                                        </div>
+
+                                                        <div class="col-md-12 p-1">
+                                                            <div class="form-group">
+                                                                <label class="form-label" for="discount">Chương trình giảm giá</label>
+                                                                <select
+                                                                    class="form-select @error('category_id') error @enderror"
+                                                                    data-search="on" name="discount_id" id="discount">
+                                                                    <option>Không</option>
+                                                                    @foreach ($discounts as $discount)
+                                                                        <option value="{{ $discount->id }}"
+                                                                                @if(old('discount_id') == $discount->id)
+                                                                                    {{'selected'}}
+                                                                                @elseif($product->discount_id == $discount->id)
+                                                                                    {{'selected'}}
+                                                                                @endif
+                                                                                    >
+                                                                            {{ $discount->name }}
+                                                                        </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                            @error('discount_id')
+                                                            <strong>
+                                                                <small
+                                                                    class="text-danger">{{ $message }}
+                                                                </small>
+                                                            </strong>
+                                                            @enderror
                                                         </div>
 
                                                         <div class="col-12">

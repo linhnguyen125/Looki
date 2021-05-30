@@ -73,12 +73,22 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function getNewProduct($num)
     {
-        return $this->model->orderBy('created_at', 'desc')->take($num)->get();
+        return $this->model->orderBy('created_at', 'desc')
+            ->where([
+                ['status', '1']
+            ])
+            ->take($num)->get();
     }
 
     public function getSaleProduct($num)
     {
-        return $this->model->orderBy('created_at', 'desc')->where('sale', 1)->take($num)->get();
+        return $this->model->orderBy('created_at', 'desc')
+            ->where([
+                ['sale', '1'],
+                ['status', '1']
+            ])
+            ->whereNotNull('discount_id')
+            ->take($num)->get();
     }
 
     public function getComingUpProduct($num)
@@ -88,7 +98,10 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
 
     public function getFeaturedProduct($num)
     {
-        return $this->model->orderBy('created_at', 'desc')->take($num)->get();
+        return $this->model->orderBy('created_at', 'desc')->where([
+            ['status', '1']
+        ])
+            ->take($num)->get();
     }
 
     public function getByCategory($catId, $page)

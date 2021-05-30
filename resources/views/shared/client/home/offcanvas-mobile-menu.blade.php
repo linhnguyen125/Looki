@@ -3,9 +3,13 @@
         <div class="border-bottom py-2 mb-2">
             <div class="row">
                 <div class="col-6">
-                    <span class="text-left">
-                        <img style="height: 30px" class="img-fluid rounded-circle" src="{{Auth::user()->avatar}}" alt="">
-                    </span>
+                    @if(Route::has('login'))
+                        @auth
+                            <span class="text-left">
+                                <img style="height: 30px" class="img-fluid rounded-circle" src="{{Auth::user()->avatar}}" alt="">
+                            </span>
+                        @endauth
+                    @endif
                 </div>
                 <div class="col-6 text-right">
                     <button class="offcanvas-close">×</button>
@@ -100,8 +104,8 @@
                                 <li><a href="{{route('client.account')}}">Tài khoản</a></li>
                                 <li><a href="{{route('logout')}}"
                                        onclick="event.preventDefault();
-                                                   document.getElementById('logout-form').submit();">Đăng xuất</a></li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                                   document.getElementById('mobile-logout-form').submit();">Đăng xuất</a></li>
+                                <form id="mobile-logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                             </ul>

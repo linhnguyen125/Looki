@@ -112,8 +112,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="province">Tỉnh/Thành phố</label>
-                                        <select class="form-select @error('province') error @enderror" id="province" name="province" data-ui="lg"
-                                            onchange="updateDistrict(this)">
+                                        <select class="form-select @error('province') error @enderror" id="province"
+                                                data-search="on" name="province" data-ui="lg">
                                             @foreach ($provinces as $province)
                                                 <option value="{{ $province->id }}"
                                                     {{$admin->address['province'] == $province->name ? 'selected' : ''}}>
@@ -134,8 +134,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="district">Quận/Huyện</label>
-                                        <select class="form-select @error('district') error @enderror" id="district" name="district" data-ui="lg"
-                                                onchange="updateWard(this)">
+                                        <select class="form-select @error('district') error @enderror" id="district"
+                                                data-search="on" name="district" data-ui="lg">
                                             @foreach ($districts as $district)
                                                 <option value="{{ $district->id }}"
                                                     {{$admin->address['district'] == $district->name ? 'selected' : ''}}>
@@ -156,7 +156,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label class="form-label" for="ward">Phường/Thị xã</label>
-                                        <select class="form-select @error('ward') error @enderror" id="ward" name="ward" data-ui="lg">
+                                        <select class="form-select @error('ward') error @enderror" id="ward"
+                                                data-search="on" name="ward" data-ui="lg">
                                             @foreach ($wards as $ward)
                                                 <option value="{{ $ward->id }}"
                                                     {{$admin->address['ward'] == $ward->name ? 'selected' : ''}}>

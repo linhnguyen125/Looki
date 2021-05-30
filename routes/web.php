@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 //========================== CLIENT ==============================
 //================================================================
 
+Route::get('update-district', 'LoadAddressController@updateDistrict')->name('update.district');
+Route::get('update-ward', 'LoadAddressController@updateWard')->name('update.ward');
 
 //========================== HOME ==============================
 Route::get('/', 'Client\HomeController@index')->name('home');
@@ -24,7 +26,12 @@ Route::get('/', 'Client\HomeController@index')->name('home');
 //===================  CATEGORY & DETAIL =======================
 Route::get('{slug}.html', 'Client\CategoryController@index')->name('client.category');
 
-Route::get('tai-khoan', 'Client\AccountController@index')->name('client.account');
+//========================= ACCOUNT ============================
+Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth:web']], function () {
+    Route::get('', 'Client\AccountController@index')->name('client.account');
+    Route::post('cap-nhat', 'Client\AccountController@update')->name('client.update_profile');
+});
+
 
 
 Auth::routes();
@@ -72,8 +79,6 @@ Route::group(['prefix' => 'admin'], function () {
                 'Admin\UserProfileController@updateAvatar')->name('admin.user.update_avatar');
             Route::post('update-profile/{id}',
                 'Admin\UserProfileController@updateProfile')->name('admin.user.update_profile');
-            Route::get('update-district', 'LoadAddressController@updateDistrict')->name('update.district');
-            Route::get('update-ward', 'LoadAddressController@updateWard')->name('update.ward');
             Route::get('thong-bao.html', 'Admin\UserProfileController@notifies')->name('admin.user.notifies');
             Route::get('hoat-dong-tai-khoan.html',
                 'Admin\UserProfileController@accountActivity')->name('admin.user.account_activity');
@@ -164,6 +169,16 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('cap-nhat/{id}.html', 'News\NewsController@edit')->name('admin.news.edit');
             Route::post('update/{id}', 'News\NewsController@update')->name('admin.news.update');
             Route::get('xoa-tin-tuc/{id}', 'News\NewsController@delete')->name('admin.news.delete');
+        });
+
+        //===================== DISCOUNT ===========================
+        Route::group(['prefix' => 'khuyen-mai'], function () {
+            Route::get('danh-sach.html', 'Discount\DiscountController@index')->name('admin.discount.index');
+            Route::get('them-moi.html', 'Discount\DiscountController@create')->name('admin.discount.create');
+            Route::post('store', 'Discount\DiscountController@store')->name('admin.discount.store');
+            Route::get('cap-nhat/{id}.html', 'Discount\DiscountController@edit')->name('admin.discount.edit');
+            Route::post('update/{id}', 'Discount\DiscountController@update')->name('admin.discount.update');
+            Route::get('xoa-khuyen-mai/{id}', 'Discount\DiscountController@delete')->name('admin.discount.delete');
         });
     });
 });

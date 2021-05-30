@@ -164,7 +164,8 @@
                                         <div class="card-body p-0">
                                             <div class="media flex-column">
                                                 <div class="product-thumbnail position-relative">
-                                                    <span class="badge badge-danger top-right">Sale</span>
+                                                    <span class="badge badge-success top-left">-{{$sale_product->discount->percent}}%</span>
+                                                    <span class="badge badge-danger top-right">onsale</span>
                                                     <a href="{{route('client.category', $sale_product->slug)}}">
                                                         <img
                                                             class="first-img"
@@ -227,7 +228,10 @@
                                                         </div>
                                                         <div
                                                             class="d-flex align-items-center justify-content-between">
-                                                            <span class="product-price">{{ number_format($sale_product->price, 0, '', '.') }} đ</span>
+                                                            <span class="product-price mr-20">
+                                                                <del class="del">{{ number_format($sale_product->price, 0, '', '.') }} đ</del>
+                                                                <span class="onsale">{{ number_format(($sale_product->price - ($sale_product->price * $sale_product->discount->percent) / 100), 0, '', '.') }} đ</span>
+                                                            </span>
                                                             <button
                                                                 class="pro-btn"
                                                                 data-toggle="modal"
