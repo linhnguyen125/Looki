@@ -53,7 +53,7 @@
             <span class="amount">$144.00</span>
         </div>
         <a
-            href="cart.html"
+            href="{{route('client.cart')}}"
             class="btn btn-primary btn--lg d-block d-sm-inline-block mr-sm-2"
         >view cart</a
         >

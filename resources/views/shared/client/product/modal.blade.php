@@ -79,9 +79,18 @@
                                     </div>
                                 </div>
                                 <div class="product-body">
-                                    <span class="product-price text-center">
-                                      <span class="new-price">{{ number_format($same_product->price, 0, '', '.') }} đ</span>
-                                    </span>
+                                    @if($product->sale == '1' && $product->discount_id != null)
+                                        <span class="product-price text-center">
+                                            <span style="font-size: 18px !important;" class="new-price text-decoration-line-through">
+                                                {{ number_format($product->price, 0, '', '.') }} đ
+                                            </span>
+                                            <span class="new-price">
+                                                {{ number_format(($product->price - ($product->price * $product->discount->percent) / 100), 0, '', '.') }} đ
+                                            </span>
+                                        </span>
+                                    @else
+                                        <span class="product-price text-center new-price">{{ number_format($product->price, 0, '', '.') }} đ</span>
+                                    @endif
                                     <div>
                                         {!! $same_product->description !!}
                                     </div>

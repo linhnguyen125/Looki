@@ -15,8 +15,8 @@
                             <div class="card-body p-0">
                                 <div class="media flex-column">
                                     <div class="product-thumbnail position-relative">
-                                        @if($same_product->sale == '1')
-                                            <span class="badge badge-success top-left">-10%</span>
+                                        @if($same_product->sale == '1' && $product->discount_id != null)
+                                            <span class="badge badge-success top-left">-{{$product->discount->percent}}%</span>
                                             <span class="badge badge-danger top-right">onsale</span>
                                         @else
                                             <span class="badge badge-danger top-right">New</span>
@@ -75,7 +75,7 @@
                                                 <span class="ion-ios-star de-selected"></span>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between">
-                                                @if($same_product->sale == '1')
+                                                @if($same_product->sale == '1' && $product->discount_id != null)
                                                     <span class="product-price">
                                                         <del class="del">{{ number_format($same_product->price, 0, '', '.') }} đ</del>
                                                         <span class="onsale">{{ number_format(($same_product->price * 0.9), 0, '', '.') }} đ</span>

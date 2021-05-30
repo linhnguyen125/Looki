@@ -32,7 +32,13 @@ Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth:web']], function (
     Route::post('cap-nhat', 'Client\AccountController@update')->name('client.update_profile');
 });
 
-
+//========================== CART ==============================
+Route::group(['prefix' => 'gio-hang', 'middleware' => ['auth:web']], function () {
+    Route::get('', 'Client\CartController@index')->name('client.cart');
+    Route::post('them', 'Client\CartController@add')->name('client.cart.add');
+    Route::post('cap-nhat', 'Client\CartController@update')->name('client.cart.update');
+    Route::get('xoa', 'Client\CartController@delete')->name('client.cart.delete');
+});
 
 Auth::routes();
 Route::get('auth/redirect/{provider_name}', 'Auth\SocialController@redirect')->name('redirect');

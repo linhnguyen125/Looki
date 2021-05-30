@@ -65,7 +65,9 @@
 <script src="{{asset('assets/client/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('assets/client/js/plugins/plugins.js')}}"></script>
 <script src="{{asset('assets/client/js/plugins/ajax-contact.js')}}"></script>
+<script src="{{asset('assets/client/js/sweetalert.min.js')}}"></script>
 <script src="{{asset('assets/client/js/main.js')}}"></script>
+<script src="{{asset('assets/client/js/app.js')}}"></script>
 @yield('script')
 
 

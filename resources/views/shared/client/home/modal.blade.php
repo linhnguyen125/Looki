@@ -222,33 +222,41 @@
                                 </div>
                                 <div class="product-body">
                                     <span class="product-price text-center">
-                                      <span class="new-price">{{ number_format($sale_product->price, 0, '', '.') }} đ</span>
+                                      <span style="font-size: 18px !important;" class="new-price text-decoration-line-through">{{ number_format($sale_product->price, 0, '', '.') }} đ</span>
+                                      <span class="new-price">{{ number_format(($sale_product->price - ($sale_product->price * $sale_product->discount->percent) / 100), 0, '', '.') }} đ</span>
                                     </span>
                                     <div>
                                         {!! $sale_product->description !!}
                                     </div>
                                 </div>
                                 <div class="product-footer">
-                                    <div
-                                        class="product-count style d-flex flex-column flex-sm-row my-4">
-                                        <div class="count d-flex">
-                                            <input type="number" min="1" max="{{$sale_product->stock}}" disabled step="1" value="1"/>
-                                            <div class="button-group">
-                                                <button class="count-btn increment">
-                                                    <i class="fas fa-chevron-up"></i>
-                                                </button>
-                                                <button class="count-btn decrement">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </button>
+                                    <form>
+                                        @csrf
+                                        <div class="product-count style d-flex flex-column flex-sm-row my-4">
+                                            <div class="count d-flex">
+                                                <input type="hidden" class="{{$sale_product->slug}}"
+                                                       data-name="{{$sale_product->name}}" data-url="{{route('client.cart.add')}}"
+                                                    data-id="{{$sale_product->id}}" data-thumbnail="{{$sale_product->thumbnail}}"
+                                                    data-price="{{$sale_product->price}}" data-discount="{{$sale_product->discount->percent}}" value="1"
+                                                />
+                                                <input type="number" min="1" max="{{$sale_product->stock}}" step="1" value="1" />
+                                                <div class="button-group">
+                                                    <a href="javascript:void(0)" class="count-btn increment">
+                                                        <i class="fas fa-chevron-up"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" class="count-btn decrement">
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <a href="javascript:void(0)" class="btn btn-dark btn--xl mt-5 mt-sm-0 add-cart" data-target_class="{{$sale_product->slug}}">
+                                                    <span class="mr-2"><i class="ion-android-add"></i></span>
+                                                    Thêm vào giỏ hàng
+                                                </a>
                                             </div>
                                         </div>
-                                        <div>
-                                            <button class="btn btn-dark btn--xl mt-5 mt-sm-0">
-                                                <span class="mr-2"><i class="ion-android-add"></i></span>
-                                                Thêm vào giỏ hàng
-                                            </button>
-                                        </div>
-                                    </div>
+                                    </form>
                                     <div class="addto-whish-list">
                                         <a href="#"><i class="icon-heart"></i> Yêu thích</a>
                                         <a href="#"><i class="icon-shuffle"></i> So sánh</a>

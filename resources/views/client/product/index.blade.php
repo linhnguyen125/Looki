@@ -270,19 +270,6 @@
             <div class="row">
                 <div class="col-12 col-lg-9 offset-lg-3">
                     <nav class="pagination-section mt-30 mb-30">
-{{--                        <ul class="pagination justify-content-center">--}}
-{{--                            <li class="page-item">--}}
-{{--                                <a class="page-link" href="#"><i class="ion-chevron-left"></i></a>--}}
-{{--                            </li>--}}
-{{--                            <li class="page-item active">--}}
-{{--                                <a class="page-link" href="#">1</a>--}}
-{{--                            </li>--}}
-{{--                            <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
-{{--                            <li class="page-item">--}}
-{{--                                <a class="page-link" href="#"><i class="ion-chevron-right"></i></a>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-
                         {!! $products->withQueryString()->onEachSide(1)->links() !!}
                     </nav>
                 </div>
