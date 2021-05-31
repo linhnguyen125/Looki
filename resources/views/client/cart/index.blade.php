@@ -57,7 +57,7 @@
                                                 </div>
                                             </td>
                                             <td class="text-center">
-                                                <span class="whish-list-price {{$item->rowId}}">{{ number_format($item->subtotal, 0, '', '.') }} đ</span>
+                                                <span class="whish-list-price {{$item->rowId}}">{{ number_format($item->price - ($item->options->discount * $item->price)/100, 0, '', '.') }} đ</span>
                                             </td>
 
                                             <td class="text-center">

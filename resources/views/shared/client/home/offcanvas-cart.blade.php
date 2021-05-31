@@ -16,7 +16,7 @@
                                 <a href="{{route('client.category', $item->options->slug)}}" class="title">
                                     {{$item->name}}
                                 </a>
-                                <span class="quantity-price">{{$item->qty}} x <span class="amount">{{ number_format($item->price, 0, '', '.') }} đ</span></span>
+                                <span class="quantity-price">{{$item->qty}} x <span class="amount">{{ number_format($item->price - ($item->options->discount * $item->price)/100, 0, '', '.') }} đ</span></span>
                             </div>
                         </li>
                     @endforeach

@@ -28,7 +28,7 @@ class CartController extends Controller
         $name = $request->name;
         $qty = $request->qty;
         $discount = $request->discount;
-        $price = $request->price - ($request->price * $discount) / 100;
+        $price = $request->price;
         $thumbnail = $request->thumbnail;
         $slug = $request->slug;
         Cart::add([
@@ -96,7 +96,7 @@ class CartController extends Controller
                         <a href="' . route('client.category', $item->options->slug) . '" class="title">
                             ' . $item->name . '
                         </a>
-                        <span class="quantity-price">' . $item->qty . ' x <span class="amount">' . number_format($item->price,
+                        <span class="quantity-price">' . $item->qty . ' x <span class="amount">' . number_format($item->price - ($item->options->discount * $item->price)/100,
                     0, "", ".") . ' đ</span></span>
                     </div>
                 </li>
@@ -112,7 +112,7 @@ class CartController extends Controller
                 <a
                     href="'.route('client.cart').'"
                     class="btn btn-primary btn--lg d-block d-sm-inline-block mr-sm-2">GIỎ HÀNG</a>
-                <a href="checkout.html" class="btn btn-dark btn--lg d-block d-sm-inline-block mt-4 mt-sm-0">THANH TOÁN</a>
+                <a href="'. route('client.checkout') .'" class="btn btn-dark btn--lg d-block d-sm-inline-block mt-4 mt-sm-0">THANH TOÁN</a>
                 <p class="minicart-message">Miễn phí giao hàng đơn hàng từ 300k</p>
             ';
         return $html;
