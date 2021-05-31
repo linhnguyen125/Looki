@@ -38,15 +38,15 @@
                                                     </div>
                                                     <div class="d-flex align-items-center justify-content-between">
                                                         <span class="product-price">
-{{--                                                            <del class="del">{{ number_format($featured_product->price, 0, '', '.') }} đ</del>--}}
-                                                            <span class="on-sale">{{ number_format($featured_product->price, 0, '', '.') }} đ</span>
+                                                            @if($featured_product->sale == '1' && $featured_product->discount_id != null)
+                                                                <span class="product-price">
+                                                                <del class="del d-block">{{ number_format($featured_product->price, 0, '', '.') }} đ</del>
+                                                                <span class="onsale">{{ number_format(($featured_product->price - ($featured_product->price * $featured_product->discount->percent) / 100), 0, '', '.') }} đ</span>
+                                                            </span>
+                                                            @else
+                                                                <span class="product-price">{{ number_format($featured_product->price, 0, '', '.') }} đ</span>
+                                                            @endif
                                                         </span>
-                                                        <button
-                                                            class="pro-btn"
-                                                            data-toggle="modal"
-                                                            data-target="#add-to-cart">
-                                                            <i class="icon-basket"></i>
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

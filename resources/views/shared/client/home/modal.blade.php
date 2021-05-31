@@ -88,26 +88,34 @@
                                     </div>
                                 </div>
                                 <div class="product-footer">
-                                    <div
-                                        class="product-count style d-flex flex-column flex-sm-row my-4">
-                                        <div class="count d-flex">
-                                            <input type="number" min="1" max="{{$new_product->stock}}" disabled step="1" value="1"/>
-                                            <div class="button-group">
-                                                <button class="count-btn increment">
-                                                    <i class="fas fa-chevron-up"></i>
-                                                </button>
-                                                <button class="count-btn decrement">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </button>
+                                    <form>
+                                        @csrf
+                                        <div class="product-count style d-flex flex-column flex-sm-row my-4">
+                                            <div class="count d-flex">
+                                                <input type="hidden" class="{{$new_product->slug}}"
+                                                       data-name="{{$new_product->name}}" data-url="{{route('client.cart.add')}}"
+                                                       data-id="{{$new_product->id}}" data-thumbnail="{{$new_product->thumbnail}}"
+                                                       data-slug="{{$new_product->slug}}"
+                                                       data-price="{{$new_product->price}}" data-discount="{{$new_product->discount->percent ?? 0}}" value="1"
+                                                />
+                                                <input type="number" min="1" max="{{$new_product->stock}}" step="1" value="1" />
+                                                <div class="button-group">
+                                                    <a href="javascript:void(0)" class="count-btn increment">
+                                                        <i class="fas fa-chevron-up"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" class="count-btn decrement">
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <a href="javascript:void(0)" class="btn btn-dark btn--xl mt-5 mt-sm-0 add-cart" data-target_class="{{$new_product->slug}}">
+                                                    <span class="mr-2"><i class="ion-android-add"></i></span>
+                                                    Thêm vào giỏ hàng
+                                                </a>
                                             </div>
                                         </div>
-                                        <div>
-                                            <button class="btn btn-dark btn--xl mt-5 mt-sm-0">
-                                                <span class="mr-2"><i class="ion-android-add"></i></span>
-                                                Thêm vào giỏ hàng
-                                            </button>
-                                        </div>
-                                    </div>
+                                    </form>
                                     <div class="addto-whish-list">
                                         <a href="#"><i class="icon-heart"></i> Yêu thích</a>
                                         <a href="#"><i class="icon-shuffle"></i> So sánh</a>
@@ -313,63 +321,3 @@
     </div>
 </div>
 
-<!-- third modal -->
-<div class="modal fade style3" id="add-to-cart" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header justify-content-center bg-dark">
-                <h5 class="modal-title" id="add-to-cartCenterTitle">
-                    Product successfully added to your shopping cart
-                </h5>
-                <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-5 divide-right">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <img src="{{asset('assets/client/img/product/2.png')}}" alt="img"/>
-                            </div>
-                            <div class="col-md-6 mb-2 mb-md-0">
-                                <h4 class="product-name">
-                                    New Balance Running Arishi trainers in triple
-                                </h4>
-                                <h5 class="price">$$29.00</h5>
-                                <h6 class="color">
-                                    <strong>Dimension: </strong>: <span class="dmc">40x60cm</span>
-                                </h6>
-                                <h6 class="quantity"><strong>Quantity:</strong>&nbsp;1</h6>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="modal-cart-content">
-                            <p class="cart-products-count">There is 1 item in your cart.</p>
-                            <p><strong>Total products:</strong>&nbsp;$123.72</p>
-                            <p><strong>Total shipping:</strong>&nbsp;$7.00</p>
-                            <p><strong>Taxes</strong>&nbsp;$0.00</p>
-                            <p><strong>Total:</strong>&nbsp;$130.72 (tax excl.)</p>
-                            <div class="cart-content-btn">
-                                <button
-                                    type="button"
-                                    class="btn btn-dark btn--md mt-4"
-                                    data-dismiss="modal">
-                                    Continue shopping
-                                </button>
-                                <button class="btn btn-dark btn--md mt-4">
-                                    Proceed to checkout
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>

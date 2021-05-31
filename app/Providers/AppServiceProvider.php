@@ -60,6 +60,14 @@ class AppServiceProvider extends ServiceProvider
             \App\Repositories\Discount\DiscountRepositoryInterface::class,
             \App\Repositories\Discount\DiscountRepository::class
         );
+        $this->app->singleton(
+            \App\Repositories\OrderDetail\OrderDetailRepositoryInterface::class,
+            \App\Repositories\OrderDetail\OrderDetailRepository::class
+        );
+        $this->app->singleton(
+            \App\Repositories\Order\OrderRepositoryInterface::class,
+            \App\Repositories\Order\OrderRepository::class
+        );
     }
 
     /**

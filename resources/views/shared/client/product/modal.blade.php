@@ -96,26 +96,34 @@
                                     </div>
                                 </div>
                                 <div class="product-footer">
-                                    <div
-                                        class="product-count style d-flex flex-column flex-sm-row my-4">
-                                        <div class="count d-flex">
-                                            <input type="number" min="1" max="{{$same_product->stock}}" disabled step="1" value="1"/>
-                                            <div class="button-group">
-                                                <button class="count-btn increment">
-                                                    <i class="fas fa-chevron-up"></i>
-                                                </button>
-                                                <button class="count-btn decrement">
-                                                    <i class="fas fa-chevron-down"></i>
-                                                </button>
+                                    <form>
+                                        @csrf
+                                        <div class="product-count style d-flex flex-column flex-sm-row my-4">
+                                            <div class="count d-flex">
+                                                <input type="hidden" class="{{$same_product->slug}}"
+                                                       data-name="{{$same_product->name}}" data-url="{{route('client.cart.add')}}"
+                                                       data-id="{{$same_product->id}}" data-thumbnail="{{$same_product->thumbnail}}"
+                                                       data-slug="{{$same_product->slug}}"
+                                                       data-price="{{$same_product->price}}" data-discount="{{$same_product->discount->percent ?? 0}}" value="1"
+                                                />
+                                                <input type="number" min="1" max="{{$same_product->stock}}" step="1" value="1" />
+                                                <div class="button-group">
+                                                    <a href="javascript:void(0)" class="count-btn increment">
+                                                        <i class="fas fa-chevron-up"></i>
+                                                    </a>
+                                                    <a href="javascript:void(0)" class="count-btn decrement">
+                                                        <i class="fas fa-chevron-down"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <a href="javascript:void(0)" class="btn btn-dark btn--xl mt-5 mt-sm-0 add-cart" data-target_class="{{$same_product->slug}}">
+                                                    <span class="mr-2"><i class="ion-android-add"></i></span>
+                                                    Thêm vào giỏ hàng
+                                                </a>
                                             </div>
                                         </div>
-                                        <div>
-                                            <button class="btn btn-dark btn--xl mt-5 mt-sm-0">
-                                                <span class="mr-2"><i class="ion-android-add"></i></span>
-                                                Thêm vào giỏ hàng
-                                            </button>
-                                        </div>
-                                    </div>
+                                    </form>
                                     <div class="addto-whish-list">
                                         <a href="#"><i class="icon-heart"></i> Yêu thích</a>
                                         <a href="#"><i class="icon-shuffle"></i> So sánh</a>

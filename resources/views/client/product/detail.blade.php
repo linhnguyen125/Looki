@@ -24,7 +24,7 @@
                 <div class="col-lg-4 col-md-5 p-sm-20 mb-5 mb-lg-0">
                     <div>
                         <div class="position-relative">
-                            @if($product->sale == '1')
+                            @if($product->sale == '1' && $product->discount_id != null)
                                 <span class="badge badge-success top-left">-{{$product->discount->percent}}%</span>
                                 <span class="badge badge-danger top-right">onsale</span>
                             @else
@@ -97,25 +97,34 @@
                             </div>
                         </div>
                         <div class="product-footer">
-                            <div class="product-count style d-flex flex-column flex-sm-row mt-30 mb-30">
-                                <div class="count d-flex">
-                                    <input type="number" name="qty" id="qty" min="1" max="{{$product->stock}}" step="1" value="1" disabled/>
-                                    <div class="button-group">
-                                        <button class="count-btn increment">
-                                            <i class="fas fa-chevron-up"></i>
-                                        </button>
-                                        <button class="count-btn decrement">
-                                            <i class="fas fa-chevron-down"></i>
-                                        </button>
+                            <form>
+                                @csrf
+                                <div class="product-count style d-flex flex-column flex-sm-row my-4">
+                                    <div class="count d-flex">
+                                        <input type="hidden" class="{{$product->slug}}"
+                                               data-name="{{$product->name}}" data-url="{{route('client.cart.add')}}"
+                                               data-id="{{$product->id}}" data-thumbnail="{{$product->thumbnail}}"
+                                               data-slug="{{$product->slug}}"
+                                               data-price="{{$product->price}}" data-discount="{{$product->discount->percent ?? 0}}" value="1"
+                                        />
+                                        <input type="number" min="1" max="{{$product->stock}}" step="1" value="1" />
+                                        <div class="button-group">
+                                            <a href="javascript:void(0)" class="count-btn increment">
+                                                <i class="fas fa-chevron-up"></i>
+                                            </a>
+                                            <a href="javascript:void(0)" class="count-btn decrement">
+                                                <i class="fas fa-chevron-down"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:void(0)" class="btn btn-dark btn--xl mt-5 mt-sm-0 add-cart" data-target_class="{{$product->slug}}">
+                                            <span class="mr-2"><i class="ion-android-add"></i></span>
+                                            Thêm vào giỏ hàng
+                                        </a>
                                     </div>
                                 </div>
-                                <div>
-                                    <a href="#" class="btn btn-dark btn--xl mt-5 mt-sm-0">
-                                        <span class="mr-2"><i class="ion-android-add"></i></span>
-                                        Thêm vào giỏ hàng
-                                    </a>
-                                </div>
-                            </div>
+                            </form>
                             <div class="addto-whish-list">
                                 <a href="#"><i class="icon-heart"></i> Yêu thích</a>
                                 <a href="#"><i class="icon-shuffle"></i> So sánh</a>

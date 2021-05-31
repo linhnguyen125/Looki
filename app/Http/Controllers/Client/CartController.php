@@ -98,7 +98,6 @@ class CartController extends Controller
                         </a>
                         <span class="quantity-price">' . $item->qty . ' x <span class="amount">' . number_format($item->price,
                     0, "", ".") . ' đ</span></span>
-                        <a href="javascript:void(0)" class="remove mt-5"><span class="trash text-soft"><i class="fas fa-trash-alt"></i> </span></a>
                     </div>
                 </li>
             ';

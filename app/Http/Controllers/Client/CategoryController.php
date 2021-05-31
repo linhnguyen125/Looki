@@ -66,6 +66,7 @@ class CategoryController extends Controller
             session(['module' => 'blog']);
             return $this->isBlog($blog);
         } elseif ($slug === 'lien-he') {
+            session(['module' => 'contact']);
             return $this->contact();
         }
     }

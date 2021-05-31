@@ -70,7 +70,7 @@
                                         <tr>
                                             <td class="text-right py-3" colspan="5">
                                                 <span class="whish-list-price d-block mb-2 total">Tổng thanh toán: {{Cart::total()}} đ</span>
-                                                <a href="#" class="btn btn-dark btn--lg">Thanh Toán</a>
+                                                <a href="{{route('client.checkout')}}" class="btn btn-dark btn--lg">Thanh Toán</a>
                                             </td>
                                         </tr>
                                     </tbody>

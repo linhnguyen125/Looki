@@ -132,12 +132,6 @@
                                                         </div>
                                                         <div class="d-flex align-items-center justify-content-between">
                                                             <span class="product-price">{{ number_format($new_product->price, 0, '', '.') }} đ</span>
-                                                            <button
-                                                                class="pro-btn"
-                                                                data-toggle="modal"
-                                                                data-target="#add-to-cart">
-                                                                <i class="icon-basket"></i>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -232,12 +226,6 @@
                                                                 <del class="del">{{ number_format($sale_product->price, 0, '', '.') }} đ</del>
                                                                 <span class="onsale">{{ number_format(($sale_product->price - ($sale_product->price * $sale_product->discount->percent) / 100), 0, '', '.') }} đ</span>
                                                             </span>
-                                                            <button
-                                                                class="pro-btn"
-                                                                data-toggle="modal"
-                                                                data-target="#add-to-cart">
-                                                                <i class="icon-basket"></i>
-                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>

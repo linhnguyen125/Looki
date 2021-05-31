@@ -87,7 +87,7 @@
                                         <div class="card product-card">
                                             <div class="card-body">
                                                 <div class="product-thumbnail position-relative">
-                                                    @if($product->sale == '1')
+                                                    @if($product->sale == '1' && $product->discount_id != null)
                                                         <span class="badge badge-success top-left">-{{$product->discount->percent}}%</span>
                                                         <span class="badge badge-danger top-right">onsale</span>
                                                     @else
@@ -160,12 +160,6 @@
                                                         @else
                                                             <span class="product-price">{{ number_format($product->price, 0, '', '.') }} đ</span>
                                                         @endif
-                                                        <button
-                                                            class="pro-btn"
-                                                            data-toggle="modal"
-                                                            data-target="#add-to-cart">
-                                                            <i class="icon-basket"></i>
-                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>

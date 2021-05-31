@@ -19,6 +19,14 @@
             font-size: 14px !important;
         }
 
+        div.desc {
+            white-space: initial;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            height: 50px;
+            font-size: 14px !important;
+        }
+
         a.see-more{
             font-size: 16px;
         }
@@ -74,9 +82,12 @@
                                         <i class="far fa-calendar-alt"></i>
                                         {{ \Carbon\Carbon::parse($item->created_at)->format('d M, Y') }}
                                     </p>
-                                    <h3 class="title mb-15 mt-15">
+                                    <h3 class="title mt-15">
                                         <a href="{{route('client.category', $item->slug)}}">{{$item->name}}</a>
                                     </h3>
+                                    <div class="desc">
+                                        {!! $item->description !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>

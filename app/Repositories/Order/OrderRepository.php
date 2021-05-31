@@ -8,11 +8,7 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     //lấy model tương ứng
     public function getModel()
     {
-        return \App\Models\Bill::class;
-    }
-
-    public function getAll(){
-        return $this->model->paginate(10);
+        return \App\Models\Order::class;
     }
 
     public function updateStatus($id, $status){
@@ -34,6 +30,6 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     }
 
     public function getAllByKeyword($keyword){
-        return $this->model->where('bill_code', 'like', '%'.$keyword.'%')->paginate(1);
+        return $this->model->where('order_code', 'like', '%'.$keyword.'%')->paginate(10);
     }
 }

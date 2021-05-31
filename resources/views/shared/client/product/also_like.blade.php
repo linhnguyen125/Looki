@@ -83,9 +83,6 @@
                                                 @else
                                                     <span class="product-price">{{ number_format($same_product->price, 0, '', '.') }} đ</span>
                                                 @endif
-                                                <button class="pro-btn" data-toggle="modal" data-target="#add-to-cart-{{$same_product->id}}">
-                                                    <i class="icon-basket"></i>
-                                                </button>
                                             </div>
                                         </div>
                                     </div>

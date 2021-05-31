@@ -36,6 +36,7 @@
         </div>
     </div>
     <!-- map end -->
+
     <!-- contact-section satrt -->
     <section class="contact-section pt-80 pb-50">
         <div class="container">
@@ -93,10 +94,9 @@
                     <div class="contact-form-content">
                         <h3 class="contact-page-title">Cho chúng tôi biết thông điệp của bạn</h3>
                         <div class="contact-form">
-                            <form
-                                id="contact-form"
-                                action="assets/php/contact.php"
-                                method="POST">
+{{--                            <form action="{{route('client.sena_contact_mail')}}" method="POST">--}}
+                            <form action="#" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label>Tên của bạn <span class="required">*</span></label>
                                     <input type="text" name="name" id="name"/>
@@ -111,25 +111,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Thông điệp của bạn</label>
-                                    <textarea
-                                        name="contactMessage"
-                                        class="pb-10"
-                                        id="contactMessage"
-                                    ></textarea>
+                                    <textarea name="contactMessage" class="pb-10" id="contactMessage"></textarea>
                                 </div>
                                 <div class="form-group mb-0">
-                                    <button
-                                        type="submit"
-                                        value="submit"
-                                        id="submit"
-                                        class="btn btn-dark btn--lg"
-                                        name="submit">
+                                    <button id="send-mail" type="submit" class="btn btn-dark btn--lg">
                                         Gửi
                                     </button>
                                 </div>
                             </form>
                         </div>
-                        <p class="form-message mt-10"></p>
                     </div>
                     <!-- End of contact -->
                 </div>

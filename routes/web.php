@@ -40,6 +40,17 @@ Route::group(['prefix' => 'gio-hang', 'middleware' => ['auth:web']], function ()
     Route::post('xoa', 'Client\CartController@delete')->name('client.cart.delete');
 });
 
+//========================= Contact ===========================
+Route::group(['prefix' => 'lien-he'], function () {
+    Route::post('send-mail', 'Client\ContactController@sendMail')->name('client.sena_contact_mail');
+});
+
+//========================= CHECKOUT ===========================
+Route::group(['middleware' => 'auth:web'], function () {
+    Route::get('thanh-toan', 'Client\CheckoutController@index')->name('client.checkout');
+    Route::post('order', 'Client\CheckoutController@order')->name('client.checkout.order');
+});
+
 Auth::routes();
 Route::get('auth/redirect/{provider_name}', 'Auth\SocialController@redirect')->name('redirect');
 Route::get('auth/callback/{provider_name}', 'Auth\SocialController@callback');
