@@ -11,7 +11,8 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         return \App\Models\Order::class;
     }
 
-    public function updateStatus($id, $status){
+    public function updateStatus($id, $status)
+    {
         $result = $this->find($id);
         if ($result) {
             $result->update([
@@ -21,15 +22,35 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
         }
     }
 
-    public function get($num){
+    public function get($num)
+    {
         return $this->model->orderBy('price', 'desc')->take($num)->get();
     }
 
-    public function getAllByStatus($status){
-        return $this->model->where('status', $status)->paginate(10);
+    public function getByStatusAndKeyWord($status, $keyword)
+    {
+        return $this->model->
+        where([
+                ['order_code', 'like', "%" . $keyword . "%"],
+                ['status', $status]
+            ])
+            ->orWhere([
+                ['user_name', 'like', "%" . $keyword . "%"],
+                ['status', $status]
+            ])
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
     }
 
-    public function getAllByKeyword($keyword){
-        return $this->model->where('order_code', 'like', '%'.$keyword.'%')->paginate(10);
+    public function getByKeyWord($keyword)
+    {
+        return $this->model->where([
+            ['order_code', 'like', "%" . $keyword . "%"],
+        ])
+            ->orWhere([
+                ['user_name', 'like', "%" . $keyword . "%"],
+            ])
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
     }
 }

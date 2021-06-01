@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('order_code');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('user_name')->nullable();
             $table->integer('total');
             $table->enum('status', ['processing', 'in transit', 'success', 'fail'])->default('processing');
             $table->json('address');

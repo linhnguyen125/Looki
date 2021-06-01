@@ -1,24 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\News;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\News\NewsRequest;
-use App\Repositories\NewsCategory\NewsCategoryRepositoryInterface;
-use App\Repositories\News\NewsRepositoryInterface;
+use App\Http\Requests\Admin\Blog\BlogRequest;
+use App\Repositories\Blog\BlogRepositoryInterface;
+use App\Repositories\BlogCategory\BlogCategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
-class NewsController extends Controller
+class BlogController extends Controller
 {
-    protected $newsRepo;
+    protected $blogRepo;
     protected $catRepo;
 
-    public function __construct(NewsRepositoryInterface $newsRepo, NewsCategoryRepositoryInterface $catRepo)
+    public function __construct(BlogRepositoryInterface $blogRepo, BlogCategoryRepositoryInterface $catRepo)
     {
         $this->middleware('auth:admin');
-        $this->newsRepo = $newsRepo;
+        $this->blogRepo = $blogRepo;
         $this->catRepo = $catRepo;
     }
 
@@ -30,75 +30,75 @@ class NewsController extends Controller
             if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
-            $newses = $this->newsRepo->getByStatus($status, $keyword);
+            $blogs = $this->blogRepo->getByStatus($status, $keyword);
         } elseif ($request->filter) {
             $filter = $this->filter($request->filter);
             if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
-            $newses = $this->newsRepo->getByFilter($filter, $keyword);
+            $blogs = $this->blogRepo->getByFilter($filter, $keyword);
         } elseif ($request->status && $request->filter) {
             $status = $this->status($request->status);
             $filter = $this->filter($request->filter);
             if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
-            $newses = $this->newsRepo->getByStatusAndFilter($status, $filter, $keyword);
+            $blogs = $this->blogRepo->getByStatusAndFilter($status, $filter, $keyword);
         } else {
             if ($request->keyword) {
                 $keyword = htmlspecialchars($request->keyword);
             }
-            $newses = $this->newsRepo->getByKeyWord($keyword);
+            $blogs = $this->blogRepo->getByKeyWord($keyword);
         }
 
-        return view('admin.news.index', compact('newses'));
+        return view('admin.blog.index', compact('blogs'));
     }
 
     public function create()
     {
         $categories = $this->catRepo->getAll();
         $division_categories = $this->catRepo->data_tree($categories, 0, 0);
-        return view('admin.news.create', compact('division_categories'));
+        return view('admin.blog.create', compact('division_categories'));
     }
 
-    public function store(NewsRequest $request)
+    public function store(BlogRequest $request)
     {
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
         $data['admin_id'] = Auth::guard('admin')->id();
-        $product = $this->newsRepo->create($data);
+        $product = $this->blogRepo->create($data);
         if ($product) {
-            return back()->with(['success' => 'Tạo mới tin tức thành công, bây giời bạn có thể xem chi tiết tin tức.']);
+            return back()->with(['success' => 'Tạo mới blog thành công, bây giời bạn có thể xem chi tiết blog.']);
         } else {
-            return back()->with(['error' => 'Tạo mới tin tức thất bại, xin vui lòng thử lại sau.']);
+            return back()->with(['error' => 'Tạo mới blog thất bại, xin vui lòng thử lại sau.']);
         }
     }
 
     public function edit($id){
-        $news = $this->newsRepo->find($id);
+        $blog = $this->blogRepo->find($id);
         $categories = $this->catRepo->getAll();
         $division_categories = $this->catRepo->data_tree($categories, 0, 0);
-        return view('admin.news.edit', compact('news', 'division_categories'));
+        return view('admin.blog.edit', compact('blog', 'division_categories'));
     }
 
-    public function update(NewsRequest $request, $id){
+    public function update(BlogRequest $request, $id){
         $data = $request->all();
         $data['slug'] = Str::slug($request->name);
         $data['admin_id'] = Auth::guard('admin')->id();
-        $news = $this->newsRepo->update($id, $data);
-        if ($news) {
-            return back()->with(['success' => 'chỉnh sửa tin tức thành công, bây giời bạn có thể xem chi tiết tin tức.']);
+        $blog = $this->blogRepo->update($id, $data);
+        if ($blog) {
+            return back()->with(['success' => 'chỉnh sửa blog thành công, bây giời bạn có thể xem chi tiết blog.']);
         } else {
-            return back()->with(['error' => 'Chỉnh sửa tin tức thất bại, xin vui lòng thử lại sau.']);
+            return back()->with(['error' => 'Chỉnh sửa blog thất bại, xin vui lòng thử lại sau.']);
         }
     }
 
     public function delete($id){
-        $product = $this->newsRepo->delete($id);
+        $product = $this->blogRepo->delete($id);
         if ($product) {
-            return back()->with(['success' => 'tin tức đã được xóa khỏi hệ thống.']);
+            return back()->with(['success' => 'blog đã được xóa khỏi hệ thống.']);
         } else {
-            return back()->with(['error' => 'Xóa tin tức thất bại, xin vui lòng thử lại sau.']);
+            return back()->with(['error' => 'Xóa blog thất bại, xin vui lòng thử lại sau.']);
         }
     }
 

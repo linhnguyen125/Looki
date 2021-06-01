@@ -41,4 +41,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Discount');
     }
+
+    public function orderDetails()
+    {
+        return $this->hasMany('App\Models\OrderDetail');
+    }
 }

@@ -45,6 +45,7 @@ class CheckoutController extends Controller
         $ward = Ward::find($request->ward)->name;
         $data['order_code'] = 'LKI-' . Str::upper(Str::random(8));
         $data['user_id'] = Auth::user()->id;
+        $data['user_name'] = Auth::user()->name;
         $carts = Cart::content();
         $data['total'] = 0;
         foreach ($carts as $cart) {

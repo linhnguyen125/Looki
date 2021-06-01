@@ -1,7 +1,7 @@
 <div class="nk-sidebar nk-sidebar-fixed is-light " data-content="sidebarMenu">
     <div class="nk-sidebar-element nk-sidebar-head">
         <div class="nk-sidebar-brand">
-            <a href="html/index.html" class="logo-link nk-sidebar-logo">
+            <a href="{{route('dashboard')}}" class="logo-link nk-sidebar-logo">
                 <img class="logo-light logo-img" src="{{asset('assets/admin/images/logo.png')}}"
                      srcset="{{asset('assets/admin/images/logo2x.png 2x')}}" alt="logo">
                 <img class="logo-dark logo-img" src="{{asset('assets/admin/images/logo-dark.png')}}"
@@ -22,13 +22,13 @@
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/index.html" class="nk-menu-link">
+                        <a href="{{route('dashboard')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
                             <span class="nk-menu-text">Bảng điều khiển</span>
                         </a>
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
-                        <a href="html/ecommerce/orders.html" class="nk-menu-link">
+                        <a href="{{route('admin.order.index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-bag-fill"></em></span>
                             <span class="nk-menu-text">Hóa đơn</span>
                         </a>

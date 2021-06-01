@@ -4,21 +4,21 @@
 
 @section('css')
     <style>
-        h3.popular-title{
+        h3.popular-title {
             white-space: initial;
             overflow: hidden;
             text-overflow: ellipsis;
             height: 50px;
         }
 
-        section.product-tab h3.title, section.featured-slider h3{
+        section.product-tab h3.title, section.featured-slider h3 {
             white-space: initial;
             overflow: hidden;
             text-overflow: ellipsis;
             height: 45px;
         }
 
-        section.blog-section h3.title{
+        section.blog-section h3.title {
             white-space: initial;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -26,7 +26,7 @@
         }
 
         @media only screen and (max-width: 990px) {
-            section.product-tab h3.title{
+            section.product-tab h3.title {
                 white-space: initial;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -35,21 +35,29 @@
         }
 
         @media only screen and (min-width: 992px) {
-            div.product-body{
+            div.product-body {
                 min-height: 180px;
             }
         }
 
         @media only screen and (max-width: 768px) {
-            div.common-banner{
+            div.common-banner {
                 display: none;
             }
-            div.popular-section{
+
+            div.popular-section {
                 padding-top: 50px;
             }
-            section.featured-slider{
+
+            section.featured-slider {
                 display: none;
             }
+        }
+
+        div#offcanvas-cart {
+            max-height: 800px;
+            white-space: inherit;
+            overflow: scroll;
         }
     </style>
 @endsection
