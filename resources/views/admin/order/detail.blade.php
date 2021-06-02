@@ -104,20 +104,23 @@
                                                     <div class="profile-ud-item">
                                                         <div class="profile-ud wider">
                                                             <span class="profile-ud-label">Địa chỉ nhận hàng</span>
-                                                            <span class="profile-ud-value">{{$order->address['more']}} - {{$order->address['ward']}}
-                                                                - {{$order->address['district']}} - {{$order->address['province']}}
+                                                            <span class="profile-ud-value">
+{{--                                                                {{$order->address['more']}} - {{$order->address['ward']}}--}}
+{{--                                                                - {{$order->address['district']}} - {{$order->address['province']}}--}}
+                                                                {{$order->address}}
                                                             </span>
                                                         </div>
                                                     </div>
                                                     <div class="profile-ud-item">
                                                         <div class="profile-ud wider">
                                                             <span class="profile-ud-label">Lưu ý</span>
-                                                            @if($order->address['note'] != null)
-                                                                <span
-                                                                    class="profile-ud-value">{{$order->address['note']}}</span>
-                                                            @else
-                                                                <span class="profile-ud-value">Không có</span>
-                                                            @endif
+{{--                                                            @if($order->address['note'] != null)--}}
+{{--                                                                <span--}}
+{{--                                                                    class="profile-ud-value">{{$order->address['note']}}</span>--}}
+{{--                                                            @else--}}
+{{--                                                                <span class="profile-ud-value">Không có</span>--}}
+{{--                                                            @endif--}}
+                                                            Không có
                                                         </div>
                                                     </div>
 

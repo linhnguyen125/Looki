@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Providers\App\Events\LastLogin;
-use App\Repositories\Admin\AdminRepositoryInterface;
+use App\Repositories\Order\OrderRepositoryInterface;
+use App\Repositories\OrderDetail\OrderDetailRepositoryInterface;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    protected $adminRepo;
+    protected $orderRepo, $orderDetail;
 
-    public function __construct(AdminRepositoryInterface $adminRepo)
+    public function __construct(OrderRepositoryInterface $orderRepo, OrderDetailRepositoryInterface $orderDetail)
     {
-        $this->adminRepo = $adminRepo;
         $this->middleware('auth:admin');
+        $this->orderRepo = $orderRepo;
+        $this->orderDetail = $orderDetail;
     }
 
     public function index()

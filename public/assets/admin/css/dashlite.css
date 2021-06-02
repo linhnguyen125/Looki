@@ -5086,7 +5086,7 @@ a:hover .btn-trigger:before { opacity: 1; height: 120%; width: 120%; }
 
 .card-full { height: 100%; }
 
-.card.is-dark { background: #3a2272; }
+.card.is-dark { background: rgba(165, 94, 234,0.7); }
 
 .card-bordered { border: 1px solid #dbdfea; }
 
@@ -13087,7 +13087,7 @@ p > span > .icon.ni { vertical-align: middle; }
 
 .nk-ecwg .data-group .data { margin: 0; padding-right: 20px; }
 
-.nk-ecwg1-ck { height: 110px; }
+.nk-ecwg1-ck { height: 230px; padding: 15px;}
 
 .nk-ecwg2-ck { height: 182px; }
 

@@ -31,9 +31,9 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     {
         return $this->model->
         where([
-                ['order_code', 'like', "%" . $keyword . "%"],
-                ['status', $status]
-            ])
+            ['order_code', 'like', "%" . $keyword . "%"],
+            ['status', $status]
+        ])
             ->orWhere([
                 ['user_name', 'like', "%" . $keyword . "%"],
                 ['status', $status]
@@ -52,5 +52,15 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
             ])
             ->orderBy('created_at', 'desc')
             ->paginate(10);
+    }
+
+    public function getByMonthAndStatus($month, $status)
+    {
+        return $this->model->whereMonth('created_at', $month)->where('status', $status)->count();
+    }
+
+    public function getByMonth($month)
+    {
+        return $this->model->whereMonth('created_at', $month)->count();
     }
 }

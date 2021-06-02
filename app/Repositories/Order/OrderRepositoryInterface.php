@@ -20,4 +20,8 @@ interface OrderRepositoryInterface
     public function getByStatusAndKeyWord($status, $keyword);
 
     public function getByKeyWord($keyword);
+
+    public function getByMonthAndStatus($month, $status);
+
+    public function getByMonth($month);
 }

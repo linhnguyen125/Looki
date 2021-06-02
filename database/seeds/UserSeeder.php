@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        $limit = 50;
+        $limit = 140;
 
         for ($i = 0; $i < $limit; $i++) {
             User::insert([
