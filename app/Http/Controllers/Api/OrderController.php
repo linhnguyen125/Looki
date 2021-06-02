@@ -26,23 +26,34 @@ class OrderController extends Controller
         $success_orders = [];
         $fail_orders = [];
         $months = [];
-        $ratio_success_orders = [];
-        $ratio_fail_orders = [];
+        $rate_of_increase_sales = []; // % tăng trưởng doanh số
+        $rate_of_increase_orders = []; // % tăng trưởng số hóa đơn
         $month = Carbon::now()->month;
-        $orders = [];
         for ($i = 1; $i <= $month; $i++) {
-            $orders = $this->orderRepo->getByMonth($i); // tong don hang
             $success = $this->orderRepo->getByMonthAndStatus($i, 'success'); // don hang thanh cong
             array_push($success_orders, $success);
-            array_push($ratio_success_orders, ($success / $orders) * 100); // ti le don thanh cong
-        }
-
-        for ($i = 1; $i <= $month; $i++) {
-            $orders = $this->orderRepo->getByMonth($i); // tong don hang
             $fail = $this->orderRepo->getByMonthAndStatus($i, 'fail'); // don hang huy
             array_push($fail_orders, $fail);
-            array_push($ratio_fail_orders, ($fail / $orders) * 100); // ti le don hang huy
         }
+
+        // Số đơn hàng tháng đầu tiên
+        $orderFirstMonth = $this->orderRepo->getByMonth(1);
+        array_push($rate_of_increase_orders, 100); // % tăng trưởng đơn hàng tháng đầu = 100%
+        for ($i = 2; $i <= $month - 1; $i++) {
+            $orderThisMon = $this->orderRepo->getByMonth($i); // Số đơn hàng tháng tiếp theo
+            array_push($rate_of_increase_orders,
+                round((($orderThisMon / $orderFirstMonth) * 100), 2));// % tăng trưởng đơn hàng tháng tiếp theo
+        }
+
+        // Doanh số tháng đầu
+        $salesFirstMonth = $this->orderRepo->totalSaleByMonth(1);
+        array_push($rate_of_increase_sales, 100); // % tăng trưởng doanh số tháng đầu = 100%
+        for ($i = 2; $i <= $month - 1; $i++) {
+            $salesThisMon = $this->orderRepo->totalSaleByMonth($i); // Doanh số tháng tiếp theo
+            array_push($rate_of_increase_sales,
+                round((($salesThisMon / $salesFirstMonth) * 100), 2));// % tăng trưởng doanh số tháng tiếp theo
+        }
+
         // array tháng
         for ($i = 1; $i <= $month; $i++) {
             array_push($months, 'Tháng ' . $i);
@@ -52,8 +63,8 @@ class OrderController extends Controller
             'success_orders' => $success_orders,
             'fail_orders' => $fail_orders,
             'months' => $months,
-            'ratio_fail_orders' => $ratio_fail_orders,
-            'ratio_success_orders' => $ratio_success_orders,
+            'rate_of_increase_orders' => $rate_of_increase_orders,
+            'rate_of_increase_sales' => $rate_of_increase_sales,
         ];
 
         return response()->json($data, 200);

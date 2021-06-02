@@ -63,4 +63,24 @@ class OrderRepository extends BaseRepository implements OrderRepositoryInterface
     {
         return $this->model->whereMonth('created_at', $month)->count();
     }
+
+    public function totalSale()
+    {
+        return $this->model->all()->sum('total');
+    }
+
+    public function totalSaleByMonth($month)
+    {
+        return $this->model->whereMonth('created_at', $month)->sum('total');
+    }
+
+    public function averageByMonth($month)
+    {
+        return $this->model->whereMonth('created_at', $month)->avg('total');
+    }
+
+    public function totalOrderByDay($day)
+    {
+        return $this->model->whereDay('created_at', '<=', $day)->get();
+    }
 }

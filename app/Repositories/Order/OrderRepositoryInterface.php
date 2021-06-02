@@ -24,4 +24,12 @@ interface OrderRepositoryInterface
     public function getByMonthAndStatus($month, $status);
 
     public function getByMonth($month);
+
+    public function totalSale();
+
+    public function totalSaleByMonth($month);
+
+    public function averageByMonth($month);
+
+    public function totalOrderByDay($day);
 }

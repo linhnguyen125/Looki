@@ -5,21 +5,25 @@
 @section('css')
     <style>
         @media only screen and (max-width: 1600px) {
-            div.nk-ecwg1-ck{
+            div.nk-ecwg1-ck {
                 height: 300px;
             }
         }
 
         @media only screen and (max-width: 767px) {
-            div.nk-ecwg1-ck{
+            div.nk-ecwg1-ck {
                 height: 350px;
             }
         }
 
         @media only screen and (max-width: 516px) {
-            div.nk-ecwg1-ck{
+            div.nk-ecwg1-ck {
                 height: 250px;
             }
+        }
+
+        div.card-inner{
+            min-height: 260px;
         }
     </style>
 @endsection
@@ -44,29 +48,46 @@
                                         <div class="card-inner">
                                             <div class="card-title-group">
                                                 <div class="card-title">
-                                                    <h6 class="title">Total Sales</h6>
+                                                    <h6 class="title">Tổng doanh số</h6>
                                                 </div>
                                                 <div class="card-tools">
                                                     <a href="#" class="link">View Report</a>
                                                 </div>
                                             </div>
                                             <div class="data">
-                                                <div class="amount">$74,958.49</div>
-                                                <div class="info"><strong>$7,395.37</strong> in last month</div>
+                                                <div class="amount">{{number_format($totalSales, 0, '','.')}} <em
+                                                        class="icon ni ni-sign-vnd"></em></div>
+                                                <div class="info">
+                                                    <strong>{{number_format($totalSaleLastMonth, 0, '','.')}} <em
+                                                            class="icon ni ni-sign-vnd"></em></strong> trong tháng trước
+                                                </div>
                                             </div>
                                             <div class="data">
-                                                <h6 class="sub-title">This week so far</h6>
+                                                <h6 class="sub-title">Tháng này cho đến nay</h6>
                                                 <div class="data-group">
-                                                    <div class="amount">$1,338.72</div>
-                                                    <div class="info text-right"><span
-                                                            class="change up text-danger"><em
-                                                                class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last week</span>
+                                                    <div
+                                                        class="amount">{{number_format($totalSaleThisMonth, 0, '','.')}}
+                                                        <em class="icon ni ni-sign-vnd"></em></div>
+                                                    <div class="info text-right">
+                                                        @if($rate_of_increase_sales >= 0)
+                                                            <span class="change up text-success">
+                                                            <em class="icon ni ni-arrow-long-up"></em>
+                                                            {{number_format((float)$rate_of_increase_sales, 2, '.', '')}}%
+                                                        </span>
+                                                        @else
+                                                            <span class="change down text-danger">
+                                                        <em class="icon ni ni-arrow-long-down"></em>
+                                                        {{number_format((float)$rate_of_increase_sales, 2, '.', '')}}%
+                                                        </span>
+                                                        @endif
+                                                        <br>
+                                                        <span>vs. tháng trước</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div><!-- .card-inner -->
                                         <div class="nk-ecwg1-ck">
-                                            <canvas class="ecommerce-line-chart-s1" id="totalSales"></canvas>
+                                            <canvas class="ecommerce-bar-chart-s1" id="totalSales"></canvas>
                                         </div>
                                     </div><!-- .nk-ecwg -->
                                 </div><!-- .card -->
@@ -77,7 +98,7 @@
                                         <div class="card-inner">
                                             <div class="card-title-group mt-n1">
                                                 <div class="card-title">
-                                                    <h6 class="title">Averarge order</h6>
+                                                    <h6 class="title">Đơn hàng trung bình tháng</h6>
                                                 </div>
                                                 <div class="card-tools mr-n1">
                                                     <div class="dropdown">
@@ -100,14 +121,25 @@
                                             </div>
                                             <div class="data">
                                                 <div class="data-group">
-                                                    <div class="amount">$463.35</div>
-                                                    <div class="info text-right"><span
-                                                            class="change up text-danger"><em
-                                                                class="icon ni ni-arrow-long-up"></em>4.63%</span><br><span>vs. last week</span>
+                                                    <div class="amount">{{$avgOrder}} Đơn</div>
+                                                    <div class="info text-right">
+                                                        @if($rate_of_increase_order >= 0)
+                                                            <span class="change up text-success">
+                                                            <em class="icon ni ni-arrow-long-up"></em>
+                                                            {{number_format((float)$rate_of_increase_order, 2, '.', '')}}%
+                                                        </span>
+                                                        @else
+                                                            <span class="change down text-danger">
+                                                        <em class="icon ni ni-arrow-long-down"></em>
+                                                        {{number_format((float)$rate_of_increase_order, 2, '.', '')}}%
+                                                        </span>
+                                                        @endif
+                                                        <br>
+                                                        <span>vs. tháng trước</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <h6 class="sub-title">Orders over time</h6>
+                                            <h6 class="sub-title">Đơn đặt hàng theo thời gian</h6>
                                         </div><!-- .card-inner -->
                                         <div class="nk-ecwg2-ck">
                                             <canvas class="ecommerce-bar-chart-s1" id="averargeOrder"></canvas>
@@ -591,9 +623,9 @@
         </div>
     </div>
 
-{{--    <div style="margin-top: 100px; width: 600px">--}}
-{{--        <canvas id="myChart"></canvas>--}}
-{{--    </div>--}}
+    {{--    <div style="margin-top: 100px; width: 600px">--}}
+    {{--        <canvas id="myChart"></canvas>--}}
+    {{--    </div>--}}
 @endsection
 
 @section('script')
