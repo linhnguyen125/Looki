@@ -26,6 +26,18 @@ Route::get('/', 'Client\HomeController@index')->name('home');
 //===================  CATEGORY & DETAIL =======================
 Route::get('{slug}.html', 'Client\CategoryController@index')->name('client.category');
 
+//=================== PRODUCT & DETAIL =======================
+Route::get('san-pham/{slug}.html', 'Client\ProductController@index')->name('client.product');
+
+//=================== BLOG & DETAIL =======================
+Route::get('blog/{slug}.html', 'Client\BlogController@index')->name('client.blog');
+
+//=================== NEWS & DETAIL =======================
+Route::get('tin-tuc/{slug}.html', 'Client\NewsController@index')->name('client.news');
+
+//=================== CONTACT =======================
+Route::get('lien-he.html', 'Client\ContactController@index')->name('client.contact');
+
 //========================= ACCOUNT ============================
 Route::group(['prefix' => 'tai-khoan', 'middleware' => ['auth:web']], function () {
     Route::get('', 'Client\AccountController@index')->name('client.account');
@@ -52,6 +64,7 @@ Route::group(['middleware' => 'auth:web'], function () {
 });
 
 Auth::routes();
+
 Route::get('auth/redirect/{provider_name}', 'Auth\SocialController@redirect')->name('redirect');
 Route::get('auth/callback/{provider_name}', 'Auth\SocialController@callback');
 

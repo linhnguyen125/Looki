@@ -27,6 +27,7 @@ class DashboardController extends Controller
         $totalSaleLastMonth = $this->orderRepo->totalSaleByMonth($month - 1); // doanh số tháng trước
         $avgThisMonth = $this->orderRepo->averageByMonth($month); // trung bình tháng này
         $avgLastMonth = $this->orderRepo->averageByMonth($month - 1); // trung bình tháng trước
+        if($avgLastMonth == 0) $avgLastMonth = 1;
         $rate_of_increase_sales = ($avgThisMonth - $avgLastMonth) / $avgLastMonth * 100; // % tăng trưởng doanh số
         $avgOrder = ceil($this->orderRepo->getAll()->count() / $month); // đơn hàng tb tháng
 

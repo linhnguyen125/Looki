@@ -102,14 +102,14 @@
                                 <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
                                     <div class="blog-post-media">
                                         <div class="blog-image single-blog">
-                                            <a href="{{route('client.category', $same_blog->slug)}}">
+                                            <a href="{{route('client.blog', $same_blog->slug)}}">
                                                 <img src="{{$same_blog->thumbnail}}" alt="blog"/>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="blog-post-content">
                                         <h3 class="title mb-15">
-                                            <a href="{{route('client.category', $same_blog->slug)}}">{{$same_blog->name}}</a>
+                                            <a href="{{route('client.blog', $same_blog->slug)}}">{{$same_blog->name}}</a>
                                         </h3>
                                         <p class="sub-title">
                                             <i class="ion-calendar"></i> {{ \Carbon\Carbon::parse($same_blog->created_at)->format('d M, Y') }}

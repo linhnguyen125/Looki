@@ -60,7 +60,7 @@
                                 <div class="single-blog text-left">
                                     <a
                                         class="blog-thumb mb-10 zoom-in d-block overflow-hidden"
-                                        href="{{route('client.category', $item->slug)}}">
+                                        href="{{route('client.blog', $item->slug)}}">
                                         <img src="{{$item->thumbnail}}" alt="blog-thumb-naile"/>
                                     </a>
                                     <div class="blog-post-content">
@@ -69,7 +69,7 @@
                                             {{ \Carbon\Carbon::parse($item->created_at)->format('d M, Y') }}
                                         </p>
                                         <h3 class="title text-uppercase mb-10 mt-15">
-                                            <a href="{{route('client.category', $item->slug)}}">{{$item->name}}</a>
+                                            <a href="{{route('client.blog', $item->slug)}}">{{$item->name}}</a>
                                         </h3>
                                         <div class="desc">
                                             {!! $item->description !!}
@@ -86,7 +86,7 @@
                             <div class="single-blog text-left">
                                 <a
                                     class="blog-thumb mb-10 zoom-in d-block overflow-hidden"
-                                    href="{{route('client.category', $item->slug)}}">
+                                    href="{{route('client.blog', $item->slug)}}">
                                     <img src="{{$item->thumbnail}}" alt="blog-thumb-naile"/>
                                 </a>
                                 <div class="blog-post-content">
@@ -95,7 +95,7 @@
                                         {{ \Carbon\Carbon::parse($item->created_at)->format('d M, Y') }}
                                     </p>
                                     <h3 class="title text-uppercase mt-10 mb-15">
-                                        <a href="{{route('client.category', $item->slug)}}">{{$item->name}}</a>
+                                        <a href="{{route('client.blog', $item->slug)}}">{{$item->name}}</a>
                                     </h3>
                                     <div class="desc-col-2 d-none">
                                         {!! $item->description !!}
@@ -119,7 +119,7 @@
                             <div class="single-blog text-left">
                                 <a
                                     class="blog-thumb mb-20 zoom-in d-block overflow-hidden"
-                                    href="{{route('client.category', $item->slug)}}">
+                                    href="{{route('client.blog', $item->slug)}}">
                                     <img src="{{$item->thumbnail}}" alt="blog-thumb-naile"/>
                                 </a>
                                 <div class="blog-post-content">
@@ -128,19 +128,19 @@
                                         {{ \Carbon\Carbon::parse($item->created_at)->format('d M, Y') }}
                                     </p>
                                     <h3 class="title mb-15 mt-15">
-                                        <a href="{{route('client.category', $item->slug)}}">{{$item->name}}</a>
+                                        <a href="{{route('client.blog', $item->slug)}}">{{$item->name}}</a>
                                     </h3>
 {{--                                    <div class="text">--}}
 {{--                                        {!! $item->description !!}--}}
 {{--                                    </div>--}}
-                                    <a class="read-more" href="{{route('client.category', $item->slug)}}">Xem thêm</a>
+                                    <a class="read-more" href="{{route('client.blog', $item->slug)}}">Xem thêm</a>
                                 </div>
                             </div>
                         </div>
                         <hr>
                         <div class="col-12">
                             <div class="section-title text-center">
-                                <a href="{{route('client.category', $item->blog_category->slug)}}" class="btn btn-dark py-10 rounded-pill see-more">
+                                <a href="{{route('client.blog', $item->blog_category->slug)}}" class="btn btn-dark py-10 rounded-pill see-more">
                                     Xem tiếp
                                     <i class="fas fa-angle-double-right"></i>
                                 </a>

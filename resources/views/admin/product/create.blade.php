@@ -9,7 +9,7 @@
     <script src="{{asset('assets/admin/js/tinymce.js')}}"></script>
     <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
     <script>
-        $('#lfm').filemanager('image');
+        $('#lfm').filemanager('Images');
     </script>
 @endsection
 

@@ -39,7 +39,7 @@
                         <div class="single-blog text-left">
                             <a
                                 class="blog-thumb mb-20 zoom-in d-block overflow-hidden"
-                                href="{{route('client.category', $blog->slug)}}">
+                                href="{{route('client.blog', $blog->slug)}}">
                                 <img src="{{$blog->thumbnail}}" alt="blog-thumb-naile"/>
                             </a>
                             <div class="blog-post-content">
@@ -48,12 +48,12 @@
                                     {{ \Carbon\Carbon::parse($blog->created_at)->format('d M, Y') }}
                                 </p>
                                 <h3 class="title mb-15 mt-15">
-                                    <a href="{{route('client.category', $blog->slug)}}">{{$blog->name}}</a>
+                                    <a href="{{route('client.blog', $blog->slug)}}">{{$blog->name}}</a>
                                 </h3>
                                 <div class="text">
                                     {!! $blog->description !!}
                                 </div>
-                                <a class="read-more" href="{{route('client.category', $blog->slug)}}">Xem thêm</a>
+                                <a class="read-more" href="{{route('client.blog', $blog->slug)}}">Xem thêm</a>
                             </div>
                         </div>
                     </div>

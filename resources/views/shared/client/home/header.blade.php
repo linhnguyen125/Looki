@@ -109,10 +109,10 @@
                                     <li class="col-2">
                                         <ul>
                                             @foreach($fashion as $slugParent => $itemParents)
-                                                <li class="mega-menu-title"><a href="{{route('client.category', $slugParent)}}">{{$name}}</a></li>
+                                                <li class="mega-menu-title"><a href="{{route('client.product', $slugParent)}}">{{$name}}</a></li>
                                                 @foreach($itemParents as $itemParent)
                                                     <li>
-                                                        <a href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
+                                                        <a href="{{route('client.product', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
                                                     </li>
                                                 @endforeach
                                             @endforeach
@@ -125,10 +125,10 @@
                                     <li class="col-2">
                                         <ul>
                                             @foreach($cosmetic as $slugParent => $itemParents)
-                                                <li class="mega-menu-title"><a href="{{route('client.category', $slugParent)}}">{{$name}}</a></li>
+                                                <li class="mega-menu-title"><a href="{{route('client.product', $slugParent)}}">{{$name}}</a></li>
                                                 @foreach($itemParents as $itemParent)
                                                     <li>
-                                                        <a href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
+                                                        <a href="{{route('client.product', $itemParent['slug'])}}">{{$itemParent['name']}}</a>
                                                     </li>
                                                 @endforeach
                                             @endforeach
@@ -166,7 +166,7 @@
 
                         <!-- Contact page -->
                         <li class="{{session('module') == 'contact' ? 'active' : ' '}}">
-                            <a href="{{route('client.category', 'lien-he')}}">Liên hệ</a>
+                            <a href="{{route('client.contact')}}">Liên hệ</a>
                         </li>
                     </ul>
                 </div>

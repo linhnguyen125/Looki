@@ -93,7 +93,7 @@
                                                     @else
                                                         <span class="badge badge-danger top-right">New</span>
                                                     @endif
-                                                    <a href="{{route('client.category', $product->slug)}}">
+                                                    <a href="{{route('client.product', $product->slug)}}">
                                                         <img
                                                             class="first-img"
                                                             src="{{$product->thumbnail}}"
@@ -142,7 +142,7 @@
                                                 </div>
                                                 <div class="product-desc py-0 px-0">
                                                     <h3 class="title">
-                                                        <a href="{{route('client.category', $product->slug)}}">{{$product->name}}</a>
+                                                        <a href="{{route('client.product', $product->slug)}}">{{$product->name}}</a>
                                                     </h3>
                                                     <div class="star-rating">
                                                         <span class="ion-ios-star"></span>
@@ -188,7 +188,7 @@
                                     @foreach($fashion as $itemParents)
                                         <ul class="category-sub-menu">
                                             @foreach($itemParents as $itemParent)
-                                                <li><a class="hover-color" href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a></li>
+                                                <li><a class="hover-color" href="{{route('client.product', $itemParent['slug'])}}">{{$itemParent['name']}}</a></li>
                                             @endforeach
                                         </ul>
                                     @endforeach
@@ -201,7 +201,7 @@
                                     @foreach($cosmetic as $itemParents)
                                         <ul class="category-sub-menu">
                                             @foreach($itemParents as $itemParent)
-                                                <li><a class="hover-color" href="{{route('client.category', $itemParent['slug'])}}">{{$itemParent['name']}}</a></li>
+                                                <li><a class="hover-color" href="{{route('client.product', $itemParent['slug'])}}">{{$itemParent['name']}}</a></li>
                                             @endforeach
                                         </ul>
                                     @endforeach

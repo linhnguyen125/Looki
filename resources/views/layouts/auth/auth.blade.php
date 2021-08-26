@@ -31,10 +31,10 @@
                         <a href="{{url('/')}}" class="fxt-logo"><img src="{{asset('assets/auth/img/logo-bottom.png')}}" alt="Logo"></a>
                     </div>
                     <div class="fxt-transformY-50 fxt-transition-delay-2">
-                        <h1 style="color: rgba(160,46,221,0.96)">Welcome To Looki</h1>
+                        <h1 style="color: #f1c40f">Welcome To Looki</h1>
                     </div>
                     <div class="fxt-transformY-50 fxt-transition-delay-3">
-                        <p style="color: rgba(160,46,221,0.96)">Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur elit.
+                        <p style="color: #f1c40f">Grursus mal suada faci lisis Lorem ipsum dolarorit more ametion consectetur elit.
                             Vesti at bulum nec odio aea the dumm ipsumm ipsum that dolocons rsus mal suada and
                             fadolorit to the dummy consectetur elit the Lorem Ipsum genera.</p>
                     </div>

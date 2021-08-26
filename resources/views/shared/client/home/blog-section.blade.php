@@ -18,7 +18,7 @@
                             <div class="single-blog">
                                 <a
                                     class="blog-thumb mb-20 zoom-in d-block overflow-hidden"
-                                    href="{{route('client.category', $news->slug)}}">
+                                    href="{{route('client.news', $news->slug)}}">
                                     <img src="{{$news->thumbnail}}" alt="blog-thumb-naile"/>
                                 </a>
                                 <div class="blog-post-content">
@@ -26,7 +26,7 @@
                                         class="blog-link theme-color d-inline-block mb-10 text-uppercase"
                                         href="{{$news->news_category->slug}}">{{$news->news_category->name}}</a>
                                     <h3 class="title mb-15">
-                                        <a href="{{route('client.category', $news->slug)}}">{{$news->name}}</a>
+                                        <a href="{{route('client.news', $news->slug)}}">{{$news->name}}</a>
                                     </h3>
                                     <h5 class="sub-title">
                                         {{ \Carbon\Carbon::parse($news->created_at)->format('d M, Y') }}
