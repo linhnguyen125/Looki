@@ -1,6 +1,6 @@
 $(function () {
     var editor_config = {
-        path_absolute: "http://localhost/Looki/",
+        path_absolute: "/",
         selector: "textarea#detail,#description",
         height: 300,
         plugins: [
