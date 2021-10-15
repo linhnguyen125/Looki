@@ -18,7 +18,7 @@
 </head>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">
-<div class="nk-app-root">
+<div class="nk-app-root" id="admin-template">
     <!-- main @s -->
     <div class="nk-main ">
         <!-- sidebar @s -->

@@ -11,6 +11,7 @@ use App\Models\Ward;
 use App\Repositories\Admin\AdminRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class UserProfileController extends Controller
@@ -90,6 +91,10 @@ class UserProfileController extends Controller
         }else{
             return back()->with(['error' => 'Cập nhật thông tin thất bại. Xin vui lòng thử lại sau']);
         }
+    }
+
+    public function profile($id){
+        return Auth::guard('admin')->user();
     }
 
     public function notifies(){

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -114,6 +115,8 @@ Route::group(['prefix' => 'admin'], function () {
                 'Admin\UserProfileController@accountActivity')->name('admin.user.account_activity');
             Route::get('cai-dat-bao-mat.html',
                 'Admin\UserProfileController@securitySetting')->name('admin.user.security_settings');
+            Route::get('profile/{id}', 'Admin\UserProfileController@profile')->name('admin.customer.profile');
+
         });
 
         //======================= CUSTOMER =============================
@@ -220,5 +223,10 @@ Route::group(['prefix' => 'admin'], function () {
             Route::get('xoa-hoa-don/{id}', 'Admin\OrderController@delete')->name('admin.order.delete');
             Route::get('chi-tiet/{id}', 'Admin\OrderController@detail')->name('admin.order.detail');
         });
+    });
+
+    Route::get('/markasread',function(){
+        $_admin = Auth::guard('admin')->user();
+        $_admin->unreadNotifications->markAsRead();
     });
 });
