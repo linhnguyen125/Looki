@@ -633,6 +633,7 @@ class ComposerStaticInitf841ddd7137e0559351474824948fc9a
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Events\\SendNotifyEvent' => __DIR__ . '/../..' . '/app/Events/SendNotifyEvent.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/BlogController.php',
         'App\\Http\\Controllers\\Admin\\Category\\BlogCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/Category/BlogCategoryController.php',
@@ -713,6 +714,7 @@ class ComposerStaticInitf841ddd7137e0559351474824948fc9a
         'App\\Models\\Ward' => __DIR__ . '/../..' . '/app/Models/Ward.php',
         'App\\Notifications\\AdminResetPasswordNotification' => __DIR__ . '/../..' . '/app/Notifications/AdminResetPasswordNotification.php',
         'App\\Notifications\\RepliedToThread' => __DIR__ . '/../..' . '/app/Notifications/RepliedToThread.php',
+        'App\\Notifications\\SendMessageNotification' => __DIR__ . '/../..' . '/app/Notifications/SendMessageNotification.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',

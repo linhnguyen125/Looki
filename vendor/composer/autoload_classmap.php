@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Events\\SendNotifyEvent' => $baseDir . '/app/Events/SendNotifyEvent.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Admin\\BlogController' => $baseDir . '/app/Http/Controllers/Admin/BlogController.php',
     'App\\Http\\Controllers\\Admin\\Category\\BlogCategoryController' => $baseDir . '/app/Http/Controllers/Admin/Category/BlogCategoryController.php',
@@ -87,6 +88,7 @@ return array(
     'App\\Models\\Ward' => $baseDir . '/app/Models/Ward.php',
     'App\\Notifications\\AdminResetPasswordNotification' => $baseDir . '/app/Notifications/AdminResetPasswordNotification.php',
     'App\\Notifications\\RepliedToThread' => $baseDir . '/app/Notifications/RepliedToThread.php',
+    'App\\Notifications\\SendMessageNotification' => $baseDir . '/app/Notifications/SendMessageNotification.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
