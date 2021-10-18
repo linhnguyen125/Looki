@@ -45,6 +45,7 @@
     </div>
     <!-- app-root @e -->
     <!-- JavaScript -->
+    {{-- <script src="{{asset('js/app.js')}}"></script> --}}
     <script src="{{asset('assets/admin/js/bundle.js?ver=2.2.0')}}"></script>
     <script src="{{asset('assets/admin/js/scripts.js?ver=2.2.0')}}"></script>
     <script src="{{asset('assets/client/js/sweetalert.min.js')}}"></script>

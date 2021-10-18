@@ -33,12 +33,12 @@ class DiscountController extends Controller
         $users = Admin::all();
         if ($discount) {
             $notify = [
+                'user' => Auth::guard('admin')->user()->name,
                 'title' => 'Đã tạo thêm 1 khuyến mại mới',
                 'content' => $discount->name,
                 'link' => route('admin.discount.index')
             ];
             foreach ($users as $user) {
-                $notify['user'] = $user->name;
                 $user->notify(new SendMessageNotification($notify));
             }
             event(new SendNotifyEvent($notify));

@@ -177,20 +177,24 @@
                             </div>
                             <div class="dropdown-body">
                                 <div class="nk-notification">
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-content">
-                                            @foreach (Auth::user()->notifications as $notification)
-                                            <a class="dropdown-item" href="{{$notification->data['link']}}">
+                                    @foreach (Auth::user()->notifications as $notification)
+                                    <a href="{{$notification->data['link']}}" class="text-decoration-none">
+                                        <div class="nk-notification-item dropdown-inner">
+                                            <div class="nk-notification-icon">
+                                                <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
+                                            </div>
+                                            <div class="nk-notification-content">
                                                 <div class="nk-notification-text">
-                                                    <strong>{{$notification->data['user']}} </strong>
-                                                    <p>{{ $notification->data['title'] }}</p>
+                                                    <p><strong>{{$notification->data['user']}} </strong>{{
+                                                        $notification->data['title'] }}</p>
                                                 </div>
                                                 <div class="nk-notification-time">{{ $notification->data['content'] }}
                                                 </div>
-                                            </a>
-                                            @endforeach
+                                                {{-- <div class="nk-notification-time">2 hrs ago</div> --}}
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
+                                    @endforeach
                                 </div><!-- .nk-notification -->
                             </div><!-- .nk-dropdown-body -->
                             <div class="dropdown-foot center">
