@@ -8,16 +8,15 @@
             <div class="nk-header-brand d-xl-none">
                 <a href="html/index.html" class="logo-link">
                     <img class="logo-light logo-img" src="{{asset('assets/admin/images/logo.png')}}"
-                         srcset="{{asset('assets/admin/images/logo2x.png 2x')}}" alt="logo">
-                    <img class="logo-dark logo-img"
-                         src="{{asset('assets/admin/images/logo-dark.png')}}" srcset="{{asset('assets/admin/images/logo-dark2x.png 2x')}}"
-                         alt="logo-dark">
+                        srcset="{{asset('assets/admin/images/logo2x.png 2x')}}" alt="logo">
+                    <img class="logo-dark logo-img" src="{{asset('assets/admin/images/logo-dark.png')}}"
+                        srcset="{{asset('assets/admin/images/logo-dark2x.png 2x')}}" alt="logo-dark">
                 </a>
             </div><!-- .nk-header-brand -->
             <div class="nk-header-search ml-3 ml-xl-0">
                 <em class="icon ni ni-search"></em>
                 <input type="text" class="form-control border-transparent form-focus-none"
-                       placeholder="Search anything">
+                    placeholder="Search anything">
             </div><!-- .nk-header-news -->
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav">
@@ -81,8 +80,7 @@
                                     <li class="chat-item">
                                         <a class="chat-link" href="html/apps-chats.html">
                                             <div class="chat-media user-avatar">
-                                                <img src="{{asset('assets/admin/images/avatar/b-sm.jpg')}}"
-                                                     alt="">
+                                                <img src="{{asset('assets/admin/images/avatar/b-sm.jpg')}}" alt="">
                                             </div>
                                             <div class="chat-info">
                                                 <div class="chat-from">
@@ -100,9 +98,7 @@
                                         <a class="chat-link" href="html/apps-chats.html">
                                             <div class="chat-media user-avatar user-avatar-multiple">
                                                 <div class="user-avatar">
-                                                    <img
-                                                        src="{{asset('assets/admin/images/avatar/c-sm.jpg')}}"
-                                                        alt="">
+                                                    <img src="{{asset('assets/admin/images/avatar/c-sm.jpg')}}" alt="">
                                                 </div>
                                                 <div class="user-avatar">
                                                     <span>AB</span>
@@ -127,8 +123,7 @@
                                     <li class="chat-item">
                                         <a class="chat-link" href="html/apps-chats.html">
                                             <div class="chat-media user-avatar">
-                                                <img src="{{asset('assets/admin/images/avatar/a-sm.jpg')}}"
-                                                     alt="">
+                                                <img src="{{asset('assets/admin/images/avatar/a-sm.jpg')}}" alt="">
                                                 <span class="status dot dot-lg dot-success"></span>
                                             </div>
                                             <div class="chat-info">
@@ -182,69 +177,24 @@
                             </div>
                             <div class="dropdown-body">
                                 <div class="nk-notification">
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-icon">
-                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                        </div>
-                                        <div class="nk-notification-content">
-                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span>
+                                    @foreach (Auth::user()->notifications as $notification)
+                                    <a href="{{$notification->data['link']}}" class="text-decoration-none">
+                                        <div class="nk-notification-item dropdown-inner">
+                                            <div class="nk-notification-icon">
+                                                <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
                                             </div>
-                                            <div class="nk-notification-time">2 hrs ago</div>
-                                        </div>
-                                    </div>
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-icon">
-                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
-                                        </div>
-                                        <div class="nk-notification-content">
-                                            <div class="nk-notification-text">Your
-                                                <span>Deposit Order</span> is placed
+                                            <div class="nk-notification-content">
+                                                <div class="nk-notification-text">
+                                                    <p><strong>{{$notification->data['user']}} </strong>{{
+                                                        $notification->data['title'] }}</p>
+                                                </div>
+                                                <div class="nk-notification-time">{{ $notification->data['content'] }}
+                                                </div>
+                                                {{-- <div class="nk-notification-time">2 hrs ago</div> --}}
                                             </div>
-                                            <div class="nk-notification-time">2 hrs ago</div>
                                         </div>
-                                    </div>
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-icon">
-                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                        </div>
-                                        <div class="nk-notification-content">
-                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span>
-                                            </div>
-                                            <div class="nk-notification-time">2 hrs ago</div>
-                                        </div>
-                                    </div>
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-icon">
-                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
-                                        </div>
-                                        <div class="nk-notification-content">
-                                            <div class="nk-notification-text">Your
-                                                <span>Deposit Order</span> is placed
-                                            </div>
-                                            <div class="nk-notification-time">2 hrs ago</div>
-                                        </div>
-                                    </div>
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-icon">
-                                            <em class="icon icon-circle bg-warning-dim ni ni-curve-down-right"></em>
-                                        </div>
-                                        <div class="nk-notification-content">
-                                            <div class="nk-notification-text">You have requested to <span>Widthdrawl</span>
-                                            </div>
-                                            <div class="nk-notification-time">2 hrs ago</div>
-                                        </div>
-                                    </div>
-                                    <div class="nk-notification-item dropdown-inner">
-                                        <div class="nk-notification-icon">
-                                            <em class="icon icon-circle bg-success-dim ni ni-curve-down-left"></em>
-                                        </div>
-                                        <div class="nk-notification-content">
-                                            <div class="nk-notification-text">Your
-                                                <span>Deposit Order</span> is placed
-                                            </div>
-                                            <div class="nk-notification-time">2 hrs ago</div>
-                                        </div>
-                                    </div>
+                                    </a>
+                                    @endforeach
                                 </div><!-- .nk-notification -->
                             </div><!-- .nk-dropdown-body -->
                             <div class="dropdown-foot center">
@@ -257,16 +207,15 @@
                             <div class="user-toggle">
                                 <div class="user-avatar sm">
                                     @if(Auth::guard('admin')->user()->avatar)
-                                        <img
-                                            src="{{asset(Auth::guard('admin')->user()->avatar)}}"
-                                            alt="">
+                                    <img src="{{asset(Auth::guard('admin')->user()->avatar)}}" alt="">
                                     @else
-                                        <em class="icon ni ni-user-alt"></em>
+                                    <em class="icon ni ni-user-alt"></em>
                                     @endif
                                 </div>
                                 <div class="user-info d-none d-xl-block">
                                     <div class="user-status user-status-active">Administator</div>
-                                    <div class="user-name dropdown-indicator">{{Auth::guard('admin')->user()->name}}</div>
+                                    <div class="user-name dropdown-indicator">{{Auth::guard('admin')->user()->name}}
+                                    </div>
                                 </div>
                             </div>
                         </a>
@@ -275,20 +224,18 @@
                                 <div class="user-card">
                                     <div class="user-avatar">
                                         @if(Auth::guard('admin')->user()->avatar)
-                                            <img
-                                                src="{{asset(Auth::guard('admin')->user()->avatar)}}"
-                                                alt="">
+                                        <img src="{{asset(Auth::guard('admin')->user()->avatar)}}" alt="">
                                         @else
-                                            <span>
-                                                @php
-                                                    $str_name = explode(' ', Auth::guard('admin')->user()->name);
-                                                    if(count($str_name) > 1){
-                                                        echo strtoupper(reset($str_name)[0]) . strtoupper(end($str_name)[0]);
-                                                    }else{
-                                                        echo strtoupper(reset($str_name)[0]);
-                                                    }
-                                                @endphp
-                                            </span>
+                                        <span>
+                                            @php
+                                            $str_name = explode(' ', Auth::guard('admin')->user()->name);
+                                            if(count($str_name) > 1){
+                                            echo strtoupper(reset($str_name)[0]) . strtoupper(end($str_name)[0]);
+                                            }else{
+                                            echo strtoupper(reset($str_name)[0]);
+                                            }
+                                            @endphp
+                                        </span>
                                         @endif
                                     </div>
                                     <div class="user-info">
@@ -306,10 +253,11 @@
                                                 class="icon ni ni-setting-alt"></em><span>Cài đặt tài khoản</span></a>
                                     </li>
                                     <li><a href="html/ecommerce/user-profile.html"><em
-                                                class="icon ni ni-activity-alt"></em><span>Hoạt động đăng nhập</span></a>
+                                                class="icon ni ni-activity-alt"></em><span>Hoạt động đăng
+                                                nhập</span></a>
                                     </li>
-                                    <li><a class="dark-switch" href="#"><em
-                                                class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark
+                                                Mode</span></a></li>
                                 </ul>
                             </div>
                             <div class="dropdown-inner">
@@ -318,7 +266,8 @@
                                                     document.getElementById('logout-form').submit();"><em
                                                 class="icon ni ni-signout"></em><span>Đăng xuất</span></a>
                                     </li>
-                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">
+                                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST"
+                                        class="d-none">
                                         @csrf
                                     </form>
                                 </ul>

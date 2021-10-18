@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Events\SendNotifyEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Discount\DiscountRequest;
+use App\Models\Admin;
+use App\Notifications\SendMessageNotification;
 use App\Repositories\Discount\DiscountRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DiscountController extends Controller
 {
@@ -26,7 +30,18 @@ class DiscountController extends Controller
     {
         $data = $request->all();
         $discount = $this->discountRepo->create($data);
+        $users = Admin::all();
         if ($discount) {
+            $notify = [
+                'user' => Auth::guard('admin')->user()->name,
+                'title' => 'Đã tạo thêm 1 khuyến mại mới',
+                'content' => $discount->name,
+                'link' => route('admin.discount.index')
+            ];
+            foreach ($users as $user) {
+                $user->notify(new SendMessageNotification($notify));
+            }
+            event(new SendNotifyEvent($notify));
             return back()->with('success', 'Thêm khuyến mãi thành công');
         } else {
             return back()->with('error', 'Thêm khuyến mãi thất bại, vui lòng thử lại sau');
