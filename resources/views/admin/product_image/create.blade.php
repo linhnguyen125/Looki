@@ -4,9 +4,9 @@
 
 @section('script')
     <script src="{{asset('bootstrap/js/jquery-3.6.0.min.js')}}"></script>
-    <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-buttonv2.js')}}"></script>
+    <script src="{{asset('vendor/laravel-filemanager/js/stand-alone-button.js')}}"></script>
     <script>
-        $('#lfm').filemanager('image');
+        $('#lfm').filemanager('Image');
     </script>
 @endsection
 
