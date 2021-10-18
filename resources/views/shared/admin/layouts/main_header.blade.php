@@ -177,17 +177,18 @@
                             </div>
                             <div class="dropdown-body">
                                 <div class="nk-notification">
-                                        @foreach (Auth::user()->notifications as $notification)
-                                        <a class="dropdown-item" href="{{$notification->data['link']}}">
-                                            <div class="nk-notification-text">
-                                                <strong>{{$notification->data['user']}} </strong>
-                                                <p>{{ $notification->data['title'] }}</p>
-                                            </div>
-                                            <div class="nk-notification-time">{{ $notification->data['content'] }}</div>
-                                        </a>
-                                        @endforeach
+                                    <div class="nk-notification-item dropdown-inner">
                                         <div class="nk-notification-content">
-
+                                            @foreach (Auth::user()->notifications as $notification)
+                                            <a class="dropdown-item" href="{{$notification->data['link']}}">
+                                                <div class="nk-notification-text">
+                                                    <strong>{{$notification->data['user']}} </strong>
+                                                    <p>{{ $notification->data['title'] }}</p>
+                                                </div>
+                                                <div class="nk-notification-time">{{ $notification->data['content'] }}
+                                                </div>
+                                            </a>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div><!-- .nk-notification -->
